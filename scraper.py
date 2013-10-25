@@ -39,6 +39,26 @@ from __future__ import division
 from optparse import OptionParser
 from bs4 import BeautifulSoup
 from urllib import urlopen
+from HTMLParser import HTMLParser
+
+
+class MLStripper(HTMLParser):
+    def __init__(self):
+        self.reset()
+        self.fed = []
+
+    def handle_data(self, d):
+        self.fed.append(d)
+
+    def get_data(self):
+        return ''.join(self.fed)
+
+
+def strip_tags(html):
+    s = MLStripper()
+    s.feed(html)
+    return s.get_data()
+
 
 
 def getAppUrl():
@@ -63,12 +83,23 @@ def getAppFeatures(app):
 
     pageSoup = BeautifulSoup(pageHtml)
 
-    appId = app.split('?')[1]
-    appName = pageSoup.findAll('div', {"class":"document-title"})
+    # Application Id
+    appIdStr = app.split('?')[1]
+    appId = appIdStr[3:]
+
+    # Application Name
+    appNameHTML = pageSoup.findAll('div', {"itemprop":"name", "class":"document-title"})
+    appName = strip_tags(appNameHTML[0].renderContents())
+
+
+    # Application Company
+    appCompHTML = pageSoup.findAll('a', {"itemprop":"name"})
+    appComp = appCompHTML[0].renderContents()
 
     appDetails = {}
-    appDetails['appId'] = appId
-    appDetails['appName'] = appName
+    appDetails['appId'] = appId.strip()
+    appDetails['appName'] = appName.strip()
+    appDetails['appComp'] = appComp.strip()
 
     return appDetails
 
