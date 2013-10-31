@@ -19,6 +19,15 @@ Some things to look at
 - Malware targets trends – ie around the Olympic Games, a lot of malware snuck onto Olympic apps
 - Stars?
 - Negative sentiment (comments) and user removal
-- Positive sentiment despite app giving out information/ containing malware (user is unaware)
+- Positive sentiment despite app giving out information/ containing malware (user is unaware)- 
+- poor grammar (or very good grammar?)
+- several reviews are very similar in style
+- Permissions: browser history, Google accounts, contacts, internet access, or phone identity
+- Permissions requested are radically different from purpose of app
+- developer site routes to invalid address or google homepage
+- Problem: Amazon's Mechanical Turk is a way to get fake reviews
+  - unusual number of 5 star ratings on a new app
+  - Timing of reviews: all reviews immediately after it arrived in store
+
 
 
