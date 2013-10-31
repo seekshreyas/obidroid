@@ -15,18 +15,22 @@ Some of the key features that could serve as indicators could be stars, user per
 We aim to develop this as a set of heuristics that could be employed to develop and active flagging auditing of app stores to protect user’s interests. 
 
 Some things to look at
+
 1. Negative sentiment (comments) and user removal
 2. Fake Positive sentiment despite app giving out information/containing malware (user is unaware)
 3. Stars
 4. Developer site routes to invalid address or google homepage
 5. Problem Scenario - Amazon's Mechanical turk is a way to get fake reviews: 
-   1. unusual number of 5 star ratings on a new app
-   2. Timing of reviews:  all reviews immediately after it arrived in store
-6. Poor grammar (or very good grammar):  Does Wordnet have a way that analyzes grammar?
-7. Apps from the same developer:  receive greater trust – so maybe the most popular app is benign, but a developer might put malware on a later app. Apps can also each contain a piece of malware which is activated when multiple apps are downloaded. Many developers also use the same key to sign.
-8. Malware targets trends – ie around the Olympic Games, a lot of malware snuck onto Olympic apps
-9. several reviews are very similar in style
+   6. unusual number of 5 star ratings on a new app
+   7. Timing of reviews:  all reviews immediately after it arrived in store
+8. Poor grammar (or very good grammar):  Does Wordnet have a way that analyzes grammar?
+9. Apps from the same developer:  receive greater trust – so maybe the most popular app is benign, but a developer might put malware on a later app. Apps can also each contain a piece of malware which is activated when multiple apps are downloaded. Many developers also use the same key to sign.
+10. Malware targets trends – ie around the Olympic Games, a lot of malware snuck onto Olympic apps
+11. several reviews are very similar in style
+
+
 X Permissions: browser history, Google accounts, contacts, internet access, or phone identity
+
 X Permissions requested are radically different from purpose of app
 
 
