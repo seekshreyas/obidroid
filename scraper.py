@@ -91,21 +91,24 @@ def getAppFeatures(app):
     appNameHTML = pageSoup.findAll('div', {"itemprop":"name", "class":"document-title"})
     appName = strip_tags(appNameHTML[0].renderContents())
 
+    # Application Description
+    appDescHTML = pageSoup.findAll('div', {"class":"app-orig-desc"})
+    appDesc = strip_tags(appDescHTML[0].renderContents())
 
     # Application Company
     appCompHTML = pageSoup.findAll('a', {"itemprop":"name"})
     appComp = appCompHTML[0].renderContents()
 
     # Application Rating
-    rating5star_html = pageSoup.find('div', {"class":"rating-bar-container", "class":"five"})
-    # rating5star = rating5star_html.findChildren()("span", {"class":"bar-number"})
+    rating5star_html = pageSoup.findAll('div', {"class":"rating-bar-container", "class":"five"})
+    rating5star = strip_tags(rating5star_html[0].renderContents())
 
-
-    print rating5star
+    print rating5star_html, len(rating5star_html), rating5star
 
     appDetails = {}
     appDetails['appId'] = appId.strip()
     appDetails['appName'] = appName.strip()
+    appDetails['appDesc'] = appDesc.strip()
     appDetails['appComp'] = appComp.strip()
 
     return appDetails
