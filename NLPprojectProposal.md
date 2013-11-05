@@ -1,7 +1,8 @@
-_i256 Applied NLP_
+_i256 Applied NLP_ : Project Proposal
 
-Project Proposal
-===================
+
+OBIDROID :: "These aren't the Droids you're looking for"
+========================================================
 
 ## Team Members & Roles
 
@@ -60,9 +61,19 @@ We do not aim to _predict_ if an app is unfair or not using the reviews/descript
     - _metric/rubric_ : a set of metrics that are being employed to assess the unfairness of apps. 
 
 
+#### Work Breakdown 
+| Task | Description | Duration (week(s)) |
+|:-----|:------------|-------------------:|
+| Project Scaffolding | Crawler & Scraper Scaffolding, DataBase Design | 1 week |
+| Labeling & Feature Extraction | Create Training Set with manually attached labels, extract features | 1 week |
+| Develop Feature Models | Develop models for supervised classification | 2 week |
+| Finalization | Assessment & finalization | 1 week |
+
+
+
 ## Declaration
 
-This project is being jointly pursued by [Luis Aguilar], [Kristine A Yoshihara] & [Shreyas] in [Info 219 Privacy, Security & Cryptography](http://www.ischool.berkeley.edu/courses/i219) under guidance of Prof Doug Tygar.
+This project is being jointly pursued by [Luis Aguilar], [Kristine A Yoshihara] & [Shreyas] in [Info 219 Privacy, Security & Cryptography](http://www.ischool.berkeley.edu/courses/i219) under the guidance of Prof Doug Tygar.
 
 
 [^note-1]: [Android takes record smartphone share at expense of iPhone and BlackBerry](http://www.theguardian.com/technology/2013/oct/31/android-record-smartphone-share-iphone-blackberry)
