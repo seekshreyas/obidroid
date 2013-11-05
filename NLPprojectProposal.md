@@ -67,9 +67,9 @@ This project is being jointly pursued by [Luis Aguilar], [Kristine A Yoshihara] 
 
 [^note-1]: [Android takes record smartphone share at expense of iPhone and BlackBerry](http://www.theguardian.com/technology/2013/oct/31/android-record-smartphone-share-iphone-blackberry)
 
-[^note-2]: FTC Unfairness
+[^note-2]: __FTC Unfairness__: What is Deception? Representation, omission or practice that is likely to mislead the consumer; __Perspective of 'Reasonableness'__ - if the practice affects a certain group, then evaluate reasonableness from the perspective of that group; __'Material'__ - does it affect customer decision with regard to a product or service
 
-[^note-3]: FTC 
+[^note-3]: __FTC Deception__ practices that cause or are likely to cause substantial injury to consumers that are not outweighed by the benefits to consumers or competition and are not reasonably avoided by consumers.
 
 [Luis Aguilar]: luis@berkeley.edu
 [Kristine A Yoshihara]: 100kristine@berkeley.edu
