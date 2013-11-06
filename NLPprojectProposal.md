@@ -19,7 +19,7 @@ Google's Android platform is currently one of the most popular smartphone platfo
 
 At its most benign, Android malware consists of adware. More malicious Android malware can potentially steal user information, transmit GPS data, insert banking Trojans, send premium texts, or transform the phone into a bot to be used in a denial of service attack or spam campaign. Also, there could be times where popular, fair apps might be indulging in practices of unfainess [^note-2] & deception [^note-3], which most users may not even be aware of. 
 
-FTC tries to protect the users against such apps by enforcing their policies of unfairness and deception. But this process is still passive. Because of the scale of the app store, the FTC relies on user complaints to examine an application, and hence it is a passive activity not an active pursuit of __unfair__ applications. 
+The FTC tries to protect the users against such apps by enforcing their policies of unfairness and deception. But this process is still passive. Because of the scale of the app store, the FTC relies on user complaints to examine an application, and hence it is a passive activity not an active pursuit of __unfair__ applications. 
 
 
 
@@ -45,7 +45,7 @@ We do not aim to _predict_ if an app is unfair or not using the reviews/descript
 
 #### Acceptable Ground Rules
 
-- From our point of view, we would like to aim for casting a wider net overall so as to flag most of the potentially unfair apps. Hence, __False Positives__ for good apps that may be flagged for closer view is an acceptable scenario.
+- From our point of view, we would like to cast a wider net overall so as to flag most of the potentially unfair apps. Hence, __False Positives__ for good apps that may be flagged for closer view is an acceptable scenario.
 - Also, if an unfair app doesn't have sufficient user reviews, it would be hard to ascertain their unfairness.
 
 #### Assessment Scenarios
