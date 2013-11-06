@@ -10,6 +10,7 @@ OBIDROID :: "These aren't the Droids you're looking for"
 | Team Members | Team Roles | Contact |
 |:-------------|:-----------|:--------|
 | Luis Aguilar | Coding & Development | luis@berkeley.edu |
+| Morgan Wallace | Coding & Development | morgan.m.wallace@gmail.com |
 | Shreyas | Coding & Development | shreyas@ischool.berkeley.edu |
 
 
