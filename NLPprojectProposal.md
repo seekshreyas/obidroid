@@ -1,8 +1,10 @@
 _i256 Applied NLP_ : Project Proposal
 
 
-OBIDROID :: "These aren't the Droids you're looking for"
-========================================================
+OBIDROID
+==========
+
+_"These aren't the Droids you're looking for"_
 
 ## Team Members & Roles
 
