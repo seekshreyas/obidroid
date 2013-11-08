@@ -10,6 +10,7 @@ to extract an agreed upon set of features about the app
 - Company
 - AppCategory
 - AppId
+- AppVer
 - Price
 - Rating
     - [
@@ -99,9 +100,18 @@ def getAppFeatures(app):
     appCompHTML = pageSoup.findAll('a', {"itemprop":"name"})
     appComp = appCompHTML[0].renderContents()
 
+    # appDnldHTML = pageSoup.findAll('div', {"itemprop":"numDownloads"})
+    # appDnld = appDnldHTML.renderContents()
+
     # Application Rating
     rating5star_html = pageSoup.findAll('div', {"class":"rating-bar-container", "class":"five"})
     rating5star = strip_tags(rating5star_html[0].renderContents())
+
+
+    # Application Version
+    appVer = pageSoup.find(itemprop='softwareVersion').renderContents()
+
+
 
     print rating5star_html, len(rating5star_html), rating5star
 
@@ -110,6 +120,9 @@ def getAppFeatures(app):
     appDetails['appName'] = appName.strip()
     appDetails['appDesc'] = appDesc.strip()
     appDetails['appComp'] = appComp.strip()
+    appDetails['appVer'] = appVer
+    # appDetails['appDnld'] = appDnld.strip()
+
 
     return appDetails
 
