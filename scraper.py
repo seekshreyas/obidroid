@@ -6,28 +6,30 @@ Scraper
 ==========
 Given, the ANDROID-APP-URL, this module is meant to be able
 to extract an agreed upon set of features about the app
-- Name
-- Company
-- AppCategory
-- AppId
-- AppVer
-- Price
-- Rating
+- [x] Name
+- [x] Company
+- [x] AppCategory
+- [x] AppId
+- [x] AppVer
+- [x] Price
+- [ ] Rating
     - [
         (OneStarRating, OneStarRatingCount),
         (TwoStarRating, TwoStarRatingCount)
-        ...
+        (ThreeStarRating, ThreeStarRatingCount)
+        (FourStarRating, FourStarRatingCount)
+        (FiveStarRating, FiveStarRatingCount)
       ]
-- Total Reviewers
-- PlusOneCount
-- CountOfScreenShots
-- Description
-- Installs
-- ContentRating
-- SimilarApps:
-    [SimAppId1, SimAppId2, ..]
-- MoreAppsFromDev
-    [OtherAppId1, OtherAppId2, .. ]
+- [ ] Total Reviewers
+- [ ] PlusOneCount
+- [ ] CountOfScreenShots
+- [x] Description
+- [x] Installs
+- [x] ContentRating
+- [ ] SimilarApps:
+    [S[ ] imAppId1, SimAppId2, ..]
+- [ ] MoreAppsFromDev
+    [O[ ] therAppId1, OtherAppId2, .. ]
 
 
 
@@ -41,6 +43,8 @@ from optparse import OptionParser
 from bs4 import BeautifulSoup
 from urllib import urlopen
 from HTMLParser import HTMLParser
+
+import pprint
 
 
 class MLStripper(HTMLParser):
@@ -76,6 +80,36 @@ def getAppUrl():
 
 
 
+def getAppPrice(pageSoup):
+    """
+    Given soup of the html page, extract the price of the app
+    """
+    priceSoup = pageSoup.find('span', {"class" : "price", "class":"buy"})
+
+    priceList = list(priceSoup.contents)
+    price = priceList[-2].get_text().strip()
+
+    print "price", price
+
+    if price == 'Install':
+        priceVal = 0.0
+    else:
+        priceVal = float(str(price[1:4]))
+
+    return priceVal
+
+
+
+def getAppRating(pageSoup):
+    """
+    Given the page soup, extract the app ratings and the count of
+    people who gave those ratings
+    """
+
+    return 0
+
+
+
 def getAppFeatures(app):
     """
     Given the Application URL, Extract the desired features
@@ -91,33 +125,26 @@ def getAppFeatures(app):
 
     # Application Description
     appDescHTML = pageSoup.findAll('div', {"class":"app-orig-desc"})
-    appDesc = strip_tags(appDescHTML[0].get_text())
+    appDesc = appDescHTML[0].get_text()
 
     # Application Company
     appCompHTML = pageSoup.findAll('a', {"itemprop":"name"})
-    appComp = appCompHTML[0].renderContents()
+    appComp = appCompHTML[0].get_text()
+
+    # Application Name
+    appNameHTML = pageSoup.findAll('div', {"itemprop":"name"})
+    appName = appNameHTML[0].get_text()
 
 
     # Application Rating
-    rating5star_html = pageSoup.findAll('div', {"class":"rating-bar-container", "class":"five"})
-    rating5star = strip_tags(rating5star_html[0].renderContents())
-
-    # Application Price
-    priceSoup = pageSoup.find('span', {"class" : "price", "class":"buy"})
-
-    priceList = list(priceSoup.contents)
-    price = priceList[-2].get_text().strip()
+    # rating5star_html = pageSoup.findAll('div', {"class":"rating-bar-container", "class":"five"})
+    # rating5star = strip_tags(rating5star_html[0].renderContents())
 
 
-    print "price", price
-
-    if price == 'Install':
-        priceVal = 0.0
-    else:
-        priceVal = float(str(price[1:4]))
+    appPrice            = getAppPrice(pageSoup) # Application Price
+    appRating           = getAppRating(pageSoup) # Application Rating
 
 
-    appName             = pageSoup.find(itemprop='name').get_text() # Application Name
     appCat              = pageSoup.find(itemprop='genre').get_text() # Application Category
     appVer              = pageSoup.find(itemprop='softwareVersion').get_text() # Application Version
     appInstall          = pageSoup.find(itemprop='numDownloads').get_text() # Application Installs
@@ -130,20 +157,22 @@ def getAppFeatures(app):
     # print rating5star_html, len(rating5star_html), rating5star
 
     appDetails = {}
-    appDetails['appId'] = appId.strip()
-    appDetails['appName'] = appName.strip()
-    appDetails['appCat'] = appCat.strip()
-    appDetails['appSize'] = appSize.strip()
-    appDetails['appPrice'] = priceVal
-    appDetails['appDesc'] = appDesc.strip()
-    appDetails['appComp'] = appComp.strip()
-    appDetails['appVer'] = appVer.strip()
-    appDetails['appInstall'] = appInstall.strip()
-    appDetails['appContentRating'] = appContentRating.strip()
-    appDetails['appDnld'] = appDnld.strip()
+    appDetails['id'] = appId.strip()
+    appDetails['name'] = appName.strip()
+    appDetails['cat'] = appCat.strip()
+    appDetails['size'] = appSize.strip()
+    appDetails['price'] = appPrice
+    appDetails['desc'] = appDesc.strip()
+    appDetails['comp'] = appComp.strip()
+    appDetails['ver'] = appVer.strip()
+    appDetails['install'] = appInstall.strip()
+    appDetails['contentrating'] = appContentRating.strip()
 
 
     return appDetails
+
+
+
 
 
 def main():
@@ -152,7 +181,7 @@ def main():
     appUrl = getAppUrl()
     features = getAppFeatures(appUrl['url'])
 
-    print "\n" , features
+    pprint.pprint(features)
 
 
 if __name__ == '__main__':
