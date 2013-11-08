@@ -88,40 +88,59 @@ def getAppFeatures(app):
     appIdStr = app.split('?')[1]
     appId = appIdStr[3:]
 
-    # Application Name
-    appNameHTML = pageSoup.findAll('div', {"itemprop":"name", "class":"document-title"})
-    appName = strip_tags(appNameHTML[0].renderContents())
 
     # Application Description
     appDescHTML = pageSoup.findAll('div', {"class":"app-orig-desc"})
-    appDesc = strip_tags(appDescHTML[0].renderContents())
+    appDesc = strip_tags(appDescHTML[0].get_text())
 
     # Application Company
     appCompHTML = pageSoup.findAll('a', {"itemprop":"name"})
     appComp = appCompHTML[0].renderContents()
 
-    # appDnldHTML = pageSoup.findAll('div', {"itemprop":"numDownloads"})
-    # appDnld = appDnldHTML.renderContents()
 
     # Application Rating
     rating5star_html = pageSoup.findAll('div', {"class":"rating-bar-container", "class":"five"})
     rating5star = strip_tags(rating5star_html[0].renderContents())
 
+    # Application Price
+    priceSoup = pageSoup.find('span', {"class" : "price", "class":"buy"})
 
-    # Application Version
-    appVer = pageSoup.find(itemprop='softwareVersion').renderContents()
+    priceList = list(priceSoup.contents)
+    price = priceList[-2].get_text().strip()
+
+
+    print "price", price
+
+    if price == 'Install':
+        priceVal = 0.0
+    else:
+        priceVal = float(str(price[1:4]))
+
+
+    appName             = pageSoup.find(itemprop='name').get_text() # Application Name
+    appCat              = pageSoup.find(itemprop='genre').get_text() # Application Category
+    appVer              = pageSoup.find(itemprop='softwareVersion').get_text() # Application Version
+    appInstall          = pageSoup.find(itemprop='numDownloads').get_text() # Application Installs
+    appContentRating    = pageSoup.find(itemprop='contentRating').get_text() # Application Content Rating
+    appSize             = pageSoup.find(itemprop='fileSize').get_text() # Application Content Rating
 
 
 
-    print rating5star_html, len(rating5star_html), rating5star
+
+    # print rating5star_html, len(rating5star_html), rating5star
 
     appDetails = {}
     appDetails['appId'] = appId.strip()
     appDetails['appName'] = appName.strip()
+    appDetails['appCat'] = appCat.strip()
+    appDetails['appSize'] = appSize.strip()
+    appDetails['appPrice'] = priceVal
     appDetails['appDesc'] = appDesc.strip()
     appDetails['appComp'] = appComp.strip()
-    appDetails['appVer'] = appVer
-    # appDetails['appDnld'] = appDnld.strip()
+    appDetails['appVer'] = appVer.strip()
+    appDetails['appInstall'] = appInstall.strip()
+    appDetails['appContentRating'] = appContentRating.strip()
+    appDetails['appDnld'] = appDnld.strip()
 
 
     return appDetails
@@ -133,7 +152,7 @@ def main():
     appUrl = getAppUrl()
     features = getAppFeatures(appUrl['url'])
 
-    print features
+    print "\n" , features
 
 
 if __name__ == '__main__':
