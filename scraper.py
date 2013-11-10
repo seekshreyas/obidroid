@@ -30,6 +30,12 @@ to extract an agreed upon set of features about the app
     [SimAppId1, SimAppId2, ..]
 - [ ] MoreAppsFromDev
     [OtherAppId1, OtherAppId2, .. ]
+- [ ] User Reviews
+        [
+            (Review Heading, Review Text),
+            (Review Heading, Review Text),
+            (Review Heading, Review Text)
+        ]
 
 
 
@@ -43,6 +49,7 @@ from optparse import OptionParser
 from bs4 import BeautifulSoup
 from urllib import urlopen
 from HTMLParser import HTMLParser
+# from lxml import etree
 from pprint import pprint
 
 
@@ -174,6 +181,7 @@ def getAppFeatures(app):
     """
     pageHtml = urlopen(app).read()
 
+    # pageTree = etree.parse(pageHtml)
     pageSoup = BeautifulSoup(pageHtml)
 
     # Application Id
@@ -209,9 +217,6 @@ def getAppFeatures(app):
     appVer              = handleDataError(appVerElem)
 
 
-    # appVer          = pageSoup.select('itemprop=[softwareVersion]').get_text()
-    # appVer              = pageSoup.find(itemprop='softwareVersion').get_text() # Application Version
-
     appInstallElem      = pageSoup.find_all('div', attrs={'itemprop':'numDownloads'})
 
     appInstall          = handleDataError(appInstallElem) #Application Installs
@@ -232,9 +237,9 @@ def getAppFeatures(app):
 
 
     ## Get Similar Apps
-    similarAppList      = pageSoup.select('div.rec-cluster')
-
-    pprint(similarAppList)
+    # similarAppList      = pageSoup.select('div.rec-cluster')
+    # similarAppList      = pageTree.xpath('//*[@id="body-content"]/div[9]/div/div/div')
+    # pprint(similarAppList)
     # for a in similarAppList:
     #     pprint(a['href'])
 
