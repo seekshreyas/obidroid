@@ -21,8 +21,8 @@ to extract an agreed upon set of features about the app
         (FiveStarRating, FiveStarRatingCount)
       ]
 - [x] Total Reviewers
-- [ ] PlusOneCount
-- [ ] CountOfScreenShots
+- [-] PlusOneCount
+- [x] CountOfScreenShots
 - [x] Description
 - [x] Installs
 - [x] ContentRating
@@ -116,13 +116,30 @@ def getAppRating(pageSoup):
         ratElem = ratingContainer.find_all("span", attrs={"class":"bar-label"})
         ratcountElem = ratingContainer.find_all("span", attrs={"class":"bar-number"})
 
-        rat = str(strip_tags(str(ratElem[0])))
-        ratcount = int(strip_tags(str(ratcountElem[0])))
+        rat = strip_tags(str(ratElem[0]))
+        ratcountraw = strip_tags(str(ratcountElem[0]))
+
+        ratcount = formatStrToNum(ratcountraw)
+
 
         appRating.append((rat, ratcount))
 
 
     return appRating
+
+
+
+def formatStrToNum(rawnum):
+    """
+    Handle different forms of string values that need to be converted to
+    numbers
+    1,000 -> 1000
+    """
+
+    if ',' in rawnum:
+        rawnum = rawnum.replace(',', '')
+
+    return int(rawnum)
 
 
 
@@ -138,6 +155,17 @@ def getTotalReviewers(ratingTup):
     return totalReviewers
 
 
+
+def handleDataError(raw):
+    """
+    Handle raw values which could be empty or non existent or illformatted
+    """
+    try:
+        clean = strip_tags(str(raw[0]))
+    except:
+        clean = 'N.A.'
+
+    return clean
 
 
 def getAppFeatures(app):
@@ -175,22 +203,41 @@ def getAppFeatures(app):
 
 
     appCat              = pageSoup.find(itemprop='genre').get_text() # Application Category
-    appVer              = pageSoup.find(itemprop='softwareVersion').get_text() # Application Version
+
+    appVerElem          = pageSoup.find_all('div', attrs={'itemprop':'softwareVersion'})
+
+    appVer              = handleDataError(appVerElem)
+
+
+    # appVer          = pageSoup.select('itemprop=[softwareVersion]').get_text()
+    # appVer              = pageSoup.find(itemprop='softwareVersion').get_text() # Application Version
 
     appInstallElem      = pageSoup.find_all('div', attrs={'itemprop':'numDownloads'})
-    appInstall          = str(strip_tags(str(appInstallElem))) #Application Installs
+
+    appInstall          = handleDataError(appInstallElem) #Application Installs
 
 
+    appContentRatingElem= pageSoup.find_all('div', attrs={'itemprop':'contentRating'})
+    appContentRating    = handleDataError(appContentRatingElem) #Application Content Rating
 
-    appContentRating    = pageSoup.find(itemprop='contentRating').get_text() # Application Content Rating
-    appSize             = pageSoup.find(itemprop='fileSize').get_text() # Application Content Rating
-    appGplusCount       = pageSoup.find_all('span', attrs={'class':'A8 eja'}) # Application Content Rating
+    appSizeElem         = pageSoup.find_all('div', attrs={'itemprop':'fileSize'})
 
-    print appGplusCount
+    appSize             = handleDataError(appSizeElem) #Application Silze
 
 
+    appScreenElem       = pageSoup.find_all('img', attrs={'itemprop':'screenshot'})
 
-    # print rating5star_html, len(rating5star_html), rating5star
+    # pprint(appScreenElem)
+    appScreenCount      = len(appScreenElem)
+
+
+    ## Get Similar Apps
+    similarAppList      = pageSoup.select('div.rec-cluster')
+
+    pprint(similarAppList)
+    # for a in similarAppList:
+    #     pprint(a['href'])
+
 
     appDetails = {}
     appDetails['id'] = appId.strip()
@@ -203,8 +250,9 @@ def getAppFeatures(app):
     appDetails['ver'] = appVer.strip()
     appDetails['install'] = appInstall.strip()
     appDetails['contentrating'] = appContentRating.strip()
-    appDetails['rating'] = appRating
+    appDetails['rating'] = list(set(appRating))
     appDetails['totalreviewers'] = appReviewers
+    appDetails['screencount'] = appScreenCount
 
 
     return appDetails
