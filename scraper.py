@@ -12,7 +12,7 @@ to extract an agreed upon set of features about the app
 - [x] AppId
 - [x] AppVer
 - [x] Price
-- [ ] Rating
+- [x] Rating
     - [
         (OneStarRating, OneStarRatingCount),
         (TwoStarRating, TwoStarRatingCount)
@@ -20,16 +20,16 @@ to extract an agreed upon set of features about the app
         (FourStarRating, FourStarRatingCount)
         (FiveStarRating, FiveStarRatingCount)
       ]
-- [ ] Total Reviewers
+- [x] Total Reviewers
 - [ ] PlusOneCount
 - [ ] CountOfScreenShots
 - [x] Description
 - [x] Installs
 - [x] ContentRating
 - [ ] SimilarApps:
-    [S[ ] imAppId1, SimAppId2, ..]
+    [SimAppId1, SimAppId2, ..]
 - [ ] MoreAppsFromDev
-    [O[ ] therAppId1, OtherAppId2, .. ]
+    [OtherAppId1, OtherAppId2, .. ]
 
 
 
@@ -43,26 +43,27 @@ from optparse import OptionParser
 from bs4 import BeautifulSoup
 from urllib import urlopen
 from HTMLParser import HTMLParser
+from pprint import pprint
 
-import pprint
 
 
+# To strip html tags
 class MLStripper(HTMLParser):
     def __init__(self):
         self.reset()
         self.fed = []
-
     def handle_data(self, d):
         self.fed.append(d)
-
     def get_data(self):
         return ''.join(self.fed)
-
 
 def strip_tags(html):
     s = MLStripper()
     s.feed(html)
     return s.get_data()
+
+
+
 
 
 
@@ -89,12 +90,12 @@ def getAppPrice(pageSoup):
     priceList = list(priceSoup.contents)
     price = priceList[-2].get_text().strip()
 
-    print "price", price
+    # print "price", price
 
     if price == 'Install':
         priceVal = 0.0
     else:
-        priceVal = float(str(price[1:4]))
+        priceVal = float(str(price[1:4])) # since first character is currrency
 
     return priceVal
 
@@ -105,8 +106,37 @@ def getAppRating(pageSoup):
     Given the page soup, extract the app ratings and the count of
     people who gave those ratings
     """
+    appRatingSoup = pageSoup.find_all('div', {'class':'rating-bar-container'})
 
-    return 0
+    appRating = []
+
+
+    for ratingContainer in appRatingSoup:
+        # print type(ratingContainer)
+        ratElem = ratingContainer.find_all("span", attrs={"class":"bar-label"})
+        ratcountElem = ratingContainer.find_all("span", attrs={"class":"bar-number"})
+
+        rat = str(strip_tags(str(ratElem[0])))
+        ratcount = int(strip_tags(str(ratcountElem[0])))
+
+        appRating.append((rat, ratcount))
+
+
+    return appRating
+
+
+
+def getTotalReviewers(ratingTup):
+    """
+    Given a tuple of ratings, sum the count of Reviewers
+    """
+    totalReviewers = 0
+
+    for r in ratingTup:
+        totalReviewers += r[1]
+
+    return totalReviewers
+
 
 
 
@@ -136,21 +166,27 @@ def getAppFeatures(app):
     appName = appNameHTML[0].get_text()
 
 
-    # Application Rating
-    # rating5star_html = pageSoup.findAll('div', {"class":"rating-bar-container", "class":"five"})
-    # rating5star = strip_tags(rating5star_html[0].renderContents())
 
 
     appPrice            = getAppPrice(pageSoup) # Application Price
     appRating           = getAppRating(pageSoup) # Application Rating
 
+    appReviewers        = getTotalReviewers(appRating) # Total Reviewers
+
 
     appCat              = pageSoup.find(itemprop='genre').get_text() # Application Category
     appVer              = pageSoup.find(itemprop='softwareVersion').get_text() # Application Version
-    appInstall          = pageSoup.find(itemprop='numDownloads').get_text() # Application Installs
+
+    appInstallElem      = pageSoup.find_all('div', attrs={'itemprop':'numDownloads'})
+    appInstall          = str(strip_tags(str(appInstallElem))) #Application Installs
+
+
+
     appContentRating    = pageSoup.find(itemprop='contentRating').get_text() # Application Content Rating
     appSize             = pageSoup.find(itemprop='fileSize').get_text() # Application Content Rating
+    appGplusCount       = pageSoup.find_all('span', attrs={'class':'A8 eja'}) # Application Content Rating
 
+    print appGplusCount
 
 
 
@@ -167,6 +203,8 @@ def getAppFeatures(app):
     appDetails['ver'] = appVer.strip()
     appDetails['install'] = appInstall.strip()
     appDetails['contentrating'] = appContentRating.strip()
+    appDetails['rating'] = appRating
+    appDetails['totalreviewers'] = appReviewers
 
 
     return appDetails
@@ -181,7 +219,7 @@ def main():
     appUrl = getAppUrl()
     features = getAppFeatures(appUrl['url'])
 
-    pprint.pprint(features)
+    pprint(features)
 
 
 if __name__ == '__main__':
