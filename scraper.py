@@ -34,7 +34,8 @@ to extract an agreed upon set of features about the app
         [
             (Review Heading, Review Text),
             (Review Heading, Review Text),
-            (Review Heading, Review Text)
+            (Review Heading, Review Text),
+            ...
         ]
 
 
@@ -236,28 +237,32 @@ def getAppFeatures(app):
     appScreenCount      = len(appScreenElem)
 
 
-    ## Get Similar Apps
-    # similarAppList      = pageSoup.select('div.rec-cluster')
-    # similarAppList      = pageTree.xpath('//*[@id="body-content"]/div[9]/div/div/div')
-    # pprint(similarAppList)
-    # for a in similarAppList:
-    #     pprint(a['href'])
+    appReviewElem = pageSoup.find_all('div', attrs={'class':'review-text'})
+
+    appReviews = []
+    for elem in appReviewElem:
+        revtitle = elem.span.get_text()
+        elem.span.decompose()
+        revtext = elem.get_text()
+
+        appReviews.append((revtitle, revtext))
 
 
     appDetails = {}
     appDetails['id'] = appId.strip()
     appDetails['name'] = appName.strip()
-    appDetails['cat'] = appCat.strip()
+    appDetails['category'] = appCat.strip()
     appDetails['size'] = appSize.strip()
     appDetails['price'] = appPrice
-    appDetails['desc'] = appDesc.strip()
-    appDetails['comp'] = appComp.strip()
-    appDetails['ver'] = appVer.strip()
+    appDetails['description'] = appDesc.strip()
+    appDetails['company'] = appComp.strip()
+    appDetails['version'] = appVer.strip()
     appDetails['install'] = appInstall.strip()
-    appDetails['contentrating'] = appContentRating.strip()
+    appDetails['contentRating'] = appContentRating.strip()
     appDetails['rating'] = list(set(appRating))
-    appDetails['totalreviewers'] = appReviewers
-    appDetails['screencount'] = appScreenCount
+    appDetails['totalReviewers'] = appReviewers
+    appDetails['screenCount'] = appScreenCount
+    appDetails['reviews'] = appReviews
 
 
     return appDetails
