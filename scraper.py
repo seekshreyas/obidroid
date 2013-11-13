@@ -53,9 +53,10 @@ from HTMLParser import HTMLParser
 # from lxml import etree
 from pprint import pprint
 import json
+import time
 
 
-
+# reference: http://stackoverflow.com/questions/753052/strip-html-from-strings-in-python
 # To strip html tags
 class MLStripper(HTMLParser):
     def __init__(self):
@@ -91,78 +92,11 @@ def getUserInput():
 
 
 
-def getAppPrice(pageSoup):
-    """
-    Given soup of the html page, extract the price of the app
-    """
-    priceSoup = pageSoup.find('span', {"class" : "price", "class":"buy"})
-
-    priceList = list(priceSoup.contents)
-    price = priceList[-2].get_text().strip()
-
-    # print "price", price
-
-    if price == 'Install':
-        priceVal = 0.0
-    else:
-        priceVal = float(str(price[1:4])) # since first character is currrency
-
-    return priceVal
 
 
 
-def getAppRating(pageSoup):
-    """
-    Given the page soup, extract the app ratings and the count of
-    people who gave those ratings
-    """
-    appRatingSoup = pageSoup.find_all('div', {'class':'rating-bar-container'})
-
-    appRating = []
 
 
-    for ratingContainer in appRatingSoup:
-        # print type(ratingContainer)
-        ratElem = ratingContainer.find_all("span", attrs={"class":"bar-label"})
-        ratcountElem = ratingContainer.find_all("span", attrs={"class":"bar-number"})
-
-        rat = strip_tags(str(ratElem[0]))
-        ratcountraw = strip_tags(str(ratcountElem[0]))
-
-        ratcount = formatStrToNum(ratcountraw)
-
-
-        appRating.append((rat, ratcount))
-
-
-    return appRating
-
-
-
-def formatStrToNum(rawnum):
-    """
-    Handle different forms of string values that need to be converted to
-    numbers
-    1,000 -> 1000
-    """
-
-    if ',' in rawnum:
-        rawnum = rawnum.replace(',', '')
-
-    return int(rawnum)
-
-
-
-def getTotalReviewers(ratingTup):
-    """
-    Given a tuple of ratings, sum the count of Reviewers
-    """
-    totalReviewers = 0
-
-    for r in ratingTup:
-        totalReviewers += r[1]
-
-    return totalReviewers
 
 
 
@@ -310,9 +244,92 @@ def getAppFeatures(app):
 
 
 
+
+def getAppPrice(pageSoup):
+    """
+    Given soup of the html page, extract the price of the app
+    """
+    priceSoup = pageSoup.find('span', {"class" : "price", "class":"buy"})
+
+    priceList = list(priceSoup.contents)
+    price = priceList[-2].get_text().strip()
+
+    # print "price", price
+
+    if price == 'Install':
+        priceVal = 0.0
+    else:
+        priceVal = float(str(price[1:4])) # since first character is currrency
+
+    return priceVal
+
+
+
+def getAppRating(pageSoup):
+    """
+    Given the page soup, extract the app ratings and the count of
+    people who gave those ratings
+    """
+    appRatingSoup = pageSoup.find_all('div', {'class':'rating-bar-container'})
+
+    appRating = []
+
+
+    for ratingContainer in appRatingSoup:
+        # print type(ratingContainer)
+        ratElem = ratingContainer.find_all("span", attrs={"class":"bar-label"})
+        ratcountElem = ratingContainer.find_all("span", attrs={"class":"bar-number"})
+
+        rat = strip_tags(str(ratElem[0]))
+        ratcountraw = strip_tags(str(ratcountElem[0]))
+
+        ratcount = formatStrToNum(ratcountraw)
+
+
+        appRating.append((rat, ratcount))
+
+
+    return appRating
+
+
+def getTotalReviewers(ratingTup):
+    """
+    Given a tuple of ratings, sum the count of Reviewers
+    """
+    totalReviewers = 0
+
+    for r in ratingTup:
+        totalReviewers += r[1]
+
+    return totalReviewers
+
+
+def formatStrToNum(rawnum):
+    """
+    Handle different forms of string values that need to be converted to
+    numbers
+    1,000 -> 1000
+    """
+
+    if ',' in rawnum:
+        rawnum = rawnum.replace(',', '')
+
+    return int(rawnum)
+
+
+
+
+
+
+
+
+
+
 def main():
     # print __doc__
 
+    relaxtime = 5
+    exportFileAll = 'exports/alldata.json'
     userInput = getUserInput()
 
     if userInput['file'] == None:
@@ -323,21 +340,25 @@ def main():
     else:
         ## File input given
         ## run through the list of url and
-
-
         with open(userInput['file']) as f:
             fileTxt = f.readlines()
 
         allRows = []
+        fileProcessed = 0
         for line in fileTxt:
             # print "line: ", line
             features = getAppFeatures(line)
             allRows.append(features)
+            fileProcessed += 1
+            print "Finished processing %d / %d app urls" % (fileProcessed, len(fileTxt))
+
+            time.sleep(relaxtime) ## pause for next request
 
 
-        with open('exports/alldata.json', 'w+') as fp:
+
+        with open(exportFileAll, 'w+') as fp:
             json.dump(allRows, fp, sort_keys=True)
-        # pprint(allRows)
+            print "Exported the data to: \t %s" % (exportFileAll)
 
 
 
