@@ -329,7 +329,8 @@ def main():
     # print __doc__
 
     relaxtime = 5
-    exportFileAll = 'exports/alldata.json'
+    exportFileAll = 'exports/rawdata_all.json'
+    exportFileReviews = 'exports/rawdata_reviews.json'
     userInput = getUserInput()
 
     if userInput['file'] == None:
@@ -344,6 +345,7 @@ def main():
             fileTxt = f.readlines()
 
         allRows = []
+        allRevs = []
         fileProcessed = 0
         for line in fileTxt:
             # print "line: ", line
@@ -355,10 +357,21 @@ def main():
             time.sleep(relaxtime) ## pause for next request
 
 
+            revfeatures = {}
+            revfeatures['appId']        = features['id']
+            revfeatures['reviews']      = features['reviews']
+            revfeatures['moreFromDev']  = features['moreFromDev']
+            revfeatures['similar']      = features['similar']
+
+            allRevs.append(revfeatures)
+
 
         with open(exportFileAll, 'w+') as fp:
             json.dump(allRows, fp, sort_keys=True)
             print "Exported the data to: \t %s" % (exportFileAll)
+
+        with open(exportFileReviews, 'w+') as fp:
+            json.dump(allRevs, fp, sort_keys=True)
 
 
 
