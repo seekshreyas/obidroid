@@ -327,7 +327,7 @@ def formatStrToNum(rawnum):
 
 
 def main():
-    # print __doc__
+    print __doc__
 
     relaxtime = 5
     exportFileAll = 'exports/rawdata_all.json'
