@@ -26,9 +26,9 @@ to extract an agreed upon set of features about the app
 - [x] Description
 - [x] Installs
 - [x] ContentRating
-- [ ] SimilarApps:
+- [x] SimilarApps:
     set([SimAppId1, SimAppId2, ..])
-- [ ] MoreAppsFromDev
+- [x] MoreAppsFromDev
     set([OtherAppId1, OtherAppId2, .. ])
 - [x] User Reviews
         [
@@ -52,6 +52,7 @@ from urllib import urlopen
 from HTMLParser import HTMLParser
 # from lxml import etree
 from pprint import pprint
+import json
 
 
 
@@ -75,17 +76,18 @@ def strip_tags(html):
 
 
 
-def getAppUrl():
+def getUserInput():
     optionparser = OptionParser()
 
     optionparser.add_option('-u', '--url', dest='appurl')
+    optionparser.add_option('-f', '--file', dest='applist')
 
     (option, args) = optionparser.parse_args()
 
-    if not option.appurl:
-        return optionparser.error('data not provided.\n Usage: --url="path.to.appurl"')
+    if not option:
+        return optionparser.error('data not provided.\n Usage: --url="path.to.appurl", --file to "path.to.file"')
 
-    return { 'url' : option.appurl }
+    return { 'url' : option.appurl, 'file' : option.applist }
 
 
 
@@ -279,30 +281,25 @@ def getAppFeatures(app):
 
 
     appDetails = {}
-    appDetails['id'] = appId.strip()
-    appDetails['name'] = appName.strip()
-    appDetails['category'] = appCat.strip()
-    appDetails['size'] = appSize.strip()
-    appDetails['price'] = appPrice
-    appDetails['description'] = appDesc.strip()
-    appDetails['company'] = appComp.strip()
-    appDetails['version'] = appVer.strip()
-    appDetails['install'] = appInstall.strip()
-    appDetails['contentRating'] = appContentRating.strip()
-    appDetails['rating'] = list(set(appRating))
-    appDetails['totalReviewers'] = appReviewers
-    appDetails['screenCount'] = appScreenCount
-    appDetails['reviews'] = appReviews
+    appDetails['id']                = appId.strip()
+    appDetails['name']              = appName.strip()
+    appDetails['category']          = appCat.strip()
+    appDetails['size']              = appSize.strip()
+    appDetails['price']             = appPrice
+    appDetails['description']       = appDesc.strip()
+    appDetails['company']           = appComp.strip()
+    appDetails['version']           = appVer.strip()
+    appDetails['install']           = appInstall.strip()
+    appDetails['contentRating']     = appContentRating.strip()
+    appDetails['rating']            = list(set(appRating))
+    appDetails['totalReviewers']    = appReviewers
+    appDetails['screenCount']       = appScreenCount
+    appDetails['reviews']           = appReviews
 
-    if len(set(appDev)) == 0:
-        appDetails['moreFromDev'] = 'None'
-    else:
-        appDetails['moreFromDev'] = set(appDev)
 
-    if len(set(appSim)) == 0:
-        appDetails['similar'] = 'None'
-    else:
-        appDetails['similar'] = set(appSim)
+    appDetails['moreFromDev']       = 'None'  if (len(set(appDev)) == 0) else list(set(appDev))
+    appDetails['similar']           = 'None'  if (len(set(appSim)) == 0) else list(set(appSim))
+
 
 
 
@@ -316,10 +313,33 @@ def getAppFeatures(app):
 def main():
     # print __doc__
 
-    appUrl = getAppUrl()
-    features = getAppFeatures(appUrl['url'])
+    userInput = getUserInput()
 
-    pprint(features)
+    if userInput['file'] == None:
+        ## Single url input given
+        features = getAppFeatures(userInput['url'])
+
+        pprint(features)
+    else:
+        ## File input given
+        ## run through the list of url and
+
+
+        with open(userInput['file']) as f:
+            fileTxt = f.readlines()
+
+        allRows = []
+        for line in fileTxt:
+            # print "line: ", line
+            features = getAppFeatures(line)
+            allRows.append(features)
+
+
+        with open('exports/alldata.json', 'w+') as fp:
+            json.dump(allRows, fp, sort_keys=True)
+        # pprint(allRows)
+
+
 
 
 if __name__ == '__main__':
