@@ -82,13 +82,14 @@ def getUserInput():
 
     optionparser.add_option('-u', '--url', dest='appurl')
     optionparser.add_option('-f', '--file', dest='applist')
+    optionparser.add_option('-t', '--time', dest='apptime')
 
     (option, args) = optionparser.parse_args()
 
     if not option:
         return optionparser.error('data not provided.\n Usage: --url="path.to.appurl", --file to "path.to.file"')
 
-    return { 'url' : option.appurl, 'file' : option.applist }
+    return { 'url' : option.appurl, 'file' : option.applist, 'time' : option.apptime }
 
 
 
@@ -332,6 +333,9 @@ def main():
     exportFileAll = 'exports/rawdata_all.json'
     exportFileReviews = 'exports/rawdata_reviews.json'
     userInput = getUserInput()
+
+    if userInput['time'] != None:
+        relaxtime = userInput['time']
 
     if userInput['file'] == None:
         ## Single url input given
