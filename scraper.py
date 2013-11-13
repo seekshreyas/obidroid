@@ -27,10 +27,10 @@ to extract an agreed upon set of features about the app
 - [x] Installs
 - [x] ContentRating
 - [ ] SimilarApps:
-    [SimAppId1, SimAppId2, ..]
+    set([SimAppId1, SimAppId2, ..])
 - [ ] MoreAppsFromDev
-    [OtherAppId1, OtherAppId2, .. ]
-- [ ] User Reviews
+    set([OtherAppId1, OtherAppId2, .. ])
+- [x] User Reviews
         [
             (Review Heading, Review Text),
             (Review Heading, Review Text),
@@ -183,7 +183,7 @@ def getAppFeatures(app):
     pageHtml = urlopen(app).read()
 
     # pageTree = etree.parse(pageHtml)
-    pageSoup = BeautifulSoup(pageHtml)
+    pageSoup = BeautifulSoup(pageHtml, 'html5')
 
     # Application Id
     appIdStr = app.split('?')[1]
@@ -237,15 +237,45 @@ def getAppFeatures(app):
     appScreenCount      = len(appScreenElem)
 
 
-    appReviewElem = pageSoup.find_all('div', attrs={'class':'review-text'})
+    appReviewElem       = pageSoup.find_all('div', attrs={'class':'review-text'})
 
+    # Get App Reviews
     appReviews = []
     for elem in appReviewElem:
         revtitle = elem.span.get_text()
-        elem.span.decompose()
+        elem.span.decompose() # to remove the title
         revtext = elem.get_text()
 
         appReviews.append((revtitle, revtext))
+
+
+
+    # Get Similar and Dev app list
+    # appRecos            = pageSoup.find_all('div', attrs={'class':'details-section recommendation '})
+    appRecoElems = pageSoup.select('a[href^="/store/apps/details?id="]')
+
+    # print "recommendation:", appRecos
+    appSim = [] # apps that are similar and hence recommended
+    appDev = [] # apps from same developer
+    for app in appRecoElems:
+        if '&' not in app['href']:
+            appPathStr = app['href'].split('=')
+            appPath = appPathStr[1]
+
+
+            currentAppIdStr = appId.split('.')
+            otherAppIdStr = appPath.split('.')
+
+
+            if (currentAppIdStr[0] == otherAppIdStr[0]) & (currentAppIdStr[1] == otherAppIdStr[1]):
+                ## apps from the same developer
+                appDev.append(appPath)
+            else:
+                appSim.append(appPath)
+
+
+
+
 
 
     appDetails = {}
@@ -263,6 +293,18 @@ def getAppFeatures(app):
     appDetails['totalReviewers'] = appReviewers
     appDetails['screenCount'] = appScreenCount
     appDetails['reviews'] = appReviews
+
+    if len(set(appDev)) == 0:
+        appDetails['moreFromDev'] = 'None'
+    else:
+        appDetails['moreFromDev'] = set(appDev)
+
+    if len(set(appSim)) == 0:
+        appDetails['similar'] = 'None'
+    else:
+        appDetails['similar'] = set(appSim)
+
+
 
 
     return appDetails
