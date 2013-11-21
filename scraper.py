@@ -37,6 +37,9 @@ to extract an agreed upon set of features about the app
             (Review Heading, Review Text),
             ...
         ]
+- [ ] Developer Website URL
+- [ ] Developer Email
+- [ ] Privacy Policy URL
 
 
 
