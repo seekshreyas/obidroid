@@ -37,9 +37,9 @@ to extract an agreed upon set of features about the app
             (Review Heading, Review Text),
             ...
         ]
-- [ ] Developer Website URL
-- [ ] Developer Email
-- [ ] Privacy Policy URL
+- [x] Developer Website URL
+- [x] Developer Email
+- [x] Privacy Policy URL
 
 
 
@@ -86,13 +86,14 @@ def getUserInput():
     optionparser.add_option('-u', '--url', dest='appurl')
     optionparser.add_option('-f', '--file', dest='applist')
     optionparser.add_option('-t', '--time', dest='apptime')
+    optionparser.add_option('-e', '--export', dest='exportfilename')
 
     (option, args) = optionparser.parse_args()
 
     if not option:
         return optionparser.error('data not provided.\n Usage: --url="path.to.appurl", --file to "path.to.file"')
 
-    return { 'url' : option.appurl, 'file' : option.applist, 'time' : option.apptime }
+    return { 'url' : option.appurl, 'file' : option.applist, 'time' : option.apptime, 'name' : option.exportfilename }
 
 
 
@@ -142,13 +143,40 @@ def getAppFeatures(app):
     appNameHTML = pageSoup.findAll('div', {"itemprop":"name"})
     appName = appNameHTML[0].get_text()
 
+    # Developer details
+    appDevDetailSoup = pageSoup.find_all('a', attrs={'class':'dev-link'})
+
+    appDevDetail = {}
+
+    for elem in appDevDetailSoup:
+        # print "dev-link", elem['href'], elem.get_text()
+
+        elemText = elem.get_text()
+        elemText = str(elemText.strip())
+
+        if elemText == "Visit Developer's Website":
+            devurl = elem['href'].split('?')
+            appDevDetail['devurl'] = devurl[1][2:]
+
+        if elemText == "Email Developer":
+            devmail = elem['href'].split(':')
+            appDevDetail['devmail'] = devmail[1]
+
+        if elemText == "Privacy Policy" :
+            devprv = elem['href'].split('?')
+            appDevDetail['devprivacyurl'] = devprv[1][2:]
 
 
+
+
+    # pprint(appDevDetail)
 
     appPrice            = getAppPrice(pageSoup) # Application Price
     appRating           = getAppRating(pageSoup) # Application Rating
 
     appReviewers        = getTotalReviewers(appRating) # Total Reviewers
+
+
 
 
     appCat              = pageSoup.find(itemprop='genre').get_text() # Application Category
@@ -233,6 +261,10 @@ def getAppFeatures(app):
     appDetails['totalReviewers']    = appReviewers
     appDetails['screenCount']       = appScreenCount
     appDetails['reviews']           = appReviews
+    appDetails['devurl']            = appDevDetail['devurl']
+    appDetails['devmail']           = appDevDetail['devmail']
+    appDetails['devprivacyurl']     = appDevDetail['devprivacyurl']
+
 
 
     appDetails['moreFromDev']       = 'None'  if (len(set(appDev)) == 0) else list(set(appDev))
@@ -333,9 +365,17 @@ def main():
     print __doc__
 
     relaxtime = 5
-    exportFileAll = 'exports/rawdata_all.json'
-    exportFileReviews = 'exports/rawdata_reviews.json'
+
     userInput = getUserInput()
+
+    filename = 'rawdata' # default file name for exporting
+
+    if userInput['exportfilename'] != None:
+        filename = userInput['exportfilename']
+
+    exportFileAll = 'exports/' + filename + '_all.json'
+    exportFileReviews = 'exports/' + filename + '_reviews.json'
+
 
     if userInput['time'] != None:
         relaxtime = userInput['time']

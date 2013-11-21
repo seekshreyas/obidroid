@@ -20,6 +20,7 @@ https://play.google.com/store/apps/details?id=[APP-ID]
 from __future__ import division
 from optparse import OptionParser
 from lxml import html
+from pprint import pprint
 # from time import strftime
 # today=strftime("%Y-%m-%d") #today's date
 
@@ -27,20 +28,22 @@ def getAppCategory():
     optionparser = OptionParser()
 
     optionparser.add_option('-c', '--category', dest='appCategory')
+    optionparser.add_option('-i', '--input', dest='inputfile')
+
 
     (option, args) = optionparser.parse_args()
 
-    if not option.appCategory:
-        return optionparser.error('Application Category not provided.\n Usage: --url="path.to.appurl"')
+    if not option.inputfile:
+        return optionparser.error('html file input not provided.\n Usage: --url="path.to.appurl"')
 
-    return { 'cat' : option.appCategory }
+    return { 'cat' : option.appCategory, 'file' : option.inputfile }
 
 
 def get_ids_from_html(html_file_name):
     '''
-    open the html from disk, 
-    parse with lxml.html, 
-    use xpath to get list of app IDs, 
+    open the html from disk,
+    parse with lxml.html,
+    use xpath to get list of app IDs,
     save
     '''
     #intialize local variables
@@ -53,7 +56,7 @@ def get_ids_from_html(html_file_name):
 
     #xpath makes a list of all the hrefs in elements of class "card-content-link"
     ids=doc.xpath('//*[@class="card-content-link"]/@href')
-    
+
     ## print ids
     ## print str(len(ids))
 
@@ -75,11 +78,11 @@ def save_ids_to_txt(ids,filename="ids.txt"):
 def main():
     # print __doc__
 
-    appCat = getAppCategory()
+    userinput = getAppCategory()
 
-    print appCat
+    pprint(userinput)
 
-    get_ids_from_html('input.html')
+    get_ids_from_html(userinput['file'])
 
 
 if __name__ == '__main__':
