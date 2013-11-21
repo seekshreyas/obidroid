@@ -17,9 +17,16 @@ def parse_review_json(fname='../exports/rawdata_reviews.json'):
     json_data = open(fname).read()
     return json.loads(json_data)
 
-def parse_all_json(fname='../exports/rawdata_all.json'):
+def parse_all_json(fname='../exports/game_brain_all.json'):
     json_data = open(fname).read()
     return json.loads(json_data)
+
+def calculateSingularRating(ratings):
+    total = 0; count = 0
+    for rating in ratings:
+        total = total + (int(rating[0].strip()) * int(rating[1]))
+        count = count + int(rating[1])
+    return total/float(count)
 
 def parse_reviews():
     # list container 
@@ -49,8 +56,8 @@ def parse_apps():
     # loop through the json file, first by app and then by reviews
     for idx, app in enumerate(islice(parse_all_json(), 1)):
         a = App(app['id'], app['category'], app['company'], app['contentRating'], 
-        app['description'], app['install'], app['name'], app['screenCount'], app['size'], 
-        app['totalReviewers'], app['version'])
+        app['description'], app['install'], app['name'], calculateSingularRating(app['rating']),
+        app['screenCount'], app['size'], app['totalReviewers'], app['version'])
         app_list.append(a)
 
     # only commit all the review for every 10 apps
@@ -71,9 +78,11 @@ def parse_all():
     
     # loop through the json file, first by app and then by reviews
     for idx, app in enumerate(islice(parse_all_json(), None)):
+        
         a = App(app['id'], app['category'], app['company'], app['contentRating'], 
-        app['description'], app['install'], app['name'], app['screenCount'], app['size'], 
-        app['totalReviewers'], app['version'])
+        app['description'], app.get('devmail'), app.get('devprivacyurl'), app.get('devurl'),
+        app['install'], app['name'], calculateSingularRating(app['rating']), 
+        app['screenCount'], app['size'], app['totalReviewers'], app['version'])
         app_list.append(a)
         for review in app['reviews']:
             r = Review(app['id'], review[0], review[1])
