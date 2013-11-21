@@ -147,12 +147,16 @@ def getAppFeatures(app):
     appDevDetailSoup = pageSoup.find_all('a', attrs={'class':'dev-link'})
 
     appDevDetail = {}
+    appDevDetail['devurl'] = 'N.A.'
+    appDevDetail['devmail'] = 'N.A.'
+    appDevDetail['devprivacyurl'] = 'N.A.'
 
     for elem in appDevDetailSoup:
         # print "dev-link", elem['href'], elem.get_text()
 
         elemText = elem.get_text()
         elemText = str(elemText.strip())
+
 
         if elemText == "Visit Developer's Website":
             devurl = elem['href'].split('?')
@@ -370,8 +374,8 @@ def main():
 
     filename = 'rawdata' # default file name for exporting
 
-    if userInput['exportfilename'] != None:
-        filename = userInput['exportfilename']
+    if userInput['name'] != None:
+        filename = userInput['name']
 
     exportFileAll = 'exports/' + filename + '_all.json'
     exportFileReviews = 'exports/' + filename + '_reviews.json'
