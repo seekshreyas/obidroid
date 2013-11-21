@@ -57,7 +57,7 @@ def get_ids_from_html(html_file_name):
     #xpath makes a list of all the hrefs in elements of class "card-content-link"
     ids=doc.xpath('//*[@class="card-content-link"]/@href')
 
-    ## print ids
+    # pprint(ids)
     ## print str(len(ids))
 
     #Save it
@@ -68,8 +68,9 @@ def get_ids_from_html(html_file_name):
 
 def save_ids_to_txt(ids,filename="ids.txt"):
     f=open(filename,"w")
+    baseurl = "https://play.google.com/"
     for i in ids:
-        f.write(i+"\n")
+        f.write(baseurl+i+"\n")
     f.close()
 
 
