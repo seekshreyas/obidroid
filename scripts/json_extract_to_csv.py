@@ -30,7 +30,8 @@ with open("../apps_to_label_(csv)/allapps.csv","wb") as csvfile:
 	writeObj=csv.writer(csvfile)
 	
 	#write header row to file
-	header=['name',
+	header=["label (fair/unfiar)"
+			   'name',
 			   'id',
 			   'category',
 			   'rating',
@@ -83,7 +84,8 @@ with open("../apps_to_label_(csv)/allapps.csv","wb") as csvfile:
 			if attr=="reviews":
 				for i in range(len(attr)):
 					try:
-						row=[app['name'],
+						row=["",
+							 app['name'],
 							 app["id"],
 							 app['category'],
 							 average_rating(app['rating']),
