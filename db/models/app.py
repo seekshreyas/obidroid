@@ -41,5 +41,5 @@ class App(Base):
         self.version = version
 
     def __repr__(self):
-        return "<App(appid='%d', name='%s', description='%s')>" % (
+        return "<App(appid='%s', name='%s', description='%s')>" % (
         self.appid, self.name, self.description)
