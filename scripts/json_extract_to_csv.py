@@ -30,7 +30,7 @@ with open("../apps_to_label_(csv)/allapps.csv","wb") as csvfile:
 	writeObj=csv.writer(csvfile)
 	
 	#write header row to file
-	header=["label (fair/unfiar)"
+	header=["label (fair/unfiar)",
 			   'name',
 			   'id',
 			   'category',
@@ -82,33 +82,29 @@ with open("../apps_to_label_(csv)/allapps.csv","wb") as csvfile:
 		for attr in app:
 			#write row for every review
 			if attr=="reviews":
-				for i in range(len(attr)):
-					try:
-						row=["",
-							 app['name'],
-							 app["id"],
-							 app['category'],
-							 average_rating(app['rating']),
-							 app['reviews'][i],
-							 app['rating'][0][1],
-							 app['rating'][1][1],
-							 app['rating'][2][1],
-							 app['rating'][3][1],
-							 app['rating'][4][1],
-							 app['screenCount'],
-							 app['description'],
-							 app['company'],
-							 app['moreFromDev'],
-							 app['contentRating'],
-							 app['price'],
-							 app['version'],
-							 app['install'],
-							 app['totalReviewers'],
-							 app['size'],
-							 app['similar']]
-					except:
-							print app['id']+" had an error"
-							print app['rating']
+				for i in range(len(app['reviews'])):
+					row=["",
+						 app['name'],
+						 app["id"],
+						 app['category'],
+						 average_rating(app['rating']),
+						 app['reviews'][i],
+						 app['rating'][0][1],
+						 app['rating'][1][1],
+						 app['rating'][2][1],
+						 app['rating'][3][1],
+						 app['rating'][4][1],
+						 app['screenCount'],
+						 app['description'],
+						 app['company'],
+						 app['moreFromDev'],
+						 app['contentRating'],
+						 app['price'],
+						 app['version'],
+						 app['install'],
+						 app['totalReviewers'],
+						 app['size'],
+						 app['similar']]
 					for i in range(len(row)):
 						try:row[i]=row[i].encode('ascii','ignore')
 						except:pass
