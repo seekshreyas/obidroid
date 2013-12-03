@@ -15,6 +15,10 @@ from pprint import pprint
 import random
 import math
 import nltk
+from cPickle import dump
+from cPickle import load
+import parser
+import extractor
 
 def getUserInput():
     optionparser = OptionParser()
@@ -52,7 +56,12 @@ def featureAggregator(extract):
 def featureExtractor(app):
     featDict = {}
 
-    # featList['price'] = getAppPrice(app)
+    fObj = open('mySentClassifier.pickle')
+    cl = load(fObj)
+    fObj.close()
+
+
+    featDict['price'] = getAppPrice(app)
     # featList['numrev'] = getNumReviews(app)
     featDict['1starrating'] = getOneStarRating(app)
     featDict['2starrating'] = getTwoStarRating(app)
@@ -60,6 +69,7 @@ def featureExtractor(app):
     featDict['4starRating'] = getFourStarRating(app)
     featDict['5starRating'] = getFiveStarRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
+    featDict['revSent'] = getReviewSentiment(app, cl)
 
     return featDict
 
@@ -104,10 +114,44 @@ def getFiveStarRating(app):
 
 
 def getPrivacyState(app):
-    if app['devprivacyurl'] == 'N.A':
+    if app['devprivacyurl'] == 'N.A.':
         return False
     else:
         return True
+
+
+
+def getReviewSentiment(app, classifier):
+    revAggSentiment = 0
+    for rev in app['reviews']:
+        sentList = nltk.tokenize.sent_tokenize(rev[1])
+
+        sentAggSentiment = 0
+
+        for sent in sentList:
+
+            sent = unicode(sent.strip())
+            # print sent
+            featdata = extractor.featureExtractor(sent)
+
+            # pprint(featdata)
+            cl= classifier.classify(featdata)
+
+            if cl == 'pos':
+                label = 1
+            elif cl == 'neutral':
+                label = 0
+            else:
+                label = -1
+
+            sentAggSentiment += label
+
+        revAggSentiment += sentAggSentiment
+        print "review Sentiment: ", revAggSentiment
+
+    return revAggSentiment
+
+
 
 
 def classifier(extract, fold=10):
@@ -121,7 +165,6 @@ def classifier(extract, fold=10):
 
             # print "reviews" , revlower
             if revlower.find('fake') != -1:
-
                 labeldata = 'unfair'
 
         features = featureExtractor(app)
@@ -129,20 +172,24 @@ def classifier(extract, fold=10):
         data.append([labeldata, list(features.values())])
 
 
-    # pprint(data)
+    pprint(data)
 
-    random.shuffle(data)
+    # for d in data:
+    #     if d[1][1] == False:
+    #         pprint(d)
 
-    claccuracy = []
-    size = int(math.floor(len(data) / 10.0))
+    # random.shuffle(data)
 
-    for i in range(fold):
-        test_this_round = data[i*size:][:size]
-        train_this_round = data[:i*size] + data[(i+1)*size:]
+    # claccuracy = []
+    # size = int(math.floor(len(data) / 10.0))
 
-        acc = myclassifier(train_this_round, test_this_round)
+    # for i in range(fold):
+    #     test_this_round = data[i*size:][:size]
+    #     train_this_round = data[:i*size] + data[(i+1)*size:]
 
-        claccuracy.append(acc)
+    #     acc = myclassifier(train_this_round, test_this_round)
+
+    #     claccuracy.append(acc)
 
 
 
@@ -152,6 +199,8 @@ def myclassifier(train_data, test_data):
 
     # print classifier.show_most_informative_features()
     return nltk.classify.accuracy(classifier, test_data)
+
+
 
 
 
