@@ -70,7 +70,7 @@ def featureAggregator(inputdata):
     features = featureExtractor(inputdata)
 
     # append those features
-    inputLineList = list(inputdata)
+    inputLineList = list(inputLine)
     inputLineList.append(features)
     outputLineTuple = tuple(inputLineList)
     outputdata.append(outputLineTuple)
