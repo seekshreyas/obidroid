@@ -42,9 +42,6 @@ to extract an agreed upon set of features about the app
 - [x] Privacy Policy URL
 
 
-
-author = "Shreyas"
-email = "shreyas@ischool.berkeley.edu"
 python_version = "Python 2.7.5 :: Anaconda 1.6.1 (x86_64)"
 """
 

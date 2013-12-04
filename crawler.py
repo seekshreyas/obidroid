@@ -51,7 +51,7 @@ def get_ids_from_html(html_file_name):
     html_file=open(html_file_name)
 
     #use lxml to parse html
-    doc = html.parse(html_file).getroot()
+    doc = html.html5parser.parse(html_file).getroot()
     html_file.close()
 
     #xpath makes a list of all the hrefs in elements of class "card-content-link"
