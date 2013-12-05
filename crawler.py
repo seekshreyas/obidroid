@@ -67,13 +67,15 @@ def get_ids_from_html(html_file_name):
     appFileObj.close()
 
 
-    appListSoup = BeautifulSoup(appFile, 'html5')
-    appListElem = appListSoup.findAll('div', {"class":"card"})
+    appListSoup = BeautifulSoup(appFile, 'html5lib')
+    appListElem = appListSoup.find_all('div', class_="card")
+
+    print len(appListElem)
 
     appId = [elem['data-docid'] for elem in appListElem]
 
 
-    # pprint(appId)
+    print "total apps : ", len(appId)
     baseurl = "https://play.google.com//store/apps/details?id="
     inputfilename = html_file_name.split('.')
 
@@ -102,7 +104,7 @@ def main():
 
     userinput = getAppCategory()
 
-    pprint(userinput)
+    # pprint(userinput)
 
     get_ids_from_html(userinput['file'])
 
