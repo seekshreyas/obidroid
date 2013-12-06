@@ -73,10 +73,16 @@ def featureExtractor(app):
     featDict['revSent'] = getReviewSentiment(app, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
+    featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
     featDict['installRange'] = getInstallRange(app)
     
     return featDict
 
+def getDeveloperHasMultipleApps(app):
+    if app['moreFromDev'] == 'None':
+        return False
+    else:
+        return True
 
 def getInstallRange(app):
     return app['install']
