@@ -71,9 +71,7 @@ def featureExtractor(app):
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
     featDict['revSent'] = getReviewSentiment(app, cl)
-    # add to check for developer website
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
-    # add to check for developer email address
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
     featDict['installRange'] = getInstallRange(app)
     
