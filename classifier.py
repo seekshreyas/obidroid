@@ -187,23 +187,23 @@ def getReviewSentiment(app, classifier):
 
 def classifier(extract, fold=10):
 
-    labeldata = 'fair'
+    # labeldata = 'fair'
 
-    data = []
-    for app in extract:
-        for rev in app['reviews']:
-            revlower = rev[1].lower()
+    # data = []
+    # for app in extract:
+    #     for rev in app['reviews']:
+    #         revlower = rev[1].lower()
 
-            # print "reviews" , revlower
-            if revlower.find('fake') != -1:
-                labeldata = 'unfair'
+    #         # print "reviews" , revlower
+    #         if revlower.find('fake') != -1:
+    #             labeldata = 'unfair'
 
-        features = featureExtractor(app)
+    #     features = featureExtractor(app)
 
-        data.append([labeldata, list(features.values())])
+    #     data.append([labeldata, list(features.values())])
 
-
-    pprint(data)
+    pass
+    # pprint(data)
 
     # for d in data:
     #     if d[1][1] == False:
@@ -243,18 +243,25 @@ def main():
     userinput = getUserInput()
     print userinput
 
-    extract = []
+    data = []
     for f in listdir(userinput['dir']):
         fname = f.split('_')
 
         if fname[-1] == 'all.json':
             print userinput['dir'] + f
-            fextract = fileExtractor(userinput['dir'] + f)
-            extract.append(fextract)
+            fdata = fileExtractor(userinput['dir'] + f)
+            features = featureAggregator(fdata)
+
+            if fname[0] == 'malapps':
+                for apps in features:
+                    data.append(['unfair', apps])
+            else:
+                for apps in features:
+                    data.append(['unfair', apps])
 
     # extract = fileExtractor(userinput['file'])
 
-    pprint(extract)
+    pprint(data)
     # features = featureAggregator(extract)
     # classifier(extract)
 
