@@ -78,7 +78,7 @@ def featureExtractor(app):
     # add to check for developer email address
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
     featDict['installRange'] = getInstallRange(app)
-    
+
     return featDict
 
 
@@ -112,7 +112,7 @@ def getAverageRating(app):
     for rating in app['rating']:
         total = total + (int(rating[0].strip()) * int(rating[1]))
         count = count + int(rating[1])
-    return total/float(count)    
+    return total/float(count)
 
 def getOneStarRating(app):
     for appRatingCount in app['rating']:
@@ -243,12 +243,18 @@ def main():
     userinput = getUserInput()
     print userinput
 
+    extract = []
     for f in listdir(userinput['dir']):
-        print f
+        fname = f.split('_')
+
+        if fname[-1] == 'all.json':
+            print userinput['dir'] + f
+            fextract = fileExtractor(userinput['dir'] + f)
+            extract.append(fextract)
 
     # extract = fileExtractor(userinput['file'])
 
-    # pprint(extract)
+    pprint(extract)
     # features = featureAggregator(extract)
     # classifier(extract)
 
