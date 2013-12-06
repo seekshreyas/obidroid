@@ -70,13 +70,36 @@ def featureExtractor(app):
     featDict['3starRating'] = getThreeStarRating(app)
     featDict['4starRating'] = getFourStarRating(app)
     featDict['5starRating'] = getFiveStarRating(app)
+    featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
     featDict['revSent'] = getReviewSentiment(app, cl)
-
+    # add to check for developer website
+    featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
+    # add to check for developer email address
+    featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
+    featDict['installRange'] = getInstallRange(app)
+    
     return featDict
 
 
+def getInstallRange(app):
+    return app['install']
 
+def getDeveloperEmailState(app):
+    """Implement a domain lookup to see if email domain is 'safe'
+    """
+    if app['devmail'] == 'N.A.':
+        return False
+    else:
+        return True
+
+def getDeveloperWebsiteState(app):
+    """Implement a domain lookup to see if url is functional.
+    """
+    if app['devurl'] == 'N.A.':
+        return False
+    else:
+        return True
 
 def getAppPrice(app):
     return app['price']
@@ -84,6 +107,12 @@ def getAppPrice(app):
 def getNumReviews(app):
     return len(app['reviews'])
 
+def getAverageRating(app):
+    total = 0; count = 0
+    for rating in app['rating']:
+        total = total + (int(rating[0].strip()) * int(rating[1]))
+        count = count + int(rating[1])
+    return total/float(count)    
 
 def getOneStarRating(app):
     for appRatingCount in app['rating']:
