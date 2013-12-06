@@ -19,19 +19,21 @@ from cPickle import dump
 from cPickle import load
 import parser
 import extractor
+from os import listdir
 
 def getUserInput():
     optionparser = OptionParser()
 
     optionparser.add_option('-i', '--input', dest='inputfile')
+    optionparser.add_option('-d', '--dir', dest='directory')
 
 
     (option, args) = optionparser.parse_args()
 
-    if not option.inputfile:
+    if not option.directory:
         return optionparser.error('html file input not provided.\n Usage: --url="path.to.appurl"')
 
-    return { 'file' : option.inputfile }
+    return { 'file' : option.inputfile, 'dir' : option.directory }
 
 
 
@@ -210,11 +212,16 @@ def myclassifier(train_data, test_data):
 
 def main():
     userinput = getUserInput()
-    print userinput['file']
+    print userinput
 
-    extract = fileExtractor(userinput['file'])
+    for f in listdir(userinput['dir']):
+        print f
+
+    # extract = fileExtractor(userinput['file'])
+
+    # pprint(extract)
     # features = featureAggregator(extract)
-    classifier(extract)
+    # classifier(extract)
 
 
 if __name__ == "__main__":
