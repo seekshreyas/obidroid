@@ -19,19 +19,21 @@ from cPickle import dump
 from cPickle import load
 import parser
 import extractor
+from os import listdir
 
 def getUserInput():
     optionparser = OptionParser()
 
     optionparser.add_option('-i', '--input', dest='inputfile')
+    optionparser.add_option('-d', '--dir', dest='directory')
 
 
     (option, args) = optionparser.parse_args()
 
-    if not option.inputfile:
+    if not option.directory:
         return optionparser.error('html file input not provided.\n Usage: --url="path.to.appurl"')
 
-    return { 'file' : option.inputfile }
+    return { 'file' : option.inputfile, 'dir' : option.directory }
 
 
 
@@ -68,13 +70,34 @@ def featureExtractor(app):
     featDict['3starRating'] = getThreeStarRating(app)
     featDict['4starRating'] = getFourStarRating(app)
     featDict['5starRating'] = getFiveStarRating(app)
+    featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
     featDict['revSent'] = getReviewSentiment(app, cl)
+    featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
+    featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
+    featDict['installRange'] = getInstallRange(app)
 
     return featDict
 
 
+def getInstallRange(app):
+    return app['install']
 
+def getDeveloperEmailState(app):
+    """Implement a domain lookup to see if email domain is 'safe'
+    """
+    if app['devmail'] == 'N.A.':
+        return False
+    else:
+        return True
+
+def getDeveloperWebsiteState(app):
+    """Implement a domain lookup to see if url is functional.
+    """
+    if app['devurl'] == 'N.A.':
+        return False
+    else:
+        return True
 
 def getAppPrice(app):
     return app['price']
@@ -82,6 +105,12 @@ def getAppPrice(app):
 def getNumReviews(app):
     return len(app['reviews'])
 
+def getAverageRating(app):
+    total = 0; count = 0
+    for rating in app['rating']:
+        total = total + (int(rating[0].strip()) * int(rating[1]))
+        count = count + int(rating[1])
+    return total/float(count)
 
 def getOneStarRating(app):
     for appRatingCount in app['rating']:
@@ -156,23 +185,23 @@ def getReviewSentiment(app, classifier):
 
 def classifier(extract, fold=10):
 
-    labeldata = 'fair'
+    # labeldata = 'fair'
 
-    data = []
-    for app in extract:
-        for rev in app['reviews']:
-            revlower = rev[1].lower()
+    # data = []
+    # for app in extract:
+    #     for rev in app['reviews']:
+    #         revlower = rev[1].lower()
 
-            # print "reviews" , revlower
-            if revlower.find('fake') != -1:
-                labeldata = 'unfair'
+    #         # print "reviews" , revlower
+    #         if revlower.find('fake') != -1:
+    #             labeldata = 'unfair'
 
-        features = featureExtractor(app)
+    #     features = featureExtractor(app)
 
-        data.append([labeldata, list(features.values())])
+    #     data.append([labeldata, list(features.values())])
 
-
-    pprint(data)
+    pass
+    # pprint(data)
 
     # for d in data:
     #     if d[1][1] == False:
@@ -210,11 +239,29 @@ def myclassifier(train_data, test_data):
 
 def main():
     userinput = getUserInput()
-    print userinput['file']
+    print userinput
 
-    extract = fileExtractor(userinput['file'])
+    data = []
+    for f in listdir(userinput['dir']):
+        fname = f.split('_')
+
+        if fname[-1] == 'all.json':
+            print userinput['dir'] + f
+            fdata = fileExtractor(userinput['dir'] + f)
+            features = featureAggregator(fdata)
+
+            if fname[0] == 'malapps':
+                for apps in features:
+                    data.append(['unfair', apps])
+            else:
+                for apps in features:
+                    data.append(['unfair', apps])
+
+    # extract = fileExtractor(userinput['file'])
+
+    pprint(data)
     # features = featureAggregator(extract)
-    classifier(extract)
+    # classifier(extract)
 
 
 if __name__ == "__main__":
