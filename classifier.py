@@ -20,6 +20,7 @@ from cPickle import load
 import parser
 import extractor
 from os import listdir
+from decimal import Decimal
 
 def getUserInput():
     optionparser = OptionParser()
@@ -65,11 +66,11 @@ def featureExtractor(app):
 
     featDict['price'] = getAppPrice(app)
     # featList['numrev'] = getNumReviews(app)
-    featDict['1starrating'] = getOneStarRating(app)
-    featDict['2starrating'] = getTwoStarRating(app)
-    featDict['3starRating'] = getThreeStarRating(app)
-    featDict['4starRating'] = getFourStarRating(app)
-    featDict['5starRating'] = getFiveStarRating(app)
+    # featDict['1starrating'] = getOneStarRating(app)
+    # featDict['2starrating'] = getTwoStarRating(app)
+    # featDict['3starRating'] = getThreeStarRating(app)
+    # featDict['4starRating'] = getFourStarRating(app)
+    # featDict['5starRating'] = getFiveStarRating(app)
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
     # # featDict['revSent'] = getReviewSentiment(app, cl)
@@ -81,7 +82,11 @@ def featureExtractor(app):
 
 
 def getInstallRange(app):
-    return app['install']
+    installs = app['install'].split(' - ')
+    avginstalls = (int(installs[0].replace(',', '')) + int(installs[1].replace(',', ''))) / 2.0
+
+    return round(Decimal(avginstalls), 2) # I just need
+
 
 def getDeveloperEmailState(app):
     """Implement a domain lookup to see if email domain is 'safe'
@@ -110,7 +115,7 @@ def getAverageRating(app):
     for rating in app['rating']:
         total = total + (int(rating[0].strip()) * int(rating[1]))
         count = count + int(rating[1])
-    return total/float(count)
+    return round(Decimal(total/float(count)), 3)
 
 def getOneStarRating(app):
     for appRatingCount in app['rating']:
