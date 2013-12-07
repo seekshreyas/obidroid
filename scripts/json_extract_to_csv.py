@@ -1,15 +1,31 @@
 #json extract to csv
 import json
 import csv
+import os
+os.chdir("../exports")
+files=[f for f in os.listdir(os.getcwd()) if "_all.json" in f]
 
+json_export=[]
 #Get extracted JSON data
-with open("../exports/alldata.json","r") as f:
-	json_export=json.load(f)
+for jsonfile in files:
+	with open("../exports/"+jsonfile,"r") as f:
+		print jsonfile
+		try:
+			json_data=json.load(f)
+			if type(json_data)==dict:
+
+				json_export.append(json_data)
+			else:
+				json_export+=json_data
+		except:
+			print jsonfile+ " did not load"
+	print str(len(json_export))+" apps added"
+
 
 # print json_export[0]["name"]
 
 #Get subset for to test process - disable later
-json_export=json_export[:10]
+# json_export=json_export[:10]
 # print json_export[0].keys()
 
 def average_rating(rating_list):
@@ -26,7 +42,7 @@ def average_rating(rating_list):
 
 
 
-with open("../apps_to_label_(csv)/allapps.csv","wb") as csvfile:
+with open("../applabel/allapps.csv","wb") as csvfile:
 	writeObj=csv.writer(csvfile)
 	
 	#write header row to file
