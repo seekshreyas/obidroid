@@ -58,9 +58,9 @@ def featureAggregator(extract):
 def featureExtractor(app):
     featDict = {}
 
-    fObj = open('mySentClassifier.pickle')
-    cl = load(fObj)
-    fObj.close()
+    # fObj = open('mySentClassifier.pickle')
+    # cl = load(fObj)
+    # fObj.close()
 
 
     featDict['price'] = getAppPrice(app)
@@ -72,7 +72,7 @@ def featureExtractor(app):
     featDict['5starRating'] = getFiveStarRating(app)
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
-    featDict['revSent'] = getReviewSentiment(app, cl)
+    # # featDict['revSent'] = getReviewSentiment(app, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
     featDict['installRange'] = getInstallRange(app)
