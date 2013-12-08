@@ -6,12 +6,17 @@ Clustering
 ==========
 Cluster the data after extracting features from them
 """
-
+from __future__ import division
 from optparse import OptionParser
 from pprint import pprint
 from classifier import getAnalysisData
 import numpy as np
 from sklearn.cluster import DBSCAN
+import matplotlib.pyplot as mpl
+from scipy.spatial import distance
+from nltk import cluster
+from nltk.cluster import util
+from nltk.cluster import api
 
 
 def getUserInput():
@@ -73,7 +78,39 @@ def buildColumnData(data):
     n_revlength       = np.array(revlength  )
     n_label           = np.array(label      )
 
-    pprint(n_hasPrivacy)
+    # pprint(n_hasPrivacy)
+    return {
+        'avgrating'      : avgrating,
+        'hasDevEmail'    : hasDevEmail,
+        'hasDevWeb'      : hasDevWeb,
+        'hasPrivacy'     : hasPrivacy,
+        'install'        : install,
+        'price'          : price,
+        'revlength'      : revlength,
+        'label'          : label,
+    }
+
+
+
+
+def clusterer(data):
+    pprint(data)
+
+
+    clusterer = cluster.GAAClusterer(num_clusters=4)
+
+    vectors = []
+    for row in data:
+        for k, v in data[0][0].iteritems():
+            vectors.append(np.array(v))
+
+    clusters = clusterer.cluster(vectors, True)
+
+    print 'Clusterer:', clusterer
+    print 'Clustered:', vectors
+    print 'As:', clusters
+    clusterer.dendrogram().show()
+
 
 
 def main():
@@ -81,7 +118,9 @@ def main():
 
     data = getAnalysisData(userinput)
 
-    datacol = buildColumnData(data)
+    dataframe = buildColumnData(data)
+
+    clusterer(dataframe)
 
 
 
