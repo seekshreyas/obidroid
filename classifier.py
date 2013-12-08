@@ -62,13 +62,13 @@ def featureAggregator(extract):
 def featureExtractor(app):
     featDict = {}
 
-    fObj = open('mySentClassifier.pickle')
-    cl = load(fObj)
-    fObj.close()
+    # fObj = open('mySentClassifier.pickle')
+    # cl = load(fObj)
+    # fObj.close()
 
 
     featDict['price'] = getAppPrice(app)
-    featDict['numrev'] = getNumReviews(app)
+    featDict['revlength'] = getReviewLength(app)
     # featDict['1starrating'] = getOneStarRating(app)
     # featDict['2starrating'] = getTwoStarRating(app)
     # featDict['3starRating'] = getThreeStarRating(app)
@@ -76,7 +76,7 @@ def featureExtractor(app):
     # featDict['5starRating'] = getFiveStarRating(app)
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
-    featDict['revSent'] = getReviewSentiment(app, cl)
+    # featDict['revSent'] = getReviewSentiment(app, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
     featDict['installRange'] = getInstallRange(app)
@@ -110,8 +110,16 @@ def getDeveloperWebsiteState(app):
 def getAppPrice(app):
     return app['price']
 
-def getNumReviews(app):
-    return len(app['reviews'])
+
+def getReviewLength(app):
+    revLength = 0
+    for rev in app['reviews']:
+        sentList = nltk.tokenize.sent_tokenize(rev[1])
+
+        revLength += len(sentList)
+    return revLength
+
+
 
 def getAverageRating(app):
     total = 0; count = 0
@@ -184,8 +192,8 @@ def getReviewSentiment(app, classifier):
             sentAggSentiment += label
 
         revAggSentiment += sentAggSentiment
-        print "review Sentiment: ", revAggSentiment
 
+    print "review Sentiment: ", revAggSentiment
     return revAggSentiment
 
 
