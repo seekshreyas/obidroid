@@ -21,6 +21,9 @@ import parser
 import extractor
 from os import listdir
 from decimal import Decimal
+from collections import OrderedDict
+# from nltk.classify import apply_features
+from sklearn.naive_bayes import GaussianNB
 
 def getUserInput():
     optionparser = OptionParser()
@@ -59,13 +62,13 @@ def featureAggregator(extract):
 def featureExtractor(app):
     featDict = {}
 
-    # fObj = open('mySentClassifier.pickle')
-    # cl = load(fObj)
-    # fObj.close()
+    fObj = open('mySentClassifier.pickle')
+    cl = load(fObj)
+    fObj.close()
 
 
     featDict['price'] = getAppPrice(app)
-    # featList['numrev'] = getNumReviews(app)
+    featDict['numrev'] = getNumReviews(app)
     # featDict['1starrating'] = getOneStarRating(app)
     # featDict['2starrating'] = getTwoStarRating(app)
     # featDict['3starRating'] = getThreeStarRating(app)
@@ -73,7 +76,7 @@ def featureExtractor(app):
     # featDict['5starRating'] = getFiveStarRating(app)
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
-    # # featDict['revSent'] = getReviewSentiment(app, cl)
+    featDict['revSent'] = getReviewSentiment(app, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
     featDict['installRange'] = getInstallRange(app)
@@ -188,50 +191,75 @@ def getReviewSentiment(app, classifier):
 
 
 
-def classifier(extract, fold=10):
+def classifier(data, fold=4):
 
     # labeldata = 'fair'
 
-    # data = []
-    # for app in extract:
-    #     for rev in app['reviews']:
-    #         revlower = rev[1].lower()
+    data_reformed = []
+    for d in data:
+        # label = d[0]
+        # predictors = []
+        # feat = OrderedDict(sorted(d[1].items()))
 
-    #         # print "reviews" , revlower
-    #         if revlower.find('fake') != -1:
-    #             labeldata = 'unfair'
 
-    #     features = featureExtractor(app)
+        # for key in feat:
+        #     predictors.append(feat[key])
 
-    #     data.append([labeldata, list(features.values())])
 
-    pass
-    # pprint(data)
+        data_reformed.append([d[1], d[0]])
 
-    # for d in data:
-    #     if d[1][1] == False:
-    #         pprint(d)
 
-    # random.shuffle(data)
+    # pass
 
-    # claccuracy = []
-    # size = int(math.floor(len(data) / 10.0))
 
-    # for i in range(fold):
-    #     test_this_round = data[i*size:][:size]
-    #     train_this_round = data[:i*size] + data[(i+1)*size:]
 
-    #     acc = myclassifier(train_this_round, test_this_round)
 
-    #     claccuracy.append(acc)
+    random.shuffle(data_reformed)
+    pprint(data_reformed)
+
+    claccuracy = []
+    size = int(math.floor(len(data_reformed) / 10.0))
+
+    for i in range(fold):
+        test_this_round = data_reformed[i*size:][:size]
+        train_this_round = data_reformed[:i*size] + data_reformed[(i+1)*size:]
+
+        acc = myclassifier(train_this_round, test_this_round)
+
+        claccuracy.append(acc)
+
+
+    pprint(claccuracy)
+
+
+
 
 
 
 def myclassifier(train_data, test_data):
+    print "Train Data"
+    print "=" * 79
+    print len(train_data)
+    pprint(train_data[0])
+
+
+    print "Test Data"
+    print "=" * 79
+    print len(test_data)
+    pprint(test_data[0])
+
+
+
+
     classifier = nltk.NaiveBayesClassifier.train(train_data)
+    # gnb = GaussianNB()
+    # y_pred = gnb.fit(train_data).predict(test_data)
 
 
     # print classifier.show_most_informative_features()
+
+    for app in test_data:
+        print app[0], classifier.classify(app[0])
     return nltk.classify.accuracy(classifier, test_data)
 
 
@@ -260,13 +288,13 @@ def main():
                     data.append(['unfair', apps])
             else:
                 for apps in features:
-                    data.append(['unfair', apps])
+                    data.append(['fair', apps])
 
     # extract = fileExtractor(userinput['file'])
 
-    pprint(data)
+    # pprint(data)
     # features = featureAggregator(extract)
-    # classifier(extract)
+    classifier(data)
 
 
 if __name__ == "__main__":
