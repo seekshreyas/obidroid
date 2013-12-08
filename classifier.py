@@ -23,7 +23,7 @@ from os import listdir
 from decimal import Decimal
 from collections import OrderedDict
 # from nltk.classify import apply_features
-from sklearn.naive_bayes import GaussianNB
+
 
 def getUserInput():
     optionparser = OptionParser()
@@ -201,36 +201,26 @@ def getReviewSentiment(app, classifier):
 
 def classifier(data, fold=4):
 
-    # labeldata = 'fair'
 
-    data_reformed = []
-    for d in data:
-        # label = d[0]
-        # predictors = []
-        # feat = OrderedDict(sorted(d[1].items()))
-
-
-        # for key in feat:
-        #     predictors.append(feat[key])
-
-
-        data_reformed.append([d[1], d[0]])
-
-
-    # pass
+    # data_reformed = []
+    # for d in data:
+    #     data_reformed.append([d[1], d[0]])
 
 
 
 
-    random.shuffle(data_reformed)
-    pprint(data_reformed)
+
+
+
+    random.shuffle(data)
+    pprint(data)
 
     claccuracy = []
-    size = int(math.floor(len(data_reformed) / 10.0))
+    size = int(math.floor(len(data) / 10.0))
 
     for i in range(fold):
-        test_this_round = data_reformed[i*size:][:size]
-        train_this_round = data_reformed[:i*size] + data_reformed[(i+1)*size:]
+        test_this_round = data[i*size:][:size]
+        train_this_round = data[:i*size] + data[(i+1)*size:]
 
         acc = myclassifier(train_this_round, test_this_round)
 
@@ -264,14 +254,35 @@ def myclassifier(train_data, test_data):
     # y_pred = gnb.fit(train_data).predict(test_data)
 
 
-    # print classifier.show_most_informative_features()
+    print classifier.show_most_informative_features()
 
-    for app in test_data:
-        print app[0], classifier.classify(app[0])
+    # for app in test_data:
+    #     print app[0], classifier.classify(app[0])
     return nltk.classify.accuracy(classifier, test_data)
 
 
 
+
+
+def getAnalysisData(uinput):
+    data = []
+    for f in listdir(uinput['dir']):
+        fname = f.split('_')
+
+        if fname[-1] == 'all.json':
+            print uinput['dir'] + f
+            fdata = fileExtractor(uinput['dir'] + f)
+            features = featureAggregator(fdata)
+
+            if fname[0] == 'malapps':
+                for apps in features:
+                    data.append([apps, 'unfair'])
+            else:
+                for apps in features:
+                    data.append([apps, 'fair'])
+
+
+    return data
 
 
 
@@ -280,23 +291,10 @@ def myclassifier(train_data, test_data):
 
 def main():
     userinput = getUserInput()
-    print userinput
+    data = getAnalysisData(userinput)
 
-    data = []
-    for f in listdir(userinput['dir']):
-        fname = f.split('_')
 
-        if fname[-1] == 'all.json':
-            print userinput['dir'] + f
-            fdata = fileExtractor(userinput['dir'] + f)
-            features = featureAggregator(fdata)
 
-            if fname[0] == 'malapps':
-                for apps in features:
-                    data.append(['unfair', apps])
-            else:
-                for apps in features:
-                    data.append(['fair', apps])
 
     # extract = fileExtractor(userinput['file'])
 
