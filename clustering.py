@@ -32,12 +32,48 @@ def getUserInput():
 
 
 def buildColumnData(data):
+    """
+        [{'avgRating': 4.051,
+      'hasDeveloperEmail': True,
+      'hasDeveloperWebsite': True,
+      'hasPrivacy': True,
+      'installRange': 30000000.0,
+      'price': 0.0,
+      'revlength': 10},
+     'fair']
+    """
+
+    avgrating       = []
+    hasDevEmail     = []
+    hasDevWeb       = []
+    hasPrivacy      = []
+    install         = []
+    price           = []
+    revlength       = []
+    label           = []
 
     for row in data:
-        for fkey in row[1]:
-            print row[1][fkey]
+        avgrating.append(row[0]['avgRating'])
+        install.append(row[0]['installRange'])
+        price.append(row[0]['price'])
+        revlength.append(row[0]['revlength'])
 
+        hasDevEmail.append(bool(row[0]['hasDeveloperEmail']))
+        hasDevWeb.append(bool(row[0]['hasDeveloperWebsite']))
+        hasPrivacy.append(bool(row[0]['hasPrivacy']))
 
+        label.append(row[1])
+
+    n_avgrating       = np.array(avgrating  )
+    n_hasDevEmail     = np.array(hasDevEmail,   dtype="bool" )
+    n_hasDevWeb       = np.array(hasDevWeb,     dtype="bool" )
+    n_hasPrivacy      = np.array(hasPrivacy,    dtype="bool" )
+    n_install         = np.array(install    )
+    n_price           = np.array(price      )
+    n_revlength       = np.array(revlength  )
+    n_label           = np.array(label      )
+
+    pprint(n_hasPrivacy)
 
 
 def main():
