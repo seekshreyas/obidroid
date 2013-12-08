@@ -20,6 +20,10 @@ from cPickle import load
 import parser
 import extractor
 from os import listdir
+from decimal import Decimal
+from collections import OrderedDict
+# from nltk.classify import apply_features
+
 
 def getUserInput():
     optionparser = OptionParser()
@@ -58,21 +62,21 @@ def featureAggregator(extract):
 def featureExtractor(app):
     featDict = {}
 
-    fObj = open('mySentClassifier.pickle')
-    cl = load(fObj)
-    fObj.close()
+    # fObj = open('mySentClassifier.pickle')
+    # cl = load(fObj)
+    # fObj.close()
 
 
     featDict['price'] = getAppPrice(app)
-    # featList['numrev'] = getNumReviews(app)
-    featDict['1starrating'] = getOneStarRating(app)
-    featDict['2starrating'] = getTwoStarRating(app)
-    featDict['3starRating'] = getThreeStarRating(app)
-    featDict['4starRating'] = getFourStarRating(app)
-    featDict['5starRating'] = getFiveStarRating(app)
+    featDict['revlength'] = getReviewLength(app)
+    # featDict['1starrating'] = getOneStarRating(app)
+    # featDict['2starrating'] = getTwoStarRating(app)
+    # featDict['3starRating'] = getThreeStarRating(app)
+    # featDict['4starRating'] = getFourStarRating(app)
+    # featDict['5starRating'] = getFiveStarRating(app)
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
-    featDict['revSent'] = getReviewSentiment(app, cl)
+    # featDict['revSent'] = getReviewSentiment(app, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
     featDict['installRange'] = getInstallRange(app)
@@ -81,7 +85,11 @@ def featureExtractor(app):
 
 
 def getInstallRange(app):
-    return app['install']
+    installs = app['install'].split(' - ')
+    avginstalls = (int(installs[0].replace(',', '')) + int(installs[1].replace(',', ''))) / 2.0
+
+    return round(Decimal(avginstalls), 2) # I just need
+
 
 def getDeveloperEmailState(app):
     """Implement a domain lookup to see if email domain is 'safe'
@@ -102,15 +110,23 @@ def getDeveloperWebsiteState(app):
 def getAppPrice(app):
     return app['price']
 
-def getNumReviews(app):
-    return len(app['reviews'])
+
+def getReviewLength(app):
+    revLength = 0
+    for rev in app['reviews']:
+        sentList = nltk.tokenize.sent_tokenize(rev[1])
+
+        revLength += len(sentList)
+    return revLength
+
+
 
 def getAverageRating(app):
     total = 0; count = 0
     for rating in app['rating']:
         total = total + (int(rating[0].strip()) * int(rating[1]))
         count = count + int(rating[1])
-    return total/float(count)
+    return round(Decimal(total/float(count)), 3)
 
 def getOneStarRating(app):
     for appRatingCount in app['rating']:
@@ -176,61 +192,97 @@ def getReviewSentiment(app, classifier):
             sentAggSentiment += label
 
         revAggSentiment += sentAggSentiment
-        print "review Sentiment: ", revAggSentiment
 
+    print "review Sentiment: ", revAggSentiment
     return revAggSentiment
 
 
 
 
-def classifier(extract, fold=10):
+def classifier(data, fold=4):
 
-    # labeldata = 'fair'
 
-    # data = []
-    # for app in extract:
-    #     for rev in app['reviews']:
-    #         revlower = rev[1].lower()
-
-    #         # print "reviews" , revlower
-    #         if revlower.find('fake') != -1:
-    #             labeldata = 'unfair'
-
-    #     features = featureExtractor(app)
-
-    #     data.append([labeldata, list(features.values())])
-
-    pass
-    # pprint(data)
-
+    # data_reformed = []
     # for d in data:
-    #     if d[1][1] == False:
-    #         pprint(d)
+    #     data_reformed.append([d[1], d[0]])
 
-    # random.shuffle(data)
 
-    # claccuracy = []
-    # size = int(math.floor(len(data) / 10.0))
 
-    # for i in range(fold):
-    #     test_this_round = data[i*size:][:size]
-    #     train_this_round = data[:i*size] + data[(i+1)*size:]
 
-    #     acc = myclassifier(train_this_round, test_this_round)
 
-    #     claccuracy.append(acc)
+
+
+    random.shuffle(data)
+    pprint(data)
+
+    claccuracy = []
+    size = int(math.floor(len(data) / 10.0))
+
+    for i in range(fold):
+        test_this_round = data[i*size:][:size]
+        train_this_round = data[:i*size] + data[(i+1)*size:]
+
+        acc = myclassifier(train_this_round, test_this_round)
+
+        claccuracy.append(acc)
+
+
+    pprint(claccuracy)
+
+
+
 
 
 
 def myclassifier(train_data, test_data):
+    print "Train Data"
+    print "=" * 79
+    print len(train_data)
+    pprint(train_data[0])
+
+
+    print "Test Data"
+    print "=" * 79
+    print len(test_data)
+    pprint(test_data[0])
+
+
+
+
     classifier = nltk.NaiveBayesClassifier.train(train_data)
+    # gnb = GaussianNB()
+    # y_pred = gnb.fit(train_data).predict(test_data)
 
 
-    # print classifier.show_most_informative_features()
+    print classifier.show_most_informative_features()
+
+    # for app in test_data:
+    #     print app[0], classifier.classify(app[0])
     return nltk.classify.accuracy(classifier, test_data)
 
 
 
+
+
+def getAnalysisData(uinput):
+    data = []
+    for f in listdir(uinput['dir']):
+        fname = f.split('_')
+
+        if fname[-1] == 'all.json':
+            print uinput['dir'] + f
+            fdata = fileExtractor(uinput['dir'] + f)
+            features = featureAggregator(fdata)
+
+            if fname[0] == 'malapps':
+                for apps in features:
+                    data.append([apps, 'unfair'])
+            else:
+                for apps in features:
+                    data.append([apps, 'fair'])
+
+
+    return data
 
 
 
@@ -239,29 +291,16 @@ def myclassifier(train_data, test_data):
 
 def main():
     userinput = getUserInput()
-    print userinput
+    data = getAnalysisData(userinput)
 
-    data = []
-    for f in listdir(userinput['dir']):
-        fname = f.split('_')
 
-        if fname[-1] == 'all.json':
-            print userinput['dir'] + f
-            fdata = fileExtractor(userinput['dir'] + f)
-            features = featureAggregator(fdata)
 
-            if fname[0] == 'malapps':
-                for apps in features:
-                    data.append(['unfair', apps])
-            else:
-                for apps in features:
-                    data.append(['unfair', apps])
 
     # extract = fileExtractor(userinput['file'])
 
-    pprint(data)
+    # pprint(data)
     # features = featureAggregator(extract)
-    # classifier(extract)
+    classifier(data)
 
 
 if __name__ == "__main__":
