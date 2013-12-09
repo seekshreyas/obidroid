@@ -101,7 +101,7 @@ def featureExtractor(app):
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
     featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
     featDict['installRange'] = getInstallRange(app)
-    featDict['exclamationCount'] = getExclamationCount(app)
+    # featDict['exclamationCount'] = getExclamationCount(app)
     # featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
 
     return featDict

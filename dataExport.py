@@ -38,7 +38,7 @@ def export(data):
     labels = []
 
     appFeaturesFileObj = open('appFeatures.csv', 'wb')
-    wr = csv.writer(appFeaturesFileObj, quoting=csv.QUOTE_ALL)
+    wr = csv.writer(appFeaturesFileObj)
 
     counter = 0
     for row in data:
@@ -58,6 +58,8 @@ def export(data):
 
             if k == 'hasPrivacy' or k == 'hasDeveloperEmail' or k == 'hasDeveloperWebsite' or k == 'hasMultipleApps':
                 v = int(bool(v))
+            else:
+                v = float(v)
             rowval.append(v)
 
         if counter == 0:
