@@ -76,14 +76,14 @@ def posReviewsBySentence(tokenizedReviews):
 
 def featureExtractor(app):
     featDict = {}
-    # tokenizedReviews = tokenizeReviewsBySentence(app['reviews'])
-    # posReviews = posReviewsBySentence(tokenizedReviews)
+    tokenizedReviews = tokenizeReviewsBySentence(app['reviews'])
+    posReviews = posReviewsBySentence(tokenizedReviews)
 
 
 
-    # fObj = open('mySentClassifier.pickle')
-    # cl = load(fObj)
-    # fObj.close()
+    fObj = open('mySentClassifier.pickle')
+    cl = load(fObj)
+    fObj.close()
 
 
 
@@ -96,10 +96,10 @@ def featureExtractor(app):
     # featDict['5starRating'] = getFiveStarRating(app)
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
-    # featDict['revSent'] = getReviewSentiment(tokenizedReviews, cl)
+    featDict['revSent'] = getReviewSentiment(tokenizedReviews, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
-    featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
+    # featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
     featDict['installRange'] = getInstallRange(app)
     # featDict['exclamationCount'] = getExclamationCount(app)
     # featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
