@@ -1,6 +1,5 @@
 #! /usr/bin/env python
 # -*- coding: UTF-8 -*-
-
 """
 Classifier
 ==========
@@ -22,6 +21,8 @@ import extractor
 from os import listdir
 from decimal import Decimal
 from collections import OrderedDict
+from collections import Counter
+import pdb
 # from nltk.classify import apply_features
 
 
@@ -58,16 +59,32 @@ def featureAggregator(extract):
 
     return outputdata
 
+def tokenizeReviewsBySentence(reviews):
+    rev_tokenized = list()
+    for rev in reviews:
+        rev_tokenized.append(nltk.tokenize.sent_tokenize(rev[1]))
+    return rev_tokenized
+
+def posReviewsBySentence(tokenizedReviews):
+    pos_sents = list()
+    for review in tokenizedReviews:
+        for sent in review:
+            pos_sents.append(nltk.pos_tag(nltk.word_tokenize(sent)))
+    return pos_sents
 
 
 
 def featureExtractor(app):
     featDict = {}
+    tokenizedReviews = tokenizeReviewsBySentence(app['reviews'])
+    posReviews = posReviewsBySentence(tokenizedReviews)
+
 
 
     # fObj = open('mySentClassifier.pickle')
     # cl = load(fObj)
     # fObj.close()
+
 
 
     featDict['price'] = getAppPrice(app)
@@ -79,13 +96,33 @@ def featureExtractor(app):
     # featDict['5starRating'] = getFiveStarRating(app)
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
-    # featDict['revSent'] = getReviewSentiment(app, cl)
+    # featDict['revSent'] = getReviewSentiment(tokenizedReviews, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
+    featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
     featDict['installRange'] = getInstallRange(app)
+    featDict['exclamationCount'] = getExclamationCount(app)
+    featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
 
     return featDict
 
+def getAdjectiveCount(pos_revs):
+    adj_counter = 0
+    #pdb.set_trace()
+    for pos_sent in pos_revs:
+        adj_counter += Counter(tag for word, tag in pos_sent)['JJ']
+
+def getExclamationCount(app):
+    exclaimCount = 0
+    for rev in app['reviews']:
+        exclaimCount += rev.count('!')
+    return exclaimCount
+
+def getDeveloperHasMultipleApps(app):
+    if app['moreFromDev'] == 'None':
+        return False
+    else:
+        return True
 
 def getInstallRange(app):
     installs = app['install'].split(' - ')
@@ -116,13 +153,13 @@ def getAppPrice(app):
 
 def getReviewLength(app):
     revLength = 0
+    #pdb.set_trace()
+
     for rev in app['reviews']:
-        sentList = nltk.tokenize.sent_tokenize(rev[1])
+        #sentList = nltk.tokenize.sent_tokenize(rev[1])
 
-        revLength += len(sentList)
+        revLength += len(rev[1])
     return revLength
-
-
 
 def getAverageRating(app):
     total = 0; count = 0
@@ -160,29 +197,30 @@ def getFiveStarRating(app):
             return appRatingCount[1]
 
 
-
 def getPrivacyState(app):
+    """Implement a domain lookup to see if url is functional.
+    """
     if app['devprivacyurl'] == 'N.A.':
         return False
     else:
         return True
 
 
-
-def getReviewSentiment(app, classifier):
+def getReviewSentiment(tknRevs, classifier):
     revAggSentiment = 0
-    for rev in app['reviews']:
-        sentList = nltk.tokenize.sent_tokenize(rev[1])
+
+    for revList in tknRevs:
 
         sentAggSentiment = 0
 
-        for sent in sentList:
+        for sent in revList:
 
             sent = unicode(sent.strip())
             # print sent
             featdata = extractor.featureExtractor(sent)
 
             # pprint(featdata)
+            #pdb.set_trace()
             cl= classifier.classify(featdata)
 
             if cl == 'pos':
@@ -215,7 +253,7 @@ def classifier(data, fold=4):
     for i in range(fold):
         test_this_round = data[i*size:][:size]
         train_this_round = data[:i*size] + data[(i+1)*size:]
-
+        #pdb.set_trace()
         acc = myclassifier(train_this_round, test_this_round)
 
         claccuracy.append(acc)
