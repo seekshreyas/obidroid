@@ -76,8 +76,8 @@ def posReviewsBySentence(tokenizedReviews):
 
 def featureExtractor(app):
     featDict = {}
-    tokenizedReviews = tokenizeReviewsBySentence(app['reviews'])
-    posReviews = posReviewsBySentence(tokenizedReviews)
+    # tokenizedReviews = tokenizeReviewsBySentence(app['reviews'])
+    # posReviews = posReviewsBySentence(tokenizedReviews)
 
 
 
@@ -102,7 +102,7 @@ def featureExtractor(app):
     featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
     featDict['installRange'] = getInstallRange(app)
     featDict['exclamationCount'] = getExclamationCount(app)
-    featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
+    # featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
 
     return featDict
 
