@@ -59,8 +59,11 @@ def featureAggregator(extract):
     return outputdata
 
 
+
+
 def featureExtractor(app):
     featDict = {}
+
 
     # fObj = open('mySentClassifier.pickle')
     # cl = load(fObj)
