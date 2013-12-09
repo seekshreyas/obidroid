@@ -237,15 +237,6 @@ def getReviewSentiment(tknRevs, classifier):
 def classifier(data, fold=4):
 
 
-    # data_reformed = []
-    # for d in data:
-    #     data_reformed.append([d[1], d[0]])
-
-
-
-
-
-
 
     random.shuffle(data)
     pprint(data)

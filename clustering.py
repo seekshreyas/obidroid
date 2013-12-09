@@ -10,13 +10,8 @@ from __future__ import division
 from optparse import OptionParser
 from pprint import pprint
 from classifier import getAnalysisData
-import numpy as np
-from sklearn.cluster import DBSCAN
-import matplotlib.pyplot as mpl
-from scipy.spatial import distance
 from nltk import cluster
-from nltk.cluster import util
-from nltk.cluster import api
+import numpy as np
 
 
 def getUserInput():
@@ -24,6 +19,7 @@ def getUserInput():
 
 
     optionparser.add_option('-d', '--dir', dest='directory')
+    optionparser.add_option('-c', '--cluster', dest='cluster', default="GAAC")
 
 
     (option, args) = optionparser.parse_args()
@@ -31,85 +27,61 @@ def getUserInput():
     if not option.directory:
         return optionparser.error('html file input not provided.\n Usage: --url="path.to.appurl"')
 
-    return { 'dir' : option.directory }
+    return { 'dir' : option.directory, 'cl' : option.cluster }
 
 
 
 
-def buildColumnData(data):
-    """
-        [{'avgRating': 4.051,
-      'hasDeveloperEmail': True,
-      'hasDeveloperWebsite': True,
-      'hasPrivacy': True,
-      'installRange': 30000000.0,
-      'price': 0.0,
-      'revlength': 10},
-     'fair']
-    """
-
-    avgrating       = []
-    hasDevEmail     = []
-    hasDevWeb       = []
-    hasPrivacy      = []
-    install         = []
-    price           = []
-    revlength       = []
-    label           = []
-
-    for row in data:
-        avgrating.append(row[0]['avgRating'])
-        install.append(row[0]['installRange'])
-        price.append(row[0]['price'])
-        revlength.append(row[0]['revlength'])
-
-        hasDevEmail.append(bool(row[0]['hasDeveloperEmail']))
-        hasDevWeb.append(bool(row[0]['hasDeveloperWebsite']))
-        hasPrivacy.append(bool(row[0]['hasPrivacy']))
-
-        label.append(row[1])
-
-    n_avgrating       = np.array(avgrating  )
-    n_hasDevEmail     = np.array(hasDevEmail,   dtype="bool" )
-    n_hasDevWeb       = np.array(hasDevWeb,     dtype="bool" )
-    n_hasPrivacy      = np.array(hasPrivacy,    dtype="bool" )
-    n_install         = np.array(install    )
-    n_price           = np.array(price      )
-    n_revlength       = np.array(revlength  )
-    n_label           = np.array(label      )
-
-    # pprint(n_hasPrivacy)
-    return {
-        'avgrating'      : avgrating,
-        'hasDevEmail'    : hasDevEmail,
-        'hasDevWeb'      : hasDevWeb,
-        'hasPrivacy'     : hasPrivacy,
-        'install'        : install,
-        'price'          : price,
-        'revlength'      : revlength,
-        'label'          : label,
-    }
 
 
-
-
-def clusterer(data):
-    pprint(data)
-
-
-    clusterer = cluster.GAAClusterer(num_clusters=4)
+def createCluster(data, cltype):
+    # pprint(data)
 
     vectors = []
+
     for row in data:
-        for k, v in data[0][0].iteritems():
-            vectors.append(np.array(v))
+        rowval = []
+        for k,v in row[0].iteritems():
 
-    clusters = clusterer.cluster(vectors, True)
+            if k == 'hasPrivacy' or k == 'hasDeveloperEmail' or k == 'hasDeveloperWebsite':
+                v = bool(v)
 
-    print 'Clusterer:', clusterer
-    print 'Clustered:', vectors
-    print 'As:', clusters
-    clusterer.dendrogram().show()
+            rowval.append(v)
+
+        vectors.append(np.array(rowval))
+
+    pprint(vectors)
+
+    means = [vectors[20].tolist(), vectors[21].tolist()]
+
+    if cltype == 'GAAC':
+        clusterer = cluster.GAAClusterer(num_clusters=4)
+        clusters = clusterer.cluster(vectors, True)
+        clusterer.dendrogram().show()
+    elif cltype == 'kmeans':
+        clusterer = cluster.EMClusterer(initial_means=means)
+        clusters = clusterer.cluster(vectors, assign_clusters=True, trace=False)
+
+        for c in range(2):
+            print 'Clustered:', vectors
+            print 'As:', clusters
+            print 'Cluster:', c
+            print 'Prior:  ', clusterer._priors[c]
+            print 'Mean:   ', clusterer._means[c]
+            print 'Covar:  ', clusterer._covariance_matrices[c]
+
+
+
+
+
+    # print 'Clusterer:', clusterer
+    # print 'Clustered:', vectors
+    # print 'As:', clusters
+
+
+
+
+
 
 
 
@@ -118,9 +90,8 @@ def main():
 
     data = getAnalysisData(userinput)
 
-    dataframe = buildColumnData(data)
+    createCluster(data, userinput['cl'])
 
-    clusterer(dataframe)
 
 
 
