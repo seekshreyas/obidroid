@@ -3,6 +3,7 @@
 # ========================
 # code referred from: http://www.statmethods.net/advstats/cluster.html
 
+
 # load data
 appData <- read.csv("appFeatures.csv", header=TRUE)
 # data preparation
@@ -11,7 +12,6 @@ appData <- scale(appData) # standardize variables
 attach(appData)
 head(appData)
 summary(appData)
-
 
 
 # Data Inspection
