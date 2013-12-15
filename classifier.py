@@ -99,10 +99,10 @@ def featureExtractor(app):
     featDict['revSent'] = getReviewSentiment(tokenizedReviews, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
-    # featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
+    featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
     featDict['installRange'] = getInstallRange(app)
-    # featDict['exclamationCount'] = getExclamationCount(app)
-    # featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
+    featDict['exclamationCount'] = getExclamationCount(app)
+    featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
 
     return featDict
 

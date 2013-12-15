@@ -396,22 +396,30 @@ def main():
         allRevs = []
         fileProcessed = 0
         for line in fileTxt:
-            # print "line: ", line
-            features = getAppFeatures(line)
-            allRows.append(features)
             fileProcessed += 1
-            print "Finished processing %d / %d app urls" % (fileProcessed, len(fileTxt))
+            # Only read lines that do not start with # so we can comment
+            # apps whose urls have been taken down
+            if line.startswith('#'):
+                print "Skipping %d app" % (fileProcessed)
+            else:
+                features = getAppFeatures(line)
+                allRows.append(features)
 
-            time.sleep(relaxtime) ## pause for next request
+                time.sleep(relaxtime) ## pause for next request
 
 
-            revfeatures = {}
-            revfeatures['appId']        = features['id']
-            revfeatures['reviews']      = features['reviews']
-            revfeatures['moreFromDev']  = features['moreFromDev']
-            revfeatures['similar']      = features['similar']
+                revfeatures = {}
+                revfeatures['appId']        = features['id']
+                revfeatures['reviews']      = features['reviews']
+                revfeatures['moreFromDev']  = features['moreFromDev']
+                revfeatures['similar']      = features['similar']
 
-            allRevs.append(revfeatures)
+                allRevs.append(revfeatures)
+
+                print "Finished processing %d / %d app urls" % (fileProcessed, len(fileTxt))
+
+
+
 
 
         with open(exportFileAll, 'w+') as fp:

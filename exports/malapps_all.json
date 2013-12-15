@@ -34,20 +34,20 @@
                 8
             ],
             [
-                " 5 ",
-                31
-            ],
-            [
                 " 2 ",
                 4
+            ],
+            [
+                " 1 ",
+                26
             ],
             [
                 " 4 ",
                 10
             ],
             [
-                " 1 ",
-                26
+                " 5 ",
+                32
             ]
         ],
         "reviews": [
@@ -83,20 +83,20 @@
             "com.boredominnovations.physicspuzzles",
             "com.azerbo.robotmania",
             "com.alaskajim.physics",
+            "com.systematik.virate",
             "com.gamesweplay.TinyRobot",
             "de.twowgames.xphysics.free",
-            "com.nps.game.bluphys",
             "uk.org.livingphysics.app.livingphysics_demo",
             "com.plasmaworks.robotfootball",
             "com.kloonigames.crayon",
             "com.overflowstudio.gravitysheep.free",
             "kr.co.infraware.blockit.oversea",
             "com.tk.robotspacedogbenjitalking.cat",
-            "com.yfyx.birdsZumbis",
+            "com.nps.game.bluphys",
             "com.donutgames.catphysics"
         ],
         "size": "28M",
-        "totalReviewers": 79,
+        "totalReviewers": 80,
         "version": "1.2.2"
     },
     {
@@ -112,7 +112,6 @@
         "moreFromDev": [
             "com.tengriprod.myfirstrace2",
             "com.tengriprod.ponyforkids",
-            "com.tengriprod.dancingrattleforbabies2",
             "com.tengriprod.myfirstorchestra2",
             "com.tengriprod.magicboxforbabies2",
             "com.tengriprod.catchjungleanimalsforkids",
@@ -160,6 +159,7 @@
             "com.tbabies.findachiken2",
             "com.tengri.babydiscoverfarmanimals",
             "com.tbabies.carousselforbabies",
+            "brainlimits.android.childgame",
             "com.tengri.catsandgameforbabies",
             "com.tengri.myfirstgamewithcats",
             "com.tengri.turtlecarnivalshooting",
@@ -170,10 +170,10 @@
             "com.tbabies.farmanimalsforbabies2",
             "com.dunkapps.android.babygame",
             "com.tengri.babieslovesjungleanimals",
+            "air.Jeuxeducatifs3",
             "com.tbabies.farmanimalshidden2",
             "com.tbabiesgames.farmanimalsandgamesforbabies",
             "tengri.com.catsbowlingforkids",
-            "com.tbabiesgame.funandcatsforbabies",
             "com.tengri.catsgamesforkids"
         ],
         "size": "16M",
@@ -189,7 +189,7 @@
         "devprivacyurl": "N.A.",
         "devurl": "http://www.beansprites.com&sa=D&usg=AFQjCNGiGJY7Ieu-OoB3-cRJ5UKsNFrAWg",
         "id": "com.beansprites.ERDoctorFREE",
-        "install": "5,000 - 10,000",
+        "install": "10,000 - 50,000",
         "moreFromDev": [
             "com.beansprites.halloweenpumpkinmaker",
             "com.beansprites.CelebrityIceCreamFREE",
@@ -197,13 +197,13 @@
             "com.beansprites.hiddenobjectsmysteriousgardens",
             "com.beansprites.dentistoffice",
             "com.beansprites.ambulancedoctorFREE",
-            "com.beansprites.nursesoffice",
+            "com.beansprites.christmasdoctordentist",
             "com.beansprites.hauntedmansions",
             "com.beansprites.hiddenobjectsgardens",
             "com.beansprites.doctorsofficeFREE",
             "com.beansprites.celebritydoctordentistFREE",
-            "com.beansprites.hiddenobjectsfantasy",
             "com.beansprites.hiddenobjectshauntedhousesFREE",
+            "com.beansprites.hiddenobjectschristmasmorning",
             "com.beansprites.celebritybabynurseFREE",
             "com.beansprites.nursesofficeFREE",
             "com.beansprites.babynurseFREE"
@@ -212,50 +212,50 @@
         "price": 0.0,
         "rating": [
             [
-                " 3 ",
-                0
-            ],
-            [
-                " 2 ",
-                2
-            ],
-            [
                 " 1 ",
-                13
-            ],
-            [
-                " 5 ",
-                19
+                113
             ],
             [
                 " 4 ",
-                1
+                27
+            ],
+            [
+                " 3 ",
+                20
+            ],
+            [
+                " 5 ",
+                131
+            ],
+            [
+                " 2 ",
+                17
             ]
         ],
         "reviews": [
             [
-                "Mad",
-                "  Its not working I deleted all my games if you fix it I'll.give you five stars "
+                "Worst game ever",
+                "  This game is so horrible. You have twith draw blood but the needle is locked. Don't download this game it is super stupid! Hate this game! People pls make better "
             ],
             [
                 "Terrible do not download",
                 "  YOU HAVE TO BUY LIKE EVERYTHING I WANT A GAME WERE YOU DONT HAVE TO BUY ANYTHING "
             ],
             [
+                "Mad",
+                "  Its not working I deleted all my games if you fix it I'll.give you five stars "
+            ],
+            [
                 "Ad pops up every 2 seconds",
                 "  The ads keep popping up. You can't even play the game. Most of the tools are locked. "
             ],
             [
-                "IF I SEE ONE MORE AD",
-                "  Way to many adds deleted and a waste of space "
+                "Don't install",
+                "  I hate this is the worst thing ever when you get to know it better than the first time "
             ],
             [
-                "So cool!!",
-                "  Very realistic I love the lab draws!! "
-            ],
-            [
-                "Frikin sucks !!!!",
-                "  Nobody get thist stupid app too many adds and u frikin have to buy the dumb tools beansprites u suck !!!!!! ):!!!!!!!!!* "
+                "It sux",
+                "  I play for the first time i was ask to buy the needle gay also 2 much adds sux sux "
             ]
         ],
         "screenCount": 15,
@@ -263,22 +263,22 @@
             "com.oas.doctorclinic",
             "com.fungames.doctor.story.kids",
             "com.fungames.baby.care.doctor.game",
-            "com.gss.little.doctor",
+            "com.g6677.android.mdoctor",
             "com.nuttyapps.pet.vet.doctor",
             "com.nuttyapps.doctors.office",
             "com.tabtale.doctorvampires",
             "com.tabtale.babiesplaydoctor",
             "com.g6677.android.cdoctor",
-            "com.nuttyapps.eye.doctor",
             "com.g6677.android.lpetvet",
             "com.fungames.santa.doctor.kids",
             "com.nuttyapps.baby.doctor",
+            "com.gss.little.doctor",
             "com.nuttyapps.doctors.hospital",
             "com.nuttyapps.celebrity.doctor",
             "com.tabtale.doctoroffice"
         ],
         "size": "23M",
-        "totalReviewers": 35,
+        "totalReviewers": 308,
         "version": "1.4"
     },
     {
@@ -293,7 +293,6 @@
         "install": "10,000 - 50,000",
         "moreFromDev": [
             "air.com.masterxbkc.comanche",
-            "air.com.mobtapp.Shoppa",
             "air.com.masterxbkc.webmin",
             "air.com.masterxbkc.slatedroid",
             "air.com.masterxbkc.lanparty",
@@ -356,15 +355,16 @@
         "similar": [
             "appinventor.ai_masterxbkc.slatedroid1",
             "appinventor.ai_brfields44.frys_electronics",
+            "com.v1_4.B07D8EA919279DBC5769B06D.com",
+            "com.islickapp.pro",
+            "appinventor.ai_freebies_freesamples_coupons.StoreCoupons",
             "com.andromo.dev14399.app252393",
+            "com.wWuzerSales",
             "com.eminencecs.ave",
-            "com.zoomingo",
             "appinventor.ai_brfields44.frys_tablet",
             "appinventor.ai_masterxbkc.LanpartyFinder",
             "com.appsnack.techbargains",
             "appinventor.ai_masterxbkc.Webmin",
-            "com.wBuyElectronicCigarette",
-            "micrometl.biz",
             "appinventor.ai_masterxbkc.militarytime",
             "appinventor.ai_masterxbkc.FurrTraxFull",
             "com.joyamobilesolutions.frysads",
@@ -397,24 +397,24 @@
         "price": 0.0,
         "rating": [
             [
-                " 3 ",
-                175
+                " 4 ",
+                164
+            ],
+            [
+                " 5 ",
+                602
+            ],
+            [
+                " 1 ",
+                2105
             ],
             [
                 " 2 ",
                 254
             ],
             [
-                " 5 ",
-                599
-            ],
-            [
-                " 1 ",
-                2104
-            ],
-            [
-                " 4 ",
-                162
+                " 3 ",
+                175
             ]
         ],
         "reviews": [
@@ -450,36 +450,36 @@
             "com.nextquizfun.wwequiz",
             "com.nbc.cnbc.pro.mobile",
             "com.nbcuni.universal.talkingted",
+            "com.sonypicturestelevision.wheeloffortune30",
             "com.nbc.cnbc.android.googletv",
             "com.alegrium.iconpopquiz",
-            "com.welovequiz.moviequiz",
+            "com.remmbermytitans.games.HarryPotterQuiz",
             "com.universalpictures.dm2widget",
+            "com.disney.mysingingmuppets.goo",
             "com.nbc.cnbc.android",
             "org.cnc.logiquiz",
             "com.nbcuni.universal.talkingted.full",
             "com.gloto.telemundo",
+            "appinventor.ai_producao6d.ShowdoMilhao",
             "com.blockdot.universal.truffulaShuffula",
             "com.usanetwork.watcher",
             "com.cnbc.client",
             "com.lorax",
             "de.dennowar",
-            "com.mrpdev.games.moviequiz",
-            "com.namethatplane",
             "com.nextquizfun.nflplayersquiz",
             "com.nbcuni.universal.tedlwp",
             "com.nbcsports.mobile.sportstalk",
+            "com.best.wallpapers.Horses",
             "com.pinoyquizz.dan",
             "com.junesoftware.logoquiz.ninja.free",
             "jp.colopl.enquizwiz",
             "com.crivline.musicGame",
             "air.com.nbcuni.com.nbcsports.liveextra",
             "com.junesoftware.LogoQuizNinjaGame",
-            "com.haumeasoft.quiz.onedirection",
-            "com.welovequiz.songquiz",
             "com.nbcuni.nbc"
         ],
         "size": "29M",
-        "totalReviewers": 3294,
+        "totalReviewers": 3300,
         "version": "2.2"
     },
     {
@@ -545,14 +545,1549 @@
         ],
         "screenCount": 2,
         "similar": [
-            "com.SFT.BattleCruiser",
-            "com.lunagames.apocalypse",
-            "com.PostImagineering.Catapult",
-            "com.sinappware.android.hi",
-            "com.addgames.HouseDestroyer"
+            "com.pencelgames.gerbilphysics",
+            "com.selectsoft.castlecloutphone",
+            "com.stdho.lavagirl",
+            "com.selectsoft.castleclout",
+            "com.zynga.zombiesmash",
+            "com.mc.angryswamp",
+            "com.marmalade.fantasy_breaker",
+            "com.kddevelopment.demolitionlaunch",
+            "pl.jujubee.suspect",
+            "com.iauns.idemolished",
+            "com.firerainbowstudio.helicopterwars",
+            "com.joerikerkhof.castledefence",
+            "com.mcmullanmultimedia.gaelpaid01",
+            "com.appmania.dm3dandroid2",
+            "com.addgames.HouseDestroyer",
+            "com.sinappware.android.hi"
         ],
         "size": "10M",
         "totalReviewers": 11,
         "version": "1.0.0"
+    },
+    {
+        "category": "Business",
+        "company": "Square, Inc.",
+        "contentRating": "Low Maturity",
+        "description": "Accept credit cards and run your business anywhere it takes you with Square Register. Process Visa, MasterCard, Discover and American Express, pay just 2.75% per swipe, and access your funds in 1-2 business days. No monthly fees, commitments, or surprises.HOW IT WORKS1. Download Square Register.2. Sign up and request your free Square Reader.3. Plug in your Square Reader and start taking payments.2.75% PER SWIPESwipe $100, see $97.25 in your bank account. Accept Visa, MasterCard, Discover, and American Express at the same rate.NEXT-DAY DEPOSITSSquare deposits payments into your bank account in 1-2 business days.FREE SECURE CARD READERRequest your free Square Reader at sign-up. Credit card information is encrypted at swipe.BACK OFFICE TOOLSSign in to your web dashboard to access all your business data plus tools to help you make sense of it.FREE ONLINE STOREOpen an online store for free in Square Market. Sell in person and online with Square.FEATURESSquare Register has everything you need to start, run and grow your business from your Android device. Get the latest in point of sale features with app updates.- Swipe or key in all major credit cards - Record cash, gift cards, and other forms of tender- Accept Square Wallet mobile payments- Customize your products with photos, names, and prices- Customers sign and tip right on your device- Send receipts via email or text message- Apply discounts and issue refunds- Access real-time sales data and complete sales history",
+        "devmail": "N.A.",
+        "devprivacyurl": "https://squareup.com/legal/privacy&sa=D&usg=AFQjCNGUx5l3wZJy67p0AEYzUDmqCKX7SA",
+        "devurl": "https://squareup.com/help&sa=D&usg=AFQjCNHU26726S40KpL6kusduGV0ZIRiew",
+        "id": "com.squareup",
+        "install": "1,000,000 - 5,000,000",
+        "moreFromDev": "None",
+        "name": "Square Register",
+        "price": 0.0,
+        "rating": [
+            [
+                " 2 ",
+                450
+            ],
+            [
+                " 5 ",
+                20857
+            ],
+            [
+                " 4 ",
+                3959
+            ],
+            [
+                " 3 ",
+                1089
+            ],
+            [
+                " 1 ",
+                1202
+            ]
+        ],
+        "reviews": [
+            [
+                "Great App!",
+                "  Great app! I don't understand from different reviewers that why Square sucks.For me there are some flaws. They need a call back number instead of email. The only problem I have with the app is that if I have huge tippers, it only sets up 3 choices of percentages of tipping. If a customer gives a fat tip, you can't really accept it if it exceeds the tip limit. The tipping feature has been fixed. A lot of better from what it was like a year ago. Money in my account the next day. "
+            ],
+            [
+                "Do not use",
+                "  Research Square and their unprofessional and unethical business practices before using.  You'll find plenty of info.  Check their BBB rating as well and run.  Avoid this company at all costs.  There are plenty of alternatives out there and it won't cost you.  You've been warned. "
+            ],
+            [
+                "Awesome!",
+                "  I love how easy this is to use! I receive my funds right away, much faster than Paypal. "
+            ],
+            [
+                "Freedom!",
+                "  This app is everything most small business owners/ independent contractors could wish for. I love that you can choose from the library of services or manually enter an amount. The only thing that makes me nuts is the tipping options. I wish they would allow for manual amounts instead of just the percentages. Most of my clients like to tip more, especially during the holidays. "
+            ],
+            [
+                "Excellent app",
+                "  I like this app. I havw never had any problems with it. "
+            ],
+            [
+                "Pretty good app",
+                "  This app is very easy to use and program. The only things I would change, is the lack of ability to apply discounts after choosing the items and to add s&h charges. It would def get 5 stars then "
+            ]
+        ],
+        "screenCount": 5,
+        "similar": [
+            "net.tappos.trial",
+            "com.intsig.BCRLite",
+            "ban.card.payanywhere",
+            "com.conduit.app_8c5ef0b0d2154c84a6f979ef9d6043f9.app",
+            "com.mobisystems.office",
+            "com.squareup.cardcase",
+            "com.box.android",
+            "com.caisse.enregistreuse2",
+            "com.mobisystems.editor.office_registered",
+            "com.facebook.pages.app",
+            "com.squareup.cash",
+            "com.appdevandroid.framework.cashregisterfree",
+            "com.paypal.here",
+            "com.dataviz.docstogo",
+            "com.intuit.intuitgopayment",
+            "com.dataviz.docstogoapp",
+            "com.quickoffice.android",
+            "com.rhmsoft.fm"
+        ],
+        "size": "Varies with device",
+        "totalReviewers": 27557,
+        "version": "Varies with device"
+    },
+    {
+        "category": "Business",
+        "company": "NQ Mobile Security (NYSE:NQ)",
+        "contentRating": "Low Maturity",
+        "description": "Let's face it\u00e2\u20ac\u201d we all have stuff on our phones we'd like to keep to ourselves, like pics, videos, SMS, contacts, even Facebook messages and apps, but how can we protect them when someone attempts to access and read our phones? Vault makes it easy to fully control over your privacy. Download today and stop worrying about your private content falling into the wrong hands. Main Features:\u00e2\u2014\ufffd App Lock [NEW]: Email, Facebook, Skype, Tango, Instagram, Amazon, Candy Crush\u00e2\u20ac\u00a6any apps you choose to lock will be protected with a password, if someone try to use your locked app, she/he must enter the correct password in order to open it. And for premium user, you can select unlimited apps to lock and also enable the Camouflage App Lock to make your locked apps appear like it is crashed. \u00e2\u2014\ufffd Photos & videos protection: All files will be encrypted into a private place and can only be viewed in Vault after entering the correct password. Allow users to manually select and import photos but also have the function that can automatically mark all your still visible photos and remind you to import them. \u00e2\u2014\ufffd Vault Camera: Helps to eliminate any possibility of leaving private content out in the open with its built in camera, which will automatically secure any photo and video it takes behind Vault\u00e2\u20ac\u2122s password protected album. \u00e2\u2014\ufffd Contacts/SMS/Call logs protection: allow users to create \u00e2\u20ac\u0153private contact\u00e2\u20ac\ufffd, and all messages and calls from the contact \u00e2\u20ac\u0153disappear\u00e2\u20ac\ufffd from the phone, almost as if the contact never exists. Vault hides text message and suppresses incoming message alert.\u00e2\u2014\ufffd Facebook Messages: Do you worry about your Facebook messages being seen by your friends' friends?  Worry no more.  Vault can hide the Facebook messages that you rather keep to yourself. Simply open Messages and chat privately. \u00e2\u2014\ufffd Dashboard: Run a quick checkup to examine how secure your private information is on your mobile device and populate the result on an easy-to-read dashboard.\u00e2\u2014\ufffd Membership Transfer: Have a new phone but worrying about transferring your premium services to this new phone need to pay again? Now, \u00e2\u20ac\u02dcMembership Transfer\u00e2\u20ac\u2122 will make the transferring easy and simple and without any costs. \u00e2\u2014\ufffd Break-In Attempts (premium): it photographs anyone who enters the wrong password to attempt your Vault, without the intruder knowing it. Help to monitor who access the phone and when such attempt was made. This feature requires an Android 2.3 (or higher) device with a front-facing camera.\u00e2\u2014\ufffd Fake Vault (premium): Create a decoy vault to protect the real one. If someone insists to see the content in your Vault, just show them the \u00e2\u20ac\u02dcfake\u00e2\u20ac\u2122 one. \u00e2\u2014\ufffd Vault Online (Premium): back up your Vault files to NQ\u00e2\u20ac\u2122s private cloud space. Data is securely encrypted and can only be accessed by you. \u00e2\u2014\ufffd Stealth Mode (Premium): allows users to completely hide Vault\u00e2\u20ac\u2122s icon on the phone\u00e2\u20ac\u2122s home screen. When stealth mode is on, Vault\u00e2\u20ac\u2122s icon will disappear. And it can be opened again by entering your password from within the phone dialer.More about Vault:Since the launch, Vault has been the most popular app of its kind on the market today, used by more than 10 million users worldwide. 1.\tMay, 2012, NQ Mobile Vault was selected as the Best App of CTIA by the Techlicious 2012 Best of CTIA Awards. 2.\tJuly, 2012, NQ Mobile Vault awarded PC Magazine Best Apps3.\tOctober, 2012, NQ Mobile Vault for Android was selected as a top 50 app at the Global Mobile Internet Conference App Space. 4.\tMay, 2013, NQ Mobile Vault received TRUSTe Seal. About NQ Mobile: NQ Mobile Inc. (NYSE: NQ) is a leading global provider of mobile Internet services focusing on security, privacy and productivity. The company was one of the first to recognize the growing security threats targeting smartphone with approximately 326 million registered user accounts in over 150 countries. For more information on NQ Mobile, please visit www.nq.com.",
+        "devmail": "android@NQ.com",
+        "devprivacyurl": "http://www.nq.com/privacy&sa=D&usg=AFQjCNFt37fPmRmQ-VjUWQl4z1eeRI2dnQ",
+        "devurl": "http://www.NQ.com&sa=D&usg=AFQjCNGUNusSuR_sXC1uAwI6E2smPdhdNQ",
+        "id": "com.netqin.ps",
+        "install": "10,000,000 - 50,000,000",
+        "moreFromDev": [
+            "com.netqin.cc",
+            "com.netqin.mm",
+            "com.netqin.contactbackup",
+            "com.netqin.mobileguard",
+            "com.netqin.ps.language.russian",
+            "com.netqin.aotkiller"
+        ],
+        "name": "Vault-Hide SMS, Pics & Videos",
+        "price": 0.0,
+        "rating": [
+            [
+                " 3 ",
+                12599
+            ],
+            [
+                " 2 ",
+                3271
+            ],
+            [
+                " 4 ",
+                36280
+            ],
+            [
+                " 5 ",
+                158190
+            ],
+            [
+                " 1 ",
+                8320
+            ]
+        ],
+        "reviews": [
+            [
+                "Good , but ...",
+                "  1.please add section for secret music and songs .  - 2.please improve vault image viewer it's so bad. - 3. no reason for pay every month ... Why just we pay once !!!   If you fix this problems .. The app will be amazing .. And i'll give you 5 star . Thanks . "
+            ],
+            [
+                "Just learning",
+                "  I just downloaded I didn't know u had to pay to get all tha other stuff but so far its alright "
+            ],
+            [
+                "DO NOT INSTALL...",
+                "  NEGATIVE FIVE STARS... ARE YOU NUTS ?! (RHETORICAL QUESTION) ALL OF THE \"SYSTEM TOOLS\" PERMISSIONS R THE REASON WHY, ANY APP CONNECTING 2 WIFI ON ITS OWN IS A MALICIOUS APP IN MY BOOK, TAMPERS WITH 2MANY THINGS, SCREEN LOCK? SYSTEM'S SETTINGS, CLEARED MY APP ICONS PAGE BLANK VIA WIFI AS I SLEPT, TOOK MY DAY SETTING-UP THE PAGE AGAIN, STAYS IN UR PHONE AFTER UNINSTALLING,   CAUSING CAOS, NOW I JUST SHUT MY PHONE OFF AT NIGHT, \"NQ\" IS ALL ABOUT MONEY, THE FREE APPS R DESIGNED 2 FORCE U IN2 \"PREMIUM\" "
+            ],
+            [
+                "works well but...",
+                "  The pictures are automatically resized smaller and does not retain their original size, very disappinting, time to look for another one. Samsung Galaxy S4 "
+            ],
+            [
+                "I want my money back!",
+                "  They charged me for the premium service but I can't use them... totally wrong "
+            ],
+            [
+                "Muy buena",
+                "  Me permite guardar en privacidad mis fotos. Acab\u00c3\u00b3 de configurar mi tel\u00c3\u00a9fono. Como puedo recuperar las fotos q ten\u00c3\u00ada guardadas antes de configurarlo "
+            ]
+        ],
+        "screenCount": 8,
+        "similar": [
+            "com.enlightment.appslocker",
+            "com.ninja.sms",
+            "com.texty.sms",
+            "air.com.bsecure.vault",
+            "com.jb.gosmspro.theme.icecream",
+            "com.p1.chompsms",
+            "com.nqmobile.antivirus20.multilang",
+            "mobi.infolife.smsbackup",
+            "com.nqmobile.antivirus20",
+            "com.popularapp.fakecall",
+            "com.nqmobile.shield",
+            "com.keepsafe.sms",
+            "com.superdroid.spc",
+            "com.nqmobile.easyfinder",
+            "com.textra",
+            "com.ani.apps.sms.messages.collection",
+            "com.jb.gosms",
+            "com.tmnlab.autoresponder",
+            "com.nqmobile.antivirus20pro",
+            "com.droiddev.vault",
+            "com.handcent.nextsms",
+            "com.nq.familyguardian"
+        ],
+        "size": "2.4M",
+        "totalReviewers": 218660,
+        "version": "4.0.08.22"
+    },
+    {
+        "category": "Business",
+        "company": "United States Postal Service\u00c2\u00ae",
+        "contentRating": "Low Maturity",
+        "description": "Access popular USPS.com\u00c2\u00ae tools on the go with USPS Mobile\u00c2\u00ae app. Find a Post Office\u00e2\u201e\u00a2 or an Approved Postal Provider\u00c2\u00ae, look up a ZIP Code\u00e2\u201e\u00a2, calculate shipping prices (limitations apply), schedule pickups, order supplies, scan labels and coupons (available on certain devices), hold your mail, and use the Track & Confirm tool anywhere you go.Find USPS\u00c2\u00ae Locations when you need to get to a Post Office\u00e2\u201e\u00a2, Self-Service Kiosk (APC\u00c2\u00ae) or collection box with an easy-to-filter locator. The USPS Mobile app uses your device\u00e2\u20ac\u2122s GPS and map features to show your closest options, along with their Regular Hours, Special Hours and Last Collection Times, and provide mapped results with driving, walking, or transit directions. Look up a ZIP Code\u00e2\u201e\u00a2 for any U.S. address.Calculate a Price to determine how much postage you will need when you ship a letter, card, large envelope, or package (limitations apply). Now you can choose retail or online pricing, add any extra services you need, and view the total, too.Use the Track & Confirm tool to check the status of shipments sent using Priority Mail Express\u00e2\u201e\u00a2, Certified Mail\u00c2\u00ae, and certain other delivery services. You can give your shipment a nickname and save it in the app to easily keep tabs on your items.Schedule a next-day pickup and have your Letter Carrier pick up Priority Mail\u00c2\u00ae, Priority Mail Express\u00e2\u201e\u00a2, Global Express Guaranteed\u00c2\u00ae, or Merchandise Returns shipments from your home or office during regular mail delivery. Request Hold Mail Service while you\u00e2\u20ac\u2122re away, and we\u00e2\u20ac\u2122ll keep your mail at your local Post Office\u00e2\u201e\u00a2 until you return. Order USPS\u00c2\u00ae boxes and envelopes and have them delivered right to your door.Scan the barcode on shipping labels with your phone\u00e2\u20ac\u2122s camera. The app recognizes the shipment and stores the label number, so you can stay on top of its status.You can also save coupons and keep them organized in your phone to redeem at merchants who accept digital coupons. Please check the merchant\u00e2\u20ac\u2122s coupon redemption policy, as some merchants may require a physical coupon at the time of purchase. View the Terms of UseU.S. Postal Service\u00c2\u00ae Web Site",
+        "devmail": "uspsmobile@usps.gov",
+        "devprivacyurl": "N.A.",
+        "devurl": "http://www.usps.com&sa=D&usg=AFQjCNGrWi2QS4-FRf6wG3HVOR-1-wNuxQ",
+        "id": "com.usps",
+        "install": "500,000 - 1,000,000",
+        "moreFromDev": "None",
+        "name": "USPS MOBILE\u00c2\u00ae",
+        "price": 0.0,
+        "rating": [
+            [
+                " 1 ",
+                402
+            ],
+            [
+                " 3 ",
+                288
+            ],
+            [
+                " 2 ",
+                177
+            ],
+            [
+                " 4 ",
+                506
+            ],
+            [
+                " 5 ",
+                2032
+            ]
+        ],
+        "reviews": [
+            [
+                "Needs major work",
+                "  I am actually going to uninstall this app simply because I had three packages that were all delivered and yet it didnt say delivered until almost a day later. No reliability at all. "
+            ],
+            [
+                "Functions okay, burns through data and battery in the background.",
+                "  Three days after installing, it has used 18MB of mobile plus 67MB of WiFi background data without any clear reason.  What's it doing?  Why?  Why does it need so much data?  It's also accounted for 10% of my battery usage.  I'm not impressed. "
+            ],
+            [
+                "What happen?",
+                "  Yes i use this alot and now it won't show up if its been ship or not it use to highlight green or blue what's going on please fix this "
+            ],
+            [
+                "Needs bugs worked out.",
+                "  I give my shipment a nickname and it saves for a few hours, and then it deletes on its own and goes back to the regular tracking number. This really sucks when you have multiple shipments and trying to track them. Please fix. "
+            ],
+            [
+                "Does it, and does it well",
+                "  The app ids very convenient and intuitive. The only thing it's missing is printing shopping labels.   As for the drain of the GPS, I just don't use GPS features on many apps for that specific reason. If I need to find something I just use Google maps. But that's just me. "
+            ],
+            [
+                "NG",
+                "  This app would be so much better if it showed all the details if your tracking info. It only shows when its processedand when its delivered. "
+            ]
+        ],
+        "screenCount": 5,
+        "similar": [
+            "com.godaddy.mobile.android",
+            "com.sri.mobiletracker",
+            "cn.wps.moffice_eng",
+            "cn.wps.moffice_i18n",
+            "com.app.grandag.trackchecker",
+            "com.intsig.BizCardReader",
+            "com.mins.tracker.express.activity",
+            "com.stoik.mdscanlite",
+            "com.mobisystems.editor.office_registered",
+            "elane.postal.uspsbasic",
+            "com.picsel.tgv.app.smartoffice",
+            "com.dynamixsoftware.printershare",
+            "com.nitrodesk.touchdownpro",
+            "com.mins.tracker.activity",
+            "com.dataviz.docstogoapp",
+            "com.stoik.mdscan"
+        ],
+        "size": "6.5M",
+        "totalReviewers": 3405,
+        "version": "2.4"
+    },
+    {
+        "category": "Business",
+        "company": "Face Time Plus",
+        "contentRating": "Everyone",
+        "description": "Facetime Plus Collections 2013 Trendy",
+        "devmail": "ftpapps@gmail.com",
+        "devprivacyurl": "N.A.",
+        "devurl": "http://www.facetime-plus.com&sa=D&usg=AFQjCNGDvSHxXVeAeEHdjFYCR0cIleLvyg",
+        "id": "com.facetime_plus.trendy",
+        "install": "500,000 - 1,000,000",
+        "moreFromDev": [
+            "com.facetime_plus.ladies",
+            "com.facetime_plus.gents"
+        ],
+        "name": "Facetime Plus Trendy",
+        "price": 0.0,
+        "rating": [
+            [
+                " 1 ",
+                283
+            ],
+            [
+                " 5 ",
+                537
+            ],
+            [
+                " 3 ",
+                89
+            ],
+            [
+                " 4 ",
+                106
+            ],
+            [
+                " 2 ",
+                35
+            ]
+        ],
+        "reviews": [
+            [
+                "Read the description",
+                "  The facetime for video calling is an apple app and is not available for android devices. All of you people complaining \"I can't make video calls!\" Are morons. Download skype. It's that easy. "
+            ],
+            [
+                "Uhhh...",
+                "  What in the fudge? Who wants to look at watches all day? I thought I would be able to video chat. But noooo all I get are watch viewings. I swear, all the intelligent game creators have fallen off the face of the Earth. "
+            ],
+            [
+                "This app is a piece of carp",
+                "  This app is crap I thought we  could video chat with people but all you see is fawking watched don't buy this app "
+            ],
+            [
+                "Uh....",
+                "  I thought you could facetime with this apo but all you do is look at watches. Uninstalled. I am very disappointed with this app. "
+            ],
+            [
+                "Not what you think",
+                "  This is a watch merchant app, not a video chat app like I thought it was. Misleading. "
+            ],
+            [
+                "Thx michael woods",
+                "  This app is only for the apple company for some odd reason use skype I'm sorry for your inconvenience. "
+            ]
+        ],
+        "screenCount": 2,
+        "similar": [
+            "jp.naver.line.android",
+            "com.es.surfbi",
+            "com.popularapp.fakecall",
+            "com.imo.android.imoim",
+            "com.webtext",
+            "com.vdocalling",
+            "com.stratopy.eganbac",
+            "com.oversense.worktime",
+            "com.mobisystems.editor.office_registered",
+            "com.senstic.aircam",
+            "com.viber.voip",
+            "com.whatsapp",
+            "com.dataviz.docstogoapp",
+            "com.tencent.mm",
+            "com.azarlive.android",
+            "com.skype.raider"
+        ],
+        "size": "35M",
+        "totalReviewers": 1050,
+        "version": "1.0.1"
+    },
+    {
+        "category": "Business",
+        "company": "NQ Mobile Security (NYSE:NQ)",
+        "contentRating": "Low Maturity",
+        "description": "A must have on your New Year app list-- Call Blocker, to block unwanted calls and have a Peaceful New Year!The latest Call Blocker with Premium features will be a good call filter just for you. We now support Chinese, English, German, French, Portugal and Spanish.Have you ever wondered how to block those annoyed phone calls, or quickly back up your massive contact lists or just protect your privacy by not letting others see your phone call history or SMS? Now Call Blocker Can Help!Call Blocker blocks unwanted calls now and protect your privacy. Now with better developed features, you don\u00e2\u20ac\u2122t have to worry about privacy leakage. Protect your private info 24x7.FEATURES: --Black List--\u00e2\u20ac\u201cBlock unwanted calls (Reject calls, forward or reply with an auto-SMS)\u00e2\u20ac\u201cBlock spam SMS (accept phonebook only or simply block black list)--Contact Backup--\u00e2\u20ac\u201cBack up contacts to a server, so you will never lose them!\u00e2\u20ac\u201cTransfer data to new phone (available cross-platform to Symbian / Android / BlackBerry device)--Privacy Eraser--\u00e2\u20ac\u201cQuickly and easily erase the call history, delete SMS messages between your phone and individual contacts permanently to protect private data.--Private Space (Premium) --\u00e2\u20ac\u201cAutomatically move private contacts\u00e2\u20ac\u2122 messages and call logs to a Private Space so that they don\u00e2\u20ac\u2122t appear in the phone\u00e2\u20ac\u2122s regular SMS and call logs\u00e2\u20ac\u201cKeep secrets by hiding the icon as displayed on the main screen, so that nobody knows you are using Private Space.-Protect your REAL space by creating one or more fake spaces. If anyone wants your password, show her/him the fake one!Please note that users in the following countries will be charged when upgrading to the Premium version.U.S.ACanadaUnited KingdomTwainNigeriaAzerbaijanRussiaKazakhstanMalaysiaSaudi ArabiaThailandUkraineIndonesiaEgyptUAEVietnamQatarGermanAustraliaPhilippinesSingaporeHong KongIndiaTurkeyBrazilItalyNetherlands BelgiumGreeceHungaryPeruFor more apps from NQ Mobile, please refer to: NQ Mobile Security & Antivirus, NQ Mobile Vault, Android Booster, Super Task Killer.Please note that installing the following apps such as: Mr. Number, Easy Filer Call Blocker & SMS, Call Filter, Call Control and Blacklist on your phone with Call Blocker together may make your phone unstable or cause potential conflict.",
+        "devmail": "android@NQ.com",
+        "devprivacyurl": "http://www.nq.com/privacy&sa=D&usg=AFQjCNFt37fPmRmQ-VjUWQl4z1eeRI2dnQ",
+        "devurl": "http://www.NQ.com&sa=D&usg=AFQjCNGUNusSuR_sXC1uAwI6E2smPdhdNQ",
+        "id": "com.netqin.mm",
+        "install": "5,000,000 - 10,000,000",
+        "moreFromDev": [
+            "com.netqin.cc",
+            "com.netqin.contactbackup",
+            "com.netqin.mobileguard",
+            "com.netqin.ps.language.russian",
+            "com.netqin.aotkiller",
+            "com.netqin.ps"
+        ],
+        "name": "Call Blocker",
+        "price": 0.0,
+        "rating": [
+            [
+                " 2 ",
+                897
+            ],
+            [
+                " 4 ",
+                7886
+            ],
+            [
+                " 1 ",
+                3396
+            ],
+            [
+                " 3 ",
+                2844
+            ],
+            [
+                " 5 ",
+                25104
+            ]
+        ],
+        "reviews": [
+            [
+                "License terms INSANE",
+                "  Incredible, and technically unnecessary, invasion of privacy in the T&Cs.  And to think they are a publically traded for profit company... giving away software. "
+            ],
+            [
+                "Have bug notification still pops up even thought set to off. Very annoying Ive ...",
+                "  Have bug notification still pops up even thought set to off. Very annoying\tIve already complained, over and over. No thing changed "
+            ],
+            [
+                "Great app!",
+                "  Great app! All my unwanted calls don't even ring! It completely blocks them! "
+            ],
+            [
+                "Awesome",
+                "  I got a new phone with a new number OMG the person who had this number before me had major problems with Bill collectors with this app I am able to block them all "
+            ],
+            [
+                "Notifications still being sent when off",
+                "  Notifications still show when off. There's no real point of this app if I'm still seeing their calls and texts because I'd be seeing them without the app anyway. I don't want to know their contacting me. Please fix this, otherwise, I feel this app is useless. "
+            ],
+            [
+                "Very good app",
+                "  Block all the unwanted numbers If there is an options for comments/name on the blocked number and better sort/search featute, it would be  even better "
+            ]
+        ],
+        "screenCount": 5,
+        "similar": [
+            "com.smartanuj.sms",
+            "com.enlightment.appslocker",
+            "com.droiddev.blocker",
+            "com.flexaspect.android.everycallcontrol",
+            "com.vladlee.easyblacklist",
+            "com.ekaisar.android.eb",
+            "com.nqmobile.antivirus20",
+            "com.popularapp.fakecall",
+            "com.mrnumber.blocker",
+            "com.nqmobile.shield",
+            "com.droiddev.shake",
+            "jp.co.telemarks.CallFilter2",
+            "com.nqmobile.antivirus20.multilang",
+            "com.superdroid.spc",
+            "embware.phoneblocker",
+            "com.truecaller",
+            "jp.naver.line.android",
+            "com.nqmobile.easyfinder",
+            "com.nqmobile.antivirus20pro",
+            "salam.dev.smsblocker",
+            "com.phone.privacy",
+            "com.nq.familyguardian"
+        ],
+        "size": "3.9M",
+        "totalReviewers": 40127,
+        "version": "4.2.48.20"
+    },
+    {
+        "category": "Business",
+        "company": "Cisco Systems, Inc.",
+        "contentRating": "Everyone",
+        "description": "Take your Web meetings anywhere.It's easy to stay connected to important meetings, wherever you are.With Cisco WebEx, you can join any web conference right from your Android tablet or smartphone.Cisco WebEx Meetings for Android works with Cisco WebEx Meeting Center, Cisco WebEx Training Center, Cisco WebEx Meetings Server, and Cisco WebEx Meetings to deliver mobile web conferencing, audio, and high quality video. Meet anywhere, with anyone, and get more done. Join, Start or Schedule Cisco WebEx Meetings from your Android device.**** Please note: We are aware of an existing issue launching into WebEx meetings with Chrome. We are looking to resolve this issue as soon as possible. In the meantime please use an alternate browser (Firefox, Dolphin, Opera, etc.). Read more here: http://kb.webex.com/WBX71436 ****Learn more at http://www.webex.com.Experience Cisco WebEx High Quality 2-way video on Android Tablets and Smartphones, such as the Nexus 7 from Google and the Galaxy SIII from Samsung, by viewing the video feeds of the participants in the web conference and streaming your own video back to them. Use video to engage and collaborate. Whether you're holding a brainstorming session or making a presentation, turning your online meeting into a virtual video conference helps everyone focus on every word. The two-way streaming video on Android Tablets delivers an unparalleled visual experience on the go.Getting face-to-face has never been easier!Features:Mobile video conferencing:\u00e2\u20ac\u00a2High-quality, multipoint video\u00e2\u20ac\u00a22-way video with camera switcher\u00e2\u20ac\u00a2Voice-activated video switching\u00e2\u20ac\u00a2Full-screen video\u00e2\u20ac\u00a2View content and video simultaneouslyHost account capabilities, including:\u00e2\u20ac\u00a2Schedule, start, and cancel a meeting\u00e2\u20ac\u00a2Start/Pause recordings\u00e2\u20ac\u00a2Invite others to a meeting\u00e2\u20ac\u00a2Pass presenter capabilities to another participantMeeting Capabilities:\u00e2\u20ac\u00a2Join via Cisco WebEx meeting email invite, meeting number, Cisco WebEx site URL, or My Meetings List\u00e2\u20ac\u00a2Integrated VoIP audio and web conferencing on Wi-Fi and 3G/4G\u00e2\u20ac\u00a2Full-screen meeting view\u00e2\u20ac\u00a2View attendee list\u00e2\u20ac\u00a2View shared content with annotations\u00e2\u20ac\u00a2Pinch to zoom and scan\u00e2\u20ac\u00a2Private or group chatGlobal and Enterprise Ready:\u00e2\u20ac\u00a2You can now sign in to Cisco WebEx via your corporate account (for sites with Single Sign-On, or SSO, enabled) \u00e2\u20ac\u00a2End-to-end encryption support\u00e2\u20ac\u00a2WebEx Enabled TelePresence 2.0 Support\u00e2\u20ac\u00a2WebEx Meetings Server 2.0 Support\u00e2\u20ac\u00a2Available in 13 languagesHave more questions about Cisco WebEx Meetings for Android? Visit:http://www.webex.com/products/web-conferencing/mobile-android-faq.htmlNeed technical support or help using Cisco WebEx Meetings for Android? Visit:http://support.webex.com/supportREQUIREMENTSAndroid OS 2.3 and higher is required for VoIP functionality.In general, all the latest Android smartphones (OS 4.0+) and tablets (OS3.0+) will support Cisco WebEx 2-way video. This includes the Google Nexus 10\".Dual-core CPU is required to send/receive video.The following phones and tablets have been tested and optimized for Cisco WebEx 2-way video:\u00e2\u20ac\u00a2 Cisco DX-650\u00e2\u20ac\u00a2 Google Nexus 4\", 5\", 7\u00e2\u20ac\ufffd, 10\"\u00e2\u20ac\u00a2 Amazon Kindle Fire based on Android 4.x\u00e2\u20ac\u00a2 Amazon Kindle Fire HD 7\u00e2\u20ac\ufffd, 8.9\"\u00e2\u20ac\u00a2 Fujitsu Arrows Tab\u00e2\u20ac\u00a2 Motorola Xyboard 8.2\u00e2\u20ac\ufffd, 10.1\u00e2\u20ac\ufffd\u00e2\u20ac\u00a2 Samsung Galaxy S4, S3, 7.7\", 8.9\u00e2\u20ac\ufffd, 10.1\"\u00e2\u20ac\u00a2 Samsung Note 2, 8\u00e2\u20ac\u00a2 Sony Tablet S 9.4\"\u00e2\u20ac\u00a2 Motorola Razr XT928\u00e2\u20ac\u00a2 HTC One XCisco WebEx service is not available in all countries - please see www.webex.com for more information.",
+        "devmail": "androidmarket@cisco.com",
+        "devprivacyurl": "http://www.cisco.com/web/siteassets/legal/privacy.html&sa=D&usg=AFQjCNGw2CBAayaixg7anq9467mm4PL5EQ",
+        "devurl": "http://www.webex.com/android/&sa=D&usg=AFQjCNFVCII0b11hen9rNIoXU9me__3tJg",
+        "id": "com.cisco.webex.meetings",
+        "install": "1,000,000 - 5,000,000",
+        "moreFromDev": [
+            "com.cisco.androidcisco",
+            "com.cisco.anyconnect.vpn.android",
+            "com.cisco.anyconnect.vpn.android.avf",
+            "com.cisco.techdocs",
+            "com.cisco.anyconnect.vpn.android.htc",
+            "com.cisco.midmarket",
+            "com.cisco.swtg_android",
+            "com.cisco.pec.mpec.android.phone",
+            "com.cisco.sample.techwisetv",
+            "com.cisco.android.pems",
+            "com.cisco.cpm.spw.android.wifisupplicant",
+            "com.cisco.im",
+            "com.cisco.anyconnect.vpn.android.samsung",
+            "com.cisco.onplus.mobi",
+            "com.cisco.jabber",
+            "com.cisco.anyconnect.vpn.android.rooted",
+            "com.cisco.enterprisewan",
+            "com.cisco.asit.tkl.mobile",
+            "com.cisco.cisco360",
+            "com.cisco.gist"
+        ],
+        "name": "Cisco WebEx Meetings",
+        "price": 0.0,
+        "rating": [
+            [
+                " 5 ",
+                1706
+            ],
+            [
+                " 4 ",
+                486
+            ],
+            [
+                " 2 ",
+                101
+            ],
+            [
+                " 3 ",
+                241
+            ],
+            [
+                " 1 ",
+                310
+            ]
+        ],
+        "reviews": [
+            [
+                "Good app - needed for work",
+                "  Does what is advertised,  solid stability. Didn't use the VoIP features,  I always get the call back. "
+            ],
+            [
+                "Very useful for mobile meetings",
+                "  I can now attend all my meetings without having to lug along my laptop. Very very useful app for me! "
+            ],
+            [
+                "Very easy to be used any where",
+                "   "
+            ],
+            [
+                "Excellent",
+                "   "
+            ],
+            [
+                "The App for meetings on the go",
+                "   "
+            ],
+            [
+                "Great and useful app",
+                "   "
+            ]
+        ],
+        "screenCount": 13,
+        "similar": [
+            "com.startmeeting",
+            "kr.lithos.application.ad.meetingrecord",
+            "com.citrixonline.android.gotomeeting",
+            "com.mobisystems.editor.office_registered",
+            "com.siyami.apps.mm",
+            "com.meeting.minutes",
+            "com.meeting.minutespro",
+            "monteil.networking.vlsm",
+            "com.fuzebox.fuze.android",
+            "air.com.cisco.academyapp",
+            "com.dataviz.docstogoapp",
+            "artezio.artmeeting"
+        ],
+        "size": "9.4M",
+        "totalReviewers": 2844,
+        "version": "4.0.0"
+    },
+    {
+        "category": "Business",
+        "company": "Authy Inc",
+        "contentRating": "Low Maturity",
+        "description": "The easiest way to manage all your Two-Factor Authentication accounts. Authy supports GMail, Dropbox, Lastpass and thousands of other sites. Perfect for anyone that wants to enjoy Two-Factor Authentication without hassles. Why use Authy? * Protect all your accounts with Two-Factor Auth with 1 app. * Enable backups to avoid being locked out if you upgrade or lose your phone. * Beautiful design * Easy to use.Why do you need access to the camera?* We use the camera to scan the QRCodes from GMail, Dropbox etc.",
+        "devmail": "support@authy.com",
+        "devprivacyurl": "N.A.",
+        "devurl": "https://authy.com&sa=D&usg=AFQjCNErErDy-6AN_O2qreJ-W5ugfAWh4A",
+        "id": "com.authy.authy",
+        "install": "10,000 - 50,000",
+        "moreFromDev": "None",
+        "name": "Authy",
+        "price": 0.0,
+        "rating": [
+            [
+                " 1 ",
+                25
+            ],
+            [
+                " 5 ",
+                180
+            ],
+            [
+                " 2 ",
+                2
+            ],
+            [
+                " 4 ",
+                31
+            ],
+            [
+                " 3 ",
+                20
+            ]
+        ],
+        "reviews": [
+            [
+                "Amazingly Superior to the Google Authenticator App",
+                "  The Google Authenticator app was so primitive and unreliable to the point that I didn\u00e2\u20ac\u2122t bother use the two-step authentication systems that many sites now offer.   With this app and the ability to add other devices and restore, I\u00e2\u20ac\u2122m back in business and ready to start using two-step auth.  I\u00e2\u20ac\u2122ve already tested with Evernote - it works perfectly and was able to add another device.  A big thumbs up for this app. "
+            ],
+            [
+                "Best authenticator out there by a long shot",
+                "  I've been using this app for about a year.  Switched from Google Authenticator.  Authy is way better.  Here's my top 3 reasons why.  First is active development and continuous improvement.  They just keep adding features like the pin then multi-devices, passphrase protected backup, etc.  Not to mention refining the interface.  Second is support.  On several occasions I had to contact them for help on various issues (all as a result of user error, btw) and every time they responded in under 30 mins and helped me get things working again.  Third is for folks who use Google authenticator.  Just how much do you want to put in the Google pot?  I think it's better to isolate the 2nd factor of the two factor with different folks.  Conclusion, Authy makes 2 factor easy for both multiple accounts and on multiple devices with a great interface. "
+            ],
+            [
+                "Simple, beautiful and useful",
+                "  First of all, it's pretty gorgeous. Kudos to the design team.  I would have appreciated swipe gestures for changing accounts. 'Authy' can use up and down swipes. What would be even better is if 'Authy' can do left and right swipes and use top or bottom for offscreen menu. That would keep it consistent with general practice.  Secondly, the features are really awesome. Usually for security related apps, more features = more security holes. But 'Authy' manages to pull it off with right balance. And 'Authy' blog is a very interesting read explaining the features and the thinking behind them.  One more star waiting for the swipe gestures. "
+            ],
+            [
+                "Great",
+                "  Definitely the best authenticator app. However, rather slow when entering a pincode. It can't handle my typing speed :-P  Edit: Pincode fixed in last update, great! Also awesome how everything is setup instantly upon switching or factory resetting of devices. Congrats guys, great app. "
+            ],
+            [
+                "Works well",
+                "  Works pretty great as an authenticator, and it now supports the back button! What more can I ask for? The widget is fantastic, too. "
+            ],
+            [
+                "Great App!",
+                "  Latest update looks great!! Keep up the good work! "
+            ]
+        ],
+        "screenCount": 8,
+        "similar": [
+            "com.lastpass.lpandroid",
+            "com.mobisystems.editor.office_with_reg",
+            "com.duosecurity.duomobile",
+            "com.yesmail.magellan.fob",
+            "com.mobisystems.fileman",
+            "com.box.android",
+            "mobi.mgeek.TunnyBrowser",
+            "com.stoik.mdscanlite",
+            "cn.wps.moffice_i18n",
+            "jp.co.zebrasoft.android.zcloakserver",
+            "com.callpod.android_apps.keeper",
+            "com.mobisystems.office",
+            "com.rhmsoft.fm",
+            "com.cisco.anyconnect.vpn.android.rooted",
+            "com.lastpass.lpdolphin",
+            "com.estrongs.android.taskmanager"
+        ],
+        "size": "6.1M",
+        "totalReviewers": 258,
+        "version": "15.1"
+    },
+    {
+        "category": "Business",
+        "company": "Intuit Inc",
+        "contentRating": "Low Maturity",
+        "description": "Use Your Android Device to Accept Credit Cards Wherever You GoIntuit GoPayment offers a fast, easy, and commitment-free way for you to accept credit cards anytime, anywhere. Simply plug your credit card reader into your mobile device and start accepting credit cards anywhere you go so you never miss a sale.Pricing Options*** GoPayment offers two pricing options to fit your needs, with NO set-up fee, NO committment and the ability to cancel anytime.Option 1: Pay Monthly and Save: $12.95/mo with rates as low as 1.75% per swipeOption 2: Pay-as-you-go: No monthly fee, with rates as low as 2.75% per swipeGet StartedDownload the free GoPayment app from Google Play.Start accepting payments in as few as 15 minutes.***To see how GoPayment works, take a test drive in the app or visit http://gopayment.com/how_it_works/.FeaturesEasily accept credit cards and record check and cash transactions anytime, anywhere so you will never miss a sale*Receive a free card reader compatible with your smartphone or tablet**Customers sign with their finger and a personalized receipt can be sent by text or emailEncrypts transactions, unlike many other card readersAdd up to 50 users to your account so multiple people can accept payments for your businessGoPayment integrates with QuickBooks, making it easier to manage your financesVisit GoPayment.com for additional information.Terms and ConditionsBy installing this app you agree to the GoPayment Terms of Service, found at http://payments.intuit.com/legal.jsp.*Requires internet access**Free Intuit Card Reader is available to new, approved GoPayment merchants only. For a list of compatible devices and other FAQs, please visit http://gopayment.com/support/.***For pricing details, visit http://gopayment.com/pricing/.The app will run on OS 2.2 and above and on compatible Android devices.Subject to occasional downtime for events beyond our control.Free Intuit Credit Card Reader available at GoPayment.com.To learn how Intuit protects your privacy, please visit http://security.intuit.com/privacy.",
+        "devmail": "gopayment_support@intuit.com",
+        "devprivacyurl": "http://security.intuit.com/privacy&sa=D&usg=AFQjCNGTSXaVF9TX-_CgripFr8elemAUsQ",
+        "devurl": "http://www.gopayment.com&sa=D&usg=AFQjCNH4ShY72QWaOIo7N53QXY4DlYzidA",
+        "id": "com.intuit.intuitgopayment",
+        "install": "1,000,000 - 5,000,000",
+        "moreFromDev": [
+            "com.intuit.mobile.mytaxrefund",
+            "com.intuit.accountant.online.tax",
+            "com.intuit.quickbooks.windows",
+            "com.intuit.ems.iopm",
+            "com.intuit.mobile.taxcaster",
+            "com.intuit.instantreturn",
+            "com.intuit.quicken",
+            "com.intuit.quickbooks",
+            "com.intuit.android.intuitblog",
+            "com.intuit.qm2014"
+        ],
+        "name": "Intuit GoPayment Card Reader",
+        "price": 0.0,
+        "rating": [
+            [
+                " 4 ",
+                508
+            ],
+            [
+                " 2 ",
+                134
+            ],
+            [
+                " 3 ",
+                277
+            ],
+            [
+                " 5 ",
+                2060
+            ],
+            [
+                " 1 ",
+                520
+            ]
+        ],
+        "reviews": [
+            [
+                "Shae",
+                "  Wtf???? This stupid thing says I already have a fcking acct but I've never signed up for this service in my life. I have two email addresses and I still can't seem to sign up. This is a piece of shyt "
+            ],
+            [
+                "Would rate better if...",
+                "  OK so I downloaded this app for my home business and while creating the account, there is a section that asks for birthday phone and last four of ssn .  I fill it out and on my birth date it keeps telling me its invalid... I'm 30... I could understand people being under 18 being considered invalid age. But, that's stupid beyond measure.  Is there a way to fix this, or do I have to find another card reader company for my business needs? "
+            ],
+            [
+                "Buggy card reader",
+                "  Buggy card reader wouldn't always initialize in my galaxy s2, now I upgraded to htc one and the reader isn't supported. Zero stars for getting charged extra fees when keying cards since the reader is so poor. Please add HTC one to the reader "
+            ],
+            [
+                "Better than Square",
+                "  Worked great with my iphone 5 however doesnt work with my samsung galaxy tablet. Hopefully they fix that soon. Square stinks & automatically holds everything over $2,000. For minimally 30 days, they also have no customer support whatsoever. If you want to getbrobbed use square. "
+            ],
+            [
+                "Seriously Intuit? The go payment app doesn't sync with my QB online account? How ...",
+                "  Seriously Intuit? The go payment app doesn't sync with my QB online account? How am I supposed to see all my open invoices and then pay them accordingly? It makes no sense that you keep rolling out these apps that don't sync with your other services. Not to mention they are totally buggy. Epic fail on your part. "
+            ],
+            [
+                "Bad buisness",
+                "  Samsung mega 6.3 is not compatable with your card readers at all. I have talked to intuit for over 3 months and still they do nothing about adding this phone and other phones to the update program list. And this phone has been on the market for almost one year already it is the biggest cell phone screen made for a android device yet and is sold in all major phone companys. Att , tmobile, verizon, even metro pcs. I have seen intuit turn their backs on everyone you would think with all the hight rates they "
+            ]
+        ],
+        "screenCount": 15,
+        "similar": [
+            "com.shapeservices.bcr.euro",
+            "com.abbyy.mobile.bcr",
+            "ban.card.payanywhere",
+            "com.corrigo.intuit",
+            "com.conduit.app_8c5ef0b0d2154c84a6f979ef9d6043f9.app",
+            "com.RedSun.Swiper",
+            "com.abbyy.mobile.bcr.lite",
+            "com.intsig.BizCardReader",
+            "com.mobisystems.editor.office_registered",
+            "com.mint",
+            "com.squareup",
+            "com.ycard",
+            "com.akhmallc.andrd.bizcard",
+            "scan.bcr.ch",
+            "com.paypal.here",
+            "com.lighthouse1.mobilebenefits.inh",
+            "com.bps.activity",
+            "com.intsig.BCRLite"
+        ],
+        "size": "19M",
+        "totalReviewers": 3499,
+        "version": "3.0.8"
+    },
+    {
+        "category": "Business",
+        "company": "DoMobile Lab",
+        "contentRating": "Everyone",
+        "description": "AppLock Theme Space, AppLock v1.96+ required.\u00e2\u02dc\u2026 Most downloaded app lock in Play Store.\u00e2\u02dc\u2026 #1 App lock in over 50 countries.\u00e2\u02dc\u2026 Over 30 Million users, supporting 24 languages.\u00e2\u02dc\u017e AppLock can lock SMS, Contacts, Gmail, Facebook, Gallery, Market, Settings, Calls and any app you choose, with abundant options, protecting your privacy.\u00e2\u02dc\u017e AppLock empowers you to control photo and video access. Selected pictures vanish from your photo gallery, and stay locked behind an easy-to-use PIN pad. With AppLock, only you can see your hidden pictures. Privacy made easy!\u00e2\u02dc\u2026 With the help of App Lock, you may:Never worry about a friend borrow your phone to play games again!Never worry about a workmates get your phone to have a look again!Never worry about private data in some apps may be read by someone again!Never worry about your kids may changing phone's Settings, paying games, messing up it again!\u00e2\u20ac\u00a2 Protects any apps using password or pattern\u00e2\u20ac\u00a2 Photo Vault\u00e2\u20ac\u00a2 Video Vault\u00e2\u20ac\u00a2 Customize background, set your favorite photo\u00e2\u20ac\u00a2 Profiles, easy to change the locks\u00e2\u20ac\u00a2 Automatic lock at given time\u00e2\u20ac\u00a2 Automatic lock at given location\u00e2\u20ac\u00a2 Random keyboard\u00e2\u20ac\u00a2 Lock switch(WiFi,BT,3G/4G Data...)\u00e2\u20ac\u00a2 Widget for quick locking/unlocking\u00e2\u20ac\u00a2 Locks incoming or outgoing calls\u00e2\u20ac\u00a2 Lock system Settings\u00e2\u20ac\u00a2 Lock Google Play Store\u00e2\u20ac\u00a2 Quick lock switcher on status bar\u00e2\u20ac\u00a2 Re-lock policy: allow short exit, no need to unlock again\u00e2\u20ac\u00a2 Prevent apps from being uninstalled\u00e2\u20ac\u00a2 Hide AppLock's icon from launcher\u00e2\u20ac\u00a2 AppLock can be prevented from being uninstall\u00e2\u20ac\u00a2 AppLock cannot be killed by task killers\u00e2\u20ac\u00a2 Little memory footprint and power-savingMore features coming soon...AppLock Protect Your Privacy.Feel free to send your feedback to us!Help us to support your language. support@domobile.comemail: support@domobile.comwebsite: http://www.domobile.comGoogle+ : https://plus.google.com/communities/103197101424348950425Facebook: http://www.facebook.com/bestapplockTwitter: https://twitter.com/bestapplock",
+        "devmail": "support@domobile.com",
+        "devprivacyurl": "N.A.",
+        "devurl": "http://www.domobile.com&sa=D&usg=AFQjCNGwwrCCV9PpPqPLX2gTO0GQJuH_tQ",
+        "id": "com.domobile.aut.bspace",
+        "install": "100,000 - 500,000",
+        "moreFromDev": [
+            "com.domobile.aut.agreen",
+            "com.domobile.aut.baurora",
+            "com.domobile.aut.bbeam",
+            "com.domobile.aut.bcube",
+            "com.domobile.aut.ablue",
+            "com.domobile.aut.bdawn",
+            "com.domobile.applockwatcher",
+            "com.domobile.applock",
+            "com.domobile.aut.bios7",
+            "com.domobile.aut.apink"
+        ],
+        "name": "AppLock Theme Space",
+        "price": 0.0,
+        "rating": [
+            [
+                " 3 ",
+                136
+            ],
+            [
+                " 2 ",
+                60
+            ],
+            [
+                " 1 ",
+                184
+            ],
+            [
+                " 5 ",
+                987
+            ],
+            [
+                " 4 ",
+                249
+            ]
+        ],
+        "reviews": [
+            [
+                "Excellent app.....",
+                "  Its the best app locker ...it is safe,secure n reliable.. "
+            ],
+            [
+                "Good app",
+                "  Excellent safe and secure.... "
+            ],
+            [
+                "Nice",
+                "  I like this apps. Safe & secure ..... "
+            ],
+            [
+                "Love The Colour",
+                "  That's why I downloaded it lol "
+            ],
+            [
+                "Myphonetab2",
+                "  Loved. This theme locker haha:-) "
+            ],
+            [
+                "It does whatever it says",
+                "  Too good. "
+            ]
+        ],
+        "screenCount": 8,
+        "similar": [
+            "com.hi.applock.disguise",
+            "com.hi.applock.antitheft",
+            "com.imoblife.applock_plug_in",
+            "com.enlightment.appslocker",
+            "com.hi.applock.theme.autumn",
+            "com.hi.applock.theme.blackgrid",
+            "com.hi.applock",
+            "com.hi.applock.theme.color",
+            "com.hi.applock.key",
+            "com.hi.applock.theme.ios7",
+            "net.xdevelop.protector3_t",
+            "com.dataviz.docstogo",
+            "com.hi.applock.theme.steel",
+            "com.hi.applock.theme.gold",
+            "com.netqin.ps",
+            "com.hi.applock.theme.simplewhite"
+        ],
+        "size": "1.1M",
+        "totalReviewers": 1616,
+        "version": "1.02"
+    },
+    {
+        "category": "Business",
+        "company": "AirWatch",
+        "contentRating": "Low Maturity",
+        "description": "The AirWatch MDM Agent lets you secure, monitor, manage and support your entire fleet of Android devices deployed across your enterprise, when working in conjunction with the AirWatch Console.This enterprise-wide solution provides your IT department with a single, integrated view of all mobile devices, allowing you to increase help desk efficiencies, reduce support costs and improve the overall support experience for today\u00e2\u20ac\u2122s corporate user.Web-based, functionally robust and highly scalable, AirWatch also provides unparalleled flexibility by offering three different delivery options for the AirWatch console, ensuring all IT environments have access to AirWatch\u00e2\u20ac\u2122s industry-leading functionality:\u00e2\u20ac\u00a2Software as a Service (SaaS)\u00e2\u20ac\u00a2On-premise installation\u00e2\u20ac\u00a2Dedicated software applianceAirWatch provides today\u00e2\u20ac\u2122s enterprise with the following functionality:\u00e2\u20ac\u00a2Centralized Over-the-Air Deployments\u00e2\u20ac\u00a2Asset Management of all Android Devices\u00e2\u20ac\u00a2Over-the-Air Enrollments\u00e2\u20ac\u00a2Over-the-Air Configurations Management\u00e2\u20ac\u00a2Device Security\u00e2\u20ac\u00a2Security by Location, Role and Function\u00e2\u20ac\u00a2Policy Enforcement\u00e2\u20ac\u00a2Robust GPS Tracking and Mapping\u00e2\u20ac\u00a2Device Grouping and Bulk Management\u00e2\u20ac\u00a2Intelligent Notification and Reporting\u00e2\u20ac\u00a2Help Desk Support CapabilitiesAirWatch Simplifies Enterprise Mobility.Instructions for Activation:Step 1: Download and install the AirWatch MDM Agent on your device through the Google Play Store.Step 2: Once you load the AirWatch MDM Agent onto your device, point the agent to the URL sent out by your IT admin and activate the agent with an AirWatch-issued group id.To receive your activation code and server information, go to the AirWatch website (www.air-watch.com/trial) and register for a free trial. If you are an AirWatch customer, please contact your account executive for assistance.Step 3: Login to the AirWatch Console to manage your devices.After you register for the free trial on the AirWatch website, you will receive detailed instructions on the login procedure.For more information on the AirWatch solution, please call 866.501.7705.",
+        "devmail": "support@air-watch.com",
+        "devprivacyurl": "N.A.",
+        "devurl": "http://www.air-watch.com/company/contact-us&sa=D&usg=AFQjCNFwoniLizpZ3cIr6Yg8qoLy9HVkaA",
+        "id": "com.airwatch.androidagent",
+        "install": "100,000 - 500,000",
+        "moreFromDev": [
+            "com.airwatch.browser",
+            "com.airwatch.admin.htc",
+            "com.airwatch.contentlocker",
+            "com.airwatch.workspace",
+            "com.airwatch.admin.panasonic",
+            "com.airwatch.email",
+            "com.airwatch.admin.lenovo",
+            "com.airwatch.admin.lg",
+            "com.airwatch.admin.samsung.remote",
+            "com.airwatch.admin.samsung"
+        ],
+        "name": "AirWatch MDM Agent",
+        "price": 0.0,
+        "rating": [
+            [
+                " 3 ",
+                43
+            ],
+            [
+                " 4 ",
+                40
+            ],
+            [
+                " 5 ",
+                182
+            ],
+            [
+                " 1 ",
+                202
+            ],
+            [
+                " 2 ",
+                25
+            ]
+        ],
+        "reviews": [
+            [
+                "Lacks SEVERE Functionality",
+                "  First....This App does NOT sync my Exchange server TASKS from Outlook?  Second, why can't I use my native e-mail client like every other App in the world??  Will NOT SYNC EX CHANGE CALENDAR!!  HORRIBLE!!!! "
+            ],
+            [
+                "Big BROTHER",
+                "  \"Those who surrender freedom for security will not have, nor do they deserve, either one.\" - Ben Franklin  #But will we ever listen? "
+            ],
+            [
+                "Samsung galaxy s3 update Painful",
+                "  Installed updated, lost calendar and contacts.  My tech is telling me to un-enroll and re-enroll after restart.  Currently lost in the middle and now no mail, contacts or calendar.  Big productivity hit. Don't have time for this mess. "
+            ],
+            [
+                "New update - can't use contacts",
+                "  With the last update, you can no longer use your native contacts or calander. I have no idea who is calling me now. Please fix!!!!! "
+            ],
+            [
+                "Not good.",
+                "  Can no longer see my e-mail or contacts. This update is supposed to fix bugs not introduce them. "
+            ],
+            [
+                "Great app!",
+                "  As an admin, this app helps monitor and deploy email and certificates with minimal effort. Aw email container has proven easy to use with my pilot group. "
+            ]
+        ],
+        "screenCount": 3,
+        "similar": [
+            "com.landesk.mdmagent",
+            "sk.ursus.bazosagent",
+            "com.amtel.mdm",
+            "com.aurasma.skinned.air_view",
+            "com.symantec.enterprise.mobile.security",
+            "com.bradfordnetworks.bma",
+            "com.fiberlink.maas360.android.control",
+            "com.chegal.mobilesales",
+            "com.labtechsoftware.agent.android",
+            "com.manageengine.mdm.android",
+            "com.smarteragent.android",
+            "com.trulia.android.agent",
+            "com.siyami.apps.ia",
+            "ru.mail",
+            "com.fiberlink.maas360.android.control.samsung",
+            "in.bizmo.nttpc"
+        ],
+        "size": "2.7M",
+        "totalReviewers": 492,
+        "version": "4.3.3.194"
+    },
+    {
+        "category": "Business",
+        "company": "Mogul Software",
+        "contentRating": "Medium Maturity",
+        "description": "THIS is the backpage.com mobile app you've been waiting for!Backpage is a classified ads web site very similar to craigslist.Back Page Cruiser allows you to view classified ads in the following categories:- Local Places \t Events, bars, restaurants- Community     Find childcare, classes, events, groups- Automotive     Shop for cars, trucks, motorcycles,      even parts and service- Buy/Sell/Trade     Antiques, furniture, pets, electronics,      even free stuff- Musician     Instruments, music lessons, bands- Rentals     Roommates, apartments, vacation spots- Real Estate     Homes, land, and commercial- Jobs      Many categories of full and part-time jobs- Personals*     Women seeking men and everything in between- Adult*     Adult entertainment: escorts, services, jobs- Services     Landscaping, massage, cleaning, computer etc.INCLUDES LOCATIONS IN:Australia, Canada, France, Germany, Ireland, Italy, Mexico, New Zealand, South Africa, Spain, and the United Kingdom, India, China, Russia, BrazilNot only can you browse ads, but you can search the backpage.com site and save searches to notify you when ads are posted in categories you specify!Note: This application is not affiliated with backpage.com or craigslist.org.PLEASE: Comment and let me know what design or functionality changes you'd like to see.* Adult and Personals categories require acceptance of age disclaimer and backpage.com Terms of Service.",
+        "devmail": "mogulsoftware.apps@gmail.com",
+        "devprivacyurl": "N.A.",
+        "devurl": "N.A.",
+        "id": "com.mogulsoftware.android.BackPageCruiser",
+        "install": "100,000 - 500,000",
+        "moreFromDev": "None",
+        "name": "BackPage Classifieds Free",
+        "price": 0.0,
+        "rating": [
+            [
+                " 4 ",
+                52
+            ],
+            [
+                " 3 ",
+                29
+            ],
+            [
+                " 2 ",
+                19
+            ],
+            [
+                " 1 ",
+                82
+            ],
+            [
+                " 5 ",
+                168
+            ]
+        ],
+        "reviews": [
+            [
+                "No pictures over 4G.",
+                "  Seems that I cannot do you pictures over 4G cell service After new update. Everything just works fine on wifi! "
+            ],
+            [
+                "Still to improve",
+                "  The appl is of great deal but I don't see Kenya in the list . No sharing ,how do you post your ads ? Fix it. "
+            ],
+            [
+                "Good",
+                "  Good "
+            ],
+            [
+                "No reply option?",
+                "  I will gladly give this a 5 star rating if I somehow overlooked how to reply to an ad, but I can't seem to do anything except email the ad (share the ad). Without this functionality, this app seems pretty pointless considering all it does is lets me know there is something I want to reply to, and that I need to get on my computer to do so. So thanks to the developer for making a clean BP app, just please allow for replies. EDIT!!!! App has reply button now, thank u developer, smooth interface, happy!!! "
+            ],
+            [
+                "Using up Gigabytes of my data plan",
+                "  Last update causes it to run in background and used 4GB of my data plan in 3 hours. Had to reboot to kill it.  Happened more than once. Please fix "
+            ],
+            [
+                "Update that will work",
+                "  It seems like every update that they give, constantly causes problems for the app. I would give it 5 if it worked consistently (and by consistently, I mean ever) "
+            ]
+        ],
+        "screenCount": 7,
+        "similar": [
+            "mt.Jobfinder",
+            "com.nikanorov.callnotes",
+            "com.cao.chat",
+            "com.pocketresume",
+            "com.monster.android.Views",
+            "com.lbapp2",
+            "com.scmp.classifiedpost",
+            "mt.BusinessForSale",
+            "com.proven.provenemployer",
+            "com.proven.jobsearch",
+            "com.tbilling.adposter",
+            "es.cal",
+            "com.duduapps.craigslistpro",
+            "craigslistexposed.guide",
+            "com.ultimatejobsearch",
+            "com.dreamstep.wTwinAds"
+        ],
+        "size": "750k",
+        "totalReviewers": 350,
+        "version": "2.3.1"
+    },
+    {
+        "category": "Business",
+        "company": "Securifox Mobile",
+        "contentRating": "Low Maturity",
+        "description": "Protect your Android mobile device with the Free Mobile Security & Antivirus AppSecurifox Mobile Security Features for Android: \u00e2\u2013\u00baScans installed apps, settings, SD card for mobile threats containing add-ons, privacy, malware, spyware, and viruses.\u00e2\u2013\u00baKills tasks that slow down your phone\u00e2\u20ac\u2122s performance.\u00e2\u2013\u00baMonitors battery, storage, and mobile settings.\u00e2\u2013\u00baContinuously monitors your device for any possible threats.  Status updates and notification alerts     to ensure you never miss a threat.  Comprehensive detection of viruses, malware, spyware, add-    ons, and privacy risks.\u00e2\u2013\u00baList of applications that are accessing your device & services running on your device.\u00e2\u2013\u00baOptimizes phone to increase memory.Securifox is a tool that helps protect your mobile phone from viruses, add-ons, malware and privacy risks. It optimizes the performance of your phone while providing you with the boost your phone needs and alerts you of any malicious apps and downloads.  With Securifox, you get complete mobile protection and detection with detailed notifications of any issues that may be affecting your phone\u00e2\u20ac\u2122s performance.  Securifox will continuously monitor your phone and notify you when third party or malicious apps access your phone\u00e2\u20ac\u2122s private information.  Get additional benefits when you upgrade to Securifox Premium Subscription. Additional Premium Features include:  \u00e2\u2013\u00baDetailed threat descriptions of malicious apps trying to access your personal information, contact       list, read or modify your SD card content, access internet, system\u00e2\u20ac\u2122s tools, settings, and more.\u00e2\u2013\u00baRemove threats running in the background and improve phone\u00e2\u20ac\u2122s performance.\u00e2\u2013\u00baActivate ID Protection and Securifox automatically monitors your offline identity         \u00e2\u20ac\u00a2 Identity Theft Protection- $1,000,000 insurance to help restore your identity.         \u00e2\u20ac\u00a2 Proactively monitoring your identity & risk score, while protecting your privacy.         \u00e2\u20ac\u00a2 Personal alerts & 24/7 support to answer all your personal identity questions.         \u00e2\u20ac\u00a2 Lost wallet protection.\u00e2\u2013\u00baPremium pricing (auto-renewal): $4.99/mo. with all the added protection and premium features   for your device & identity protection.Get complete Mobile Security and Boost your Android\u00e2\u20ac\u2122s performance with Securifox Antivirus, Malware, Spyware and Real-time Monitoring Protection.",
+        "devmail": "customerservice@securifoxapp.com",
+        "devprivacyurl": "http://www.securifoxapp.com/privacy.cfm&sa=D&usg=AFQjCNHNanrgtznYcacoBktBceT7WR78XQ",
+        "devurl": "http://securifoxapp.com&sa=D&usg=AFQjCNFYxdWErppi35lDY3_yg2tlDWruyw",
+        "id": "co.securifox.android",
+        "install": "10,000 - 50,000",
+        "moreFromDev": "None",
+        "name": "Antivirus & Security",
+        "price": 0.0,
+        "rating": [
+            [
+                " 5 ",
+                148
+            ],
+            [
+                " 4 ",
+                32
+            ],
+            [
+                " 2 ",
+                5
+            ],
+            [
+                " 1 ",
+                39
+            ],
+            [
+                " 3 ",
+                10
+            ]
+        ],
+        "reviews": [
+            [
+                "Awesome",
+                "  Securifox helped me to protect my mobile phone from viruses, add-ons, malware and privacy risks. "
+            ],
+            [
+                "Well designed",
+                "  Very well organized and easy to use. Tons of functions to improve your battery and phone life! "
+            ],
+            [
+                "A+",
+                "  This app optimized my phone and increased the memory. Recommended! "
+            ],
+            [
+                "$4.99 monthly subscription!",
+                "  Awesome detection, but if you want to do anything other than detect (like fixing, cleaning, repairing etc.) You have to pay a $4.99 a month subscription fee after the 7 day free trial (you can't start the trial until after you subscribe). Not saying the app is not worth buying, it is, but not on a monthly basis. Especially when you can get a top notch security suite using Sophos for 100% free. "
+            ],
+            [
+                "Great app",
+                "  Not only kept me away from virus but also It's a battery saver. "
+            ],
+            [
+                "Worked for me!",
+                "  Worth every single penny. Fast and secure! "
+            ]
+        ],
+        "screenCount": 9,
+        "similar": [
+            "com.colony.safeantivirus",
+            "com.netqin.mm",
+            "com.webroot.security.full",
+            "com.superdroid.security2",
+            "com.symantec.enterprise.mobile.security",
+            "org.antivirus",
+            "org.antivirus.tablet",
+            "com.colony.bestantivirusandroid",
+            "com.pcl.antispy",
+            "air.com.bsecure.vault",
+            "com.androhelm.antivirus.pro.half",
+            "com.secore.privacyshield",
+            "com.vodafone.androidagent",
+            "com.surveillancesystem.isecurity",
+            "com.ntic.secureeye",
+            "com.netqin.ps"
+        ],
+        "size": "2.8M",
+        "totalReviewers": 234,
+        "version": "1.7.3"
+    },
+    {
+        "category": "Business",
+        "company": "INFRAWARE, INC.",
+        "contentRating": "Everyone",
+        "description": "POLARIS Office for Good is an enterprise application and not meant for consumer use.  This application requires that Good Dynamics servers are setup in your Company\u00e2\u20ac\u2122s IT organization. INFRAWARE does not provide access key for consumer users.- Mobile Office application installed on more than 300 million mobile devices!- No 1. Global Market share on Mobile Office app!- Security functions optimized for Good Dynamics!\u00e2\u2013\u00a0 About POLARIS Office for Good!POLARIS Office for Good is a Mobile Office application that allows Good Dynamics users to view/edit Microsoft Office (Word, Excel and PowerPoint) documents on Smartphone and Tablet. Users can view/edit text files and view .pdf and .hwp files as well. POLARIS Office\u00e2\u20ac\u2122s excellent rendering quality shows all the texts, charts, pictures and etc. of the documents made with Microsoft Office on a PC as the original itself without any losses. And POLARIS Office for Good provides powerful editing features and an intuitive interface that allows you to edit document easily. Now, you can safely and conveniently view/edit important documents on your Mobile devices.\u00e2\u2013\u00a0 Key Features of POLARIS Office for GoodView and edit Microsoft Office documents / View .pdf and .hwp files / Support Quick Scroll / Support around 80 types of Smart Arts & 18 types 2D, 3D charts / Provide more than 300 editing features / Useful & various templates for new creation / Slideshow mode / Page transition effects for slide shows / Pointer and drawing for slideshows\u00e2\u2013\u00a0 Advantages of POLARIS Office for GoodView and edit various document types / Excellent compatibility with Microsoft Office documents / Fast document loading speed / Fabulous Presentation at anytime and anyplace / Powerful security with Good Dynamics\u00e2\u2013\u00a0 Supported FormatsEdit (doc/docx, xls/xlsx, ppt/pptx, txt) / View (pdf, hwp)",
+        "devmail": "ent1_support@infraware.co.kr",
+        "devprivacyurl": "N.A.",
+        "devurl": "N.A.",
+        "id": "com.infraware.polarisoffice.entbiz.gd",
+        "install": "100,000 - 500,000",
+        "moreFromDev": [
+            "com.infraware.polarisoffice4",
+            "com.infraware.polarisoffice.entbiz.gd.viewer",
+            "com.infraware.polarisviewerupdater_D2VZW"
+        ],
+        "name": "POLARIS Office for Good",
+        "price": 0.0,
+        "rating": [
+            [
+                " 4 ",
+                139
+            ],
+            [
+                " 3 ",
+                69
+            ],
+            [
+                " 5 ",
+                433
+            ],
+            [
+                " 1 ",
+                219
+            ],
+            [
+                " 2 ",
+                40
+            ]
+        ],
+        "reviews": [
+            [
+                "Upon downloading/opening Polaris Office, app immediately closes.",
+                "  Upon downloading and immediately opening Polaris Office on brand new Dell Venue 7 tablet, app immediately closes. Multiple subsequent attempts to open produce same result. Will uninstall. "
+            ],
+            [
+                "App is useless",
+                "  Im using Samsung Smartphone.....download these app into my phone and its asking for access code. People who are using Samsung smartphones then plz visit to Samsung app store which is available into ur phones. Even you can for free and it will not ask for access password. Samsung apps store is awesome. Thank you. "
+            ],
+            [
+                "Really????",
+                "  You need an access code?  I was recommended this by a friend and thought it would be great because he likes it.  Now I know its crap.  Maybe you should mention that you need a code from the very beginning.  Never ever using anything by this company if I can help it! "
+            ],
+            [
+                "Unknown error code during application installation",
+                "  Trying to download again and again but says \"unknown error code during application installation\". I need to know what does that mean and how to solve that. "
+            ],
+            [
+                "So sad",
+                "  Maybe u should try making a version for those of us without good dynamics and are needing the quality you provide. I had a Polaris office app on my LG and was hoping to get the same quality even though I have switched brands would easily pay a few bucks for the quality "
+            ],
+            [
+                "Absolutely nonsense",
+                "  What is the meaning of this, if you make app for people to use, then make it available, which one be access key from iT admin before you can use, infact you don't deserve 1 star if you don't do a proper job "
+            ]
+        ],
+        "screenCount": 15,
+        "similar": [
+            "softmaker.applications.planmaker",
+            "cn.wps.moffice_eng",
+            "com.mobisystems.editor.office_with_reg",
+            "com.picsel.tgv.app.smartoffice",
+            "cn.wps.moffice_i18n",
+            "com.microsoft.office.officehub",
+            "com.picsel.tgv.app.smartofficelite",
+            "com.mobisystems.editor.office_registered",
+            "com.mobisystems.office",
+            "de.joergjahnke.documentviewer.android.free",
+            "com.dataviz.docstogo",
+            "com.andropenoffice",
+            "com.quickoffice.android",
+            "softmaker.applications.textmaker",
+            "com.olivephone.edit"
+        ],
+        "size": "30M",
+        "totalReviewers": 900,
+        "version": "1.0.0.0"
+    },
+    {
+        "category": "Comics",
+        "company": "Land Technology",
+        "contentRating": "Medium Maturity",
+        "description": "Learn how to get the most out of video chatting with Tango Talk.",
+        "devmail": "gervaisland9@gmail.com",
+        "devprivacyurl": "http://bit.ly/11XXdYb&sa=D&usg=AFQjCNFid1J81hK_n56w_HafqK_nxgCUIA",
+        "devurl": "N.A.",
+        "id": "tango.video.calling.guide",
+        "install": "1,000,000 - 5,000,000",
+        "moreFromDev": "None",
+        "name": "Tango Talk Free Guide",
+        "price": 0.0,
+        "rating": [
+            [
+                " 1 ",
+                418
+            ],
+            [
+                " 3 ",
+                321
+            ],
+            [
+                " 5 ",
+                2494
+            ],
+            [
+                " 4 ",
+                482
+            ],
+            [
+                " 2 ",
+                123
+            ]
+        ],
+        "reviews": [
+            [
+                "so bad",
+                "  so bad that is guide for tango not app and trying download from internet but i lose that is mean this app have a problem it make me annoyed. "
+            ],
+            [
+                "Dont downlord it It suck it Not true What it say is fake On ...",
+                "  Dont downlord it \nIt suck it Not true\nWhat it say is fake \nOn the T-mobile galaxy s "
+            ],
+            [
+                "It contains virus and cant work on my Galaxy s",
+                "   "
+            ],
+            [
+                "Does not work for my t mobile galaxy S.",
+                "   "
+            ],
+            [
+                "Dont bother",
+                "  On the 1st impression this app looked great but once installed my phone warned me its unsafe but I ignored the warning. I opened the app and it is riddled with advertising .if you are looking on info how to use tango take my advice dont install this and look on you tube. "
+            ],
+            [
+                "The best",
+                "  Cool "
+            ]
+        ],
+        "screenCount": 2,
+        "similar": [
+            "cn.rtfsc.searchmanga",
+            "fr.tango_argentin.tangomaps",
+            "kik.messenger.guide",
+            "com.outfit7.talkinggingerfree",
+            "com.juhyungju.WebToon",
+            "com.outfit7.talkingben",
+            "net.androidcomics.acv",
+            "com.outfit7.talkingtom",
+            "com.outfit7.talkingtom2free",
+            "com.fueneco.talking.photos",
+            "net.explosm.cnh",
+            "com.dccomics.comics",
+            "com.tmarki.comicmaker",
+            "com.marvel.comics",
+            "com.iconology.comics",
+            "com.outfit7.talkingangelafree",
+            "com.srsdev.allfacts"
+        ],
+        "size": "2.7M",
+        "totalReviewers": 3838,
+        "version": "1.00"
+    },
+    {
+        "category": "Communication",
+        "company": "Kik Interactive",
+        "contentRating": "Medium Maturity",
+        "description": "90 million users love Kik! It's the fast, simple, and personal smartphone messenger that connects you to everyone you love to talk to.Here's why you'll love Kik:FAST: Kik is hands\u00c2\u00addown the fastest, most reliable smartphone messenger available. And with sent, delivered, read and typing notifications, your conversations will come to life.SIMPLE: We believe that simplicity is the ultimate in sophistication. We've spent thousands of hours making sure Kik is the easiest, most beautiful smartphone messenger around.PERSONAL: Your Kik username \u00c2\u00ad not your phone number \u00c2\u00ad is your Kik identity, so you can keep complete control of your privacy. No wonder Kik is the number one way people connect in other social apps like Instagram.And now you can do even more on Kik, with new features that let you instantly find and share fun videos, sketches and pictures.Here's what our users have to say:\"Amazing app! And so, so fast.\" Katie\"The best way to keep your personal information private.\" Phil, instagrammers.com \"Really easy to use.\" Amber",
+        "devmail": "support@kik.com",
+        "devprivacyurl": "http://kik.com/privacy&sa=D&usg=AFQjCNFOlOn7sQbp5ZgruDBfYEAmRrrz6g",
+        "devurl": "http://kik.com&sa=D&usg=AFQjCNGqOAB5swiW_l6ZUPn0eqYgufyHZw",
+        "id": "kik.android",
+        "install": "10,000,000 - 50,000,000",
+        "moreFromDev": "None",
+        "name": "Kik Messenger",
+        "price": 0.0,
+        "rating": [
+            [
+                " 4 ",
+                60411
+            ],
+            [
+                " 5 ",
+                254167
+            ],
+            [
+                " 1 ",
+                17814
+            ],
+            [
+                " 2 ",
+                8068
+            ],
+            [
+                " 3 ",
+                28176
+            ]
+        ],
+        "reviews": [
+            [
+                "Heyy message meh",
+                "  Hai random person!! I would love if you send me a message...beware tho...I only send back if you are13 years and younger. Dnt talk dirty or I will block you! Kik me "
+            ],
+            [
+                "wullie_1",
+                "  hii add my friend William^ he is 14 years old and really nicee : ) thanks user up der "
+            ],
+            [
+                "So Cal Girls?",
+                "  I'll give you a conversation jus to see if you can hold one q; lookin for a good girl with a naughty side, for funs sake (; hahah. 24, M, California. Not creepy nor hideous, lol. -promise- Hope this works. (: Somar12 "
+            ],
+            [
+                "Shawn_Nobles93",
+                "  Hey, new to kik. Add me. Just want people to talk to. I live around new Hanover county, and Brunswick county. If you have to ask where that is. Please don't try to add me "
+            ],
+            [
+                "Ershum!",
+                "  I'm Fabola. I'm around 6,737 days old. I'm a mermaid.  I kidnap fishermen and drink their souls for breakfast. Let's chat.  Don't be odd.  Kik: Bumtardo "
+            ],
+            [
+                "Lesbianandproud317",
+                "  Hey girls! If you are gay/bi come chat me and well have dirty talk, trade nudes, and just regular talk, chat me! Name up top. ^^^ "
+            ]
+        ],
+        "screenCount": 5,
+        "similar": [
+            "jp.naver.line.android",
+            "com.kakao.talk",
+            "cn.msn.messenger",
+            "com.nimbuzz",
+            "com.nixpa.kik.video",
+            "com.wHotmailLiveMessenger",
+            "com.bsb.hike",
+            "com.facebook.orca",
+            "com.bbm",
+            "com.whatsapp",
+            "com.viber.voip",
+            "net.daum.android.air",
+            "com.tencent.mm",
+            "com.yahoo.mobile.client.android.im",
+            "com.skype.raider",
+            "se.outputstream.recorderforkik"
+        ],
+        "size": "5.2M",
+        "totalReviewers": 368636,
+        "version": "6.8.0.61"
+    },
+    {
+        "category": "Communication",
+        "company": "WhatsApp Inc.",
+        "contentRating": "Medium Maturity",
+        "description": "WhatsApp Messenger is a smartphone messenger available for Android and other smartphones. WhatsApp uses your 3G or WiFi (when available) to message with friends and family. Switch from SMS to WhatsApp to send and receive messages, pictures, audio notes, and video messages. First year FREE! ($0.99 USD/year after)WHY USE WHATSAPP: \u00e2\u02dc\u2026 NO HIDDEN COST: Once you and your friends download the application, you can use it to chat as much as you want. Send a million messages a day to your friends for free! WhatsApp uses your Internet connection: 3G/EDGE or Wi-Fi when available. \u00e2\u02dc\u2026 MULTIMEDIA: Send Video, Images, and Voice notes to your friends and contacts. \u00e2\u02dc\u2026 GROUP CHAT: Enjoy group conversations with your contacts. \u00e2\u02dc\u2026 NO INTERNATIONAL CHARGES: Just like there is no added cost to send an international email, there is no cost to send WhatsApp messages internationally. Chat with your friends all over the world as long as they have WhatsApp Messenger installed and avoid those pesky international SMS costs. \u00e2\u02dc\u2026 SAY NO TO PINS AND USERNAMES: Why even bother having to remember yet another PIN or username? WhatsApp works with your phone number, just like SMS would, and integrates flawlessly with your existing phone address book. \u00e2\u02dc\u2026 NO NEED TO LOG IN/OUT: No more confusion about getting logged off from another computer or device. With push notifications WhatsApp is ALWAYS ON and ALWAYS CONNECTED. \u00e2\u02dc\u2026 NO NEED TO ADD BUDDIES: Your Address Book is used to automatically connect you with your contacts. Your contacts who already have WhatsApp Messenger will be automatically displayed.\u00e2\u02dc\u2026 OFFLINE MESSAGES: Even if you miss your push notifications or turn off your phone, WhatsApp will save your messages offline until you retrieve them during the next application use. \u00e2\u02dc\u2026 AND MUCH MORE: Share location, Exchange contacts, Custom wallpaper, Custom notification sounds, Landscape mode, Precise message time stamps, Email chat history, Broadcast messages and MMS to many contacts at once and much much more! --------------------------------------------------------- We\u00e2\u20ac\u2122re always excited to hear from you! If you have any feedback, questions, or concerns, please email us at: android-support@whatsapp.com or follow us on twitter: http://twitter.com/WhatsApp@WhatsApp---------------------------------------------------------When roaming, additional carrier data charges may apply.  Please contact your carrier for details.",
+        "devmail": "android-support@whatsapp.com",
+        "devprivacyurl": "http://www.whatsapp.com/legal/%23Privacy&sa=D&usg=AFQjCNHwg8eO4Sa-gorbCtBTH6HVyX1chA",
+        "devurl": "http://www.whatsapp.com/&sa=D&usg=AFQjCNG7hnGBZcdhY01DCoWxe7f3gSXlJQ",
+        "id": "com.whatsapp",
+        "install": "100,000,000 - 500,000,000",
+        "moreFromDev": "None",
+        "name": "WhatsApp Messenger",
+        "price": 0.0,
+        "rating": [
+            [
+                " 1 ",
+                225089
+            ],
+            [
+                " 5 ",
+                3912610
+            ],
+            [
+                " 2 ",
+                87128
+            ],
+            [
+                " 3 ",
+                270097
+            ],
+            [
+                " 4 ",
+                729467
+            ]
+        ],
+        "reviews": [
+            [
+                "Android 4.4 ART support please",
+                "  I'd like to use Whatsapp on my Nexus 5 with the new ART runtime environment, sadly, Whatsapp is one of the few apps that does not work under ART.  Other chat programs have no issue, including BBM and Viber, so I don't know what Whatsapp issue is, but I hope it gets sorted out soon. "
+            ],
+            [
+                "AnwarArts.",
+                "  working smothly with giving a lots of good exprrience..but only can not move to sd card..  I provided 2 STARS , 5 can be given if more improvment. ThAnKs. "
+            ],
+            [
+                "blue video",
+                "  Since last update all my videos are blue. They are ok from gallery, but if I send it to some one its appears blue. Waiting for new update then will rate 5 stars! "
+            ],
+            [
+                "Please update so it will be compatible with Kitkat 4.4.",
+                "  I'm using Nexus 4 and just updated to 4.4, and I was trying to install whatsapp but it's always giving me install error. "
+            ],
+            [
+                "Let us move app to SD",
+                "  Just one more thing, just let your app can be moveable to the SD card. If not our internal memory will be insufficient. "
+            ],
+            [
+                "Awesome",
+                "  Awesome app... I after this new update I can't send audio notes.. I use xperia u.. I tried so many things Bt it's not working "
+            ]
+        ],
+        "screenCount": 5,
+        "similar": [
+            "jp.naver.line.android",
+            "com.whatsapp.wallpaper",
+            "app6910.vinebre",
+            "com.albertoj.whatsappghost",
+            "com.google.android.talk",
+            "com.android.chrome",
+            "com.yahoo.mobile.client.android.im",
+            "com.facebook.orca",
+            "com.facebook.katana",
+            "com.viber.voip",
+            "Box.Dynamics.WhatsFun",
+            "com.nimbuzz",
+            "com.bbm",
+            "com.tencent.mm",
+            "com.mizusoft.android.paint",
+            "com.skype.raider",
+            "kik.android"
+        ],
+        "size": "11M",
+        "totalReviewers": 5224391,
+        "version": "2.11.136"
+    },
+    {
+        "category": "Communication",
+        "company": "AVG Mobile",
+        "contentRating": "Low Maturity",
+        "description": "Free, top-rated, real-time antivirus and anti-theft protection for Android\u00e2\u201e\u00a2 devices.AVG AntiVirus FREE for Android\u00e2\u201e\u00a2 protects you from harmful viruses, malware, spyware and text messages and helps keep your personal data safe.Download Free Now!Over 100,000,000 people already installed AVG\u00e2\u20ac\u2122s antivirus mobile security apps. Join them now and:\u00e2\u2013\u00ba Scan apps, settings, files, and media in real time\u00e2\u2013\u00ba Enable finding/locating your lost or stolen phone via Google Maps\u00e2\u201e\u00a2\u00e2\u2013\u00ba Lock/wipe your device to protect your privacy\u00e2\u2013\u00ba Kill tasks that slow your device \u00e2\u2013\u00ba Browse the web safely and securely\u00e2\u2013\u00ba Monitor battery, storage and data package usageAVG AntiVirus FREE \u00e2\u20ac\u201c mobile security software for Android. Quick & easy protection for your phone!With the AVG Android app you\u00e2\u20ac\u2122ll receive effective, easy-to-use virus and malware protection, as well as a real-time app scanner, phone locator, task killer, app locker, and local device wipe to help shield you from threats to your privacy and online identity.Real-time security scanner protection keeps you protected from downloaded apps and games.AVG AntiVirus FREE also:\u00e2\u2013\u00ba Defends against malicious apps, viruses, malware and spyware\u00e2\u2013\u00ba Identifies unsecure device settings and advises how to fix them\u00e2\u2013\u00ba Helps ensure contacts, bookmarks and text messages are safe\u00e2\u2013\u00ba Checks media files for malicious software and security threats\u00e2\u2013\u00ba Guards you from phishing attacksApp Features:Protection:\u00e2\u2013\u00ba Scan downloaded apps and files and remove malicious content\u00e2\u2013\u00ba Search, shop and use social networks with peace of mind knowing your identity and personal data are protected from phishing and malware\u00e2\u2013\u00ba Scan websites for harmful threats. If a suspicious URL is detected, you will be redirected to a \u00e2\u20ac\u0153Safe Page\u00e2\u20ac\ufffd* Safe Web Surfing is applicable to Android's default browser onlyPerformance:\u00e2\u2013\u00ba Kill tasks and processes that can slow down or freeze up your device\u00e2\u2013\u00ba Monitor battery consumption, set battery level notifications and enable power saving\u00e2\u2013\u00ba Monitor traffic - keep track of your 3G /4G mobile data plan usage by getting notifications when you are near to reaching your monthly data plan limit\u00e2\u2013\u00ba Optimize internal and SD card storage space by either uninstalling apps and games or by moving them between the internal device memory and SD card Anti-Theft & Phone Location:Use AVG\u00e2\u20ac\u2122s remote management console or text messages (SMS) to:\u00e2\u2013\u00ba Locate your lost or stolen phone and get help finding it via Google Maps\u00e2\u201e\u00a2\u00e2\u2013\u00ba Lock your phone and set a lock screen message to help the locator find you\u00e2\u2013\u00ba Make your phone ring (shout) even if it is on silent mode\u00e2\u2013\u00ba Wipe your phone and SD card content\u00e2\u2013\u00ba Camera Trap [14 day trial]: discreetly emails you a photo of anyone who enters 3 wrong passwords when trying to unlock your phone\u00e2\u2013\u00ba SIM Lock [14 day trial]: automatically locks your phone whenever someone replaces your SIM cardPrivacy:\u00e2\u2013\u00ba App locker [14 day trial]: lock apps to protect your privacy and safety or lock your device settings to secure its configuration\u00e2\u2013\u00ba App Backup [14 day trial]: backup apps from your device to your SD card so you can restore them whenever necessary\u00e2\u2013\u00ba Call and Message Blocker: protect yourself against spammers, hackers and scammers. Get warned about suspicious text messages, filter and block unwanted calls and messages\u00e2\u2013\u00baWipe contacts, text messages, photos, browser history, calendar, format SD card, and restore mobile device to factory settings AntiVirus FREE is available in:EN, DE, ES, FR, JA, KO, ZH (simp. & trad.), PT, RU, AR, IT, PL, CS, NL, HI, TR and HEFor the latest mobile security and protection updates:Join our Google+ community: http://plus.google.com/+AVG/postsJoin our Facebook community: http://www.facebook.com/avgfreeFollow us on Twitter: http://twitter.com/AVGFreeGoogle\u00c2\u00ae is a trademark of Google, Inc., registered in the USA and in other countries. Google Maps\u00e2\u201e\u00a2 and Android\u00e2\u201e\u00a2 are trademarks of Google Inc.",
+        "devmail": "mobile-support@avg.com",
+        "devprivacyurl": "http://www.avgmobilation.com/privacy&sa=D&usg=AFQjCNGPyh5OtOES5IWtuHgatTSqiNa-kA",
+        "devurl": "http://www.avgmobilation.com/&sa=D&usg=AFQjCNFd6wTR-R3C4Pj2Acxm0TCoxsDyCA",
+        "id": "com.antivirus",
+        "install": "100,000,000 - 500,000,000",
+        "moreFromDev": "None",
+        "name": "AntiVirus Security - FREE",
+        "price": 0.0,
+        "rating": [
+            [
+                " 5 ",
+                545842
+            ],
+            [
+                " 4 ",
+                142960
+            ],
+            [
+                " 2 ",
+                10570
+            ],
+            [
+                " 3 ",
+                44985
+            ],
+            [
+                " 1 ",
+                18894
+            ]
+        ],
+        "reviews": [
+            [
+                "4 stars",
+                "  Idk if i can give it 5 stars only because, I decided to test it out... When I locked my phone and made it \"shout\", I restarted the phone and it took roughly 3 to 5 minutes to lock again... I did its job but not as quickly as I would like.. But over all its a good product. "
+            ],
+            [
+                "Khan",
+                "  Its better found antivirus having no issues. Keep my phone virus free :) "
+            ],
+            [
+                "Great app",
+                "  As far as I know, keeps it virus free! "
+            ],
+            [
+                "Love it!",
+                "  Use it on all my devices, never a glitch or issue! "
+            ],
+            [
+                "The best",
+                "  AVG keeps doing its job day in and day out "
+            ],
+            [
+                "Cool protection app..",
+                "  Very good software. It keeps my phone safe from viruses!! Awesome!! "
+            ]
+        ],
+        "screenCount": 20,
+        "similar": [
+            "com.colony.safeantiviruslite",
+            "com.android.chrome",
+            "org.antivirus.tablet",
+            "com.facebook.orca",
+            "org.mozilla.firefox",
+            "com.viber.voip",
+            "com.avg.uninstaller",
+            "com.moobila.appriva.av",
+            "com.avg.privacyfix",
+            "com.avg.shrinker",
+            "com.tencent.mm",
+            "com.avg.tuneup",
+            "com.google.android.gm",
+            "com.google.android.talk",
+            "com.wsandroid.suite",
+            "com.whatsapp",
+            "com.antivirus.tablet",
+            "jp.naver.line.android",
+            "com.avg.cleaner",
+            "org.antivirus",
+            "com.opera.browser",
+            "com.bbm",
+            "com.skype.raider",
+            "com.opera.mini.android"
+        ],
+        "size": "Varies with device",
+        "totalReviewers": 763251,
+        "version": "Varies with device"
     }
 ]
