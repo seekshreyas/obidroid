@@ -119,12 +119,13 @@ def featureExtractor(app):
     # featDict['5starRating'] = getFiveStarRating(app)
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
-    featDict['revSent'] = getReviewSentiment(tokenizedReviews, cl)
+    featDict['revSent'] = getReviewSentiment(app, tokenizedReviews, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
     featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
-    featDict['installRange'] = getInstallRange(app)
+    featDict['installs'] = getInstallRange(app)
     featDict['exclamationCount'] = getExclamationCount(app)
+    featDict['countCapital'] = getCountCapitals(revStr)
     featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
 
     # featDict.update(getUnigramWordFeatures(revWords))
@@ -146,6 +147,12 @@ def getAdjectiveCount(pos_revs):
 
 
 
+
+
+def getCountCapitals(revStr):
+    capitalWords = [w for w in nltk.word_tokenize(revStr) if w.isupper()]
+
+    return len(capitalWords)
 
 
 
@@ -322,7 +329,7 @@ def getPrivacyState(app):
         return True
 
 
-def getReviewSentiment(tknRevs, classifier):
+def getReviewSentiment(app, tknRevs, classifier):
     revAggSentiment = 0
 
     for revList in tknRevs:
@@ -350,7 +357,8 @@ def getReviewSentiment(tknRevs, classifier):
 
         revAggSentiment += sentAggSentiment
 
-    print "review Sentiment: ", revAggSentiment
+    name = app['name'].encode('utf-8')
+    print "App: \t %s, Aggregate Review Sentiment: \t %s" % (name , revAggSentiment)
     return revAggSentiment
 
 
