@@ -122,11 +122,13 @@ def featureExtractor(app):
     featDict['revSent'] = getReviewSentiment(app, tokenizedReviews, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
-    featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
+    featDict['countMultipleApps'] = getDeveloperHasMultipleApps(app)
     featDict['installs'] = getInstallRange(app)
     featDict['exclamationCount'] = getExclamationCount(app)
     featDict['countCapital'] = getCountCapitals(revStr)
     featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
+    featDict['positiveWordCount'] = getPostiveWordCount(revStr)
+    featDict['negativeWordCount'] = getNegativeWordCount(revStr)
 
     # featDict.update(getUnigramWordFeatures(revWords))
     # featDict.update(getBigramWordFeatures(revWords))
@@ -156,7 +158,7 @@ def getCountCapitals(revStr):
 
 
 
-def getPostiveWordCount(revStr):
+def getPostiveWordCount(sent):
     positive_keywords = ["good", "happy", "love", "great", "reasonable", "glad", "simple", "outstanding", "easy",
                      "wonderful", "cool", "remarkably", "remarkable", "enjoy", "nice", "thoughtful", "pretty",
                      "responsive", "comforatable", "favorite", "desire", "best", "solid", "cool", "impressed",
@@ -171,7 +173,7 @@ def getPostiveWordCount(revStr):
 
 
 
-def getNegativeWordCount(revStr):
+def getNegativeWordCount(sent):
     negative_keywords = ["bad", "sad", "don't", "could not", "crappy", "unfortunately", "remove", "why", "poor",
                      "bothersome", "terrible", "although", "complaints", "outrageous", "isn't", "poorly",
                      "drawback", "annoying", "against", "irritating", "wouldn't", "won't", "wasn't", "couldn't",
@@ -243,9 +245,9 @@ def getExclamationCount(app):
 
 def getDeveloperHasMultipleApps(app):
     if app['moreFromDev'] == 'None':
-        return False
+        return 0
     else:
-        return True
+        return len(app['moreFromDev'])
 
 def getInstallRange(app):
     installs = app['install'].split(' - ')
