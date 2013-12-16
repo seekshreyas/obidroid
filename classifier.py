@@ -59,6 +59,8 @@ def featureAggregator(extract):
 
     return outputdata
 
+
+
 def tokenizeReviewsBySentence(reviews):
     rev_tokenized = list()
     for rev in reviews:
@@ -81,9 +83,9 @@ def featureExtractor(app):
 
 
 
-    fObj = open('mySentClassifier.pickle')
-    cl = load(fObj)
-    fObj.close()
+    # fObj = open('mySentClassifier.pickle')
+    # cl = load(fObj)
+    # fObj.close()
 
 
 
@@ -96,7 +98,7 @@ def featureExtractor(app):
     # featDict['5starRating'] = getFiveStarRating(app)
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
-    featDict['revSent'] = getReviewSentiment(tokenizedReviews, cl)
+    # featDict['revSent'] = getReviewSentiment(tokenizedReviews, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
     featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
@@ -104,13 +106,15 @@ def featureExtractor(app):
     featDict['exclamationCount'] = getExclamationCount(app)
     featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
 
-    return featDict
+    return { 'appFeatures': featDict, 'appName': app['name'] }
 
 def getAdjectiveCount(pos_revs):
     adj_counter = 0
     #pdb.set_trace()
     for pos_sent in pos_revs:
         adj_counter += Counter(tag for word, tag in pos_sent)['JJ']
+
+    return int(adj_counter)
 
 def getExclamationCount(app):
     exclaimCount = 0
@@ -240,8 +244,10 @@ def getReviewSentiment(tknRevs, classifier):
 
 
 
-def classifier(data, fold=4):
+def classifier(alldata, fold=4):
 
+    # name = alldata[0]
+    data = alldata[1]
 
 
     random.shuffle(data)
@@ -297,24 +303,33 @@ def myclassifier(train_data, test_data):
 
 
 def getAnalysisData(uinput):
-    data = []
+    appData = []
     for f in listdir(uinput['dir']):
         fname = f.split('_')
 
         if fname[-1] == 'all.json':
             print uinput['dir'] + f
             fdata = fileExtractor(uinput['dir'] + f)
-            features = featureAggregator(fdata)
+            appAggData = featureAggregator(fdata)
 
-            if fname[0] == 'malapps':
-                for apps in features:
-                    data.append([apps, 'unfair'])
-            else:
-                for apps in features:
-                    data.append([apps, 'fair'])
+            # appDict = {}
+
+            for apps in appAggData:
+
+                if fname[0] == 'malapps':
+                    apps['appLabel'] = 'unfair'
+                else:
+                    apps['appLabel'] = 'fair'
+
+                # appDict['appName'] = apps['appName']
+                # appDict['appFeatures'] = apps['appFeatures']
 
 
-    return data
+                appData.append(apps)
+
+
+
+    return appData
 
 
 

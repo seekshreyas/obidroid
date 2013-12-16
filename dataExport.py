@@ -12,6 +12,7 @@ from optparse import OptionParser
 from pprint import pprint
 from classifier import getAnalysisData
 
+import json
 import csv
 
 
@@ -33,45 +34,107 @@ def getUserInput():
 
 def export(data):
     # pprint(data)
+
     header = []
-    vectors = []
+    # vectors = []
     labels = []
 
-    appFeaturesFileObj = open('appFeatures.csv', 'wb')
+    appFeaturesFileObj = open('exports/appFeatures.csv', 'wb')
     wr = csv.writer(appFeaturesFileObj)
+
+
+
 
     counter = 0
     for row in data:
+        name = row[0][0]
         rowval = []
-        labels = []
         labelval = True
 
+        if counter == 0:
+            header.append('appName')
+        else:
+            rowval.append(name)
 
         if row[1] == 'unfair':
             labelval = False
-        labels.append(labelval)
 
-        for k,v in row[0].iteritems():
 
+
+
+        for k,v in row[0][1].iteritems():
             if counter == 0:
                 header.append(k)
 
-            if k == 'hasPrivacy' or k == 'hasDeveloperEmail' or k == 'hasDeveloperWebsite' or k == 'hasMultipleApps':
+            # if k == 'hasPrivacy' or k == 'hasDeveloperEmail' or k == 'hasDeveloperWebsite' or k == 'hasMultipleApps':
+            if isinstance(v, bool):
                 v = int(bool(v))
             else:
-                v = float(v)
+                try:
+                    v = float(v)
+                except:
+                    print "exception: ", k, v
+
             rowval.append(v)
 
         if counter == 0:
+            header.append('Fair')
             wr.writerow(header)
 
-        vectors.append(rowval)
-        wr.writerow(rowval)
+        rowval.append(labelval)
+
+
+        try:
+            wr.writerow(rowval)
+        except:
+            pprint(rowval)
         counter += 1
 
 
-    pprint(vectors)
+
     appFeaturesFileObj.close()
+
+
+
+def exportFile(data):
+
+    headers = ['appName']
+
+
+    featNames = sorted(data[0].keys())
+    headers.append(featNames)
+    headers.append('appLabel')
+
+
+    appFeaturesFileObj = open('exports/appFeatures.csv', 'wb')
+    wr = csv.writer(appFeaturesFileObj)
+
+    wr.writerow(headers)
+
+    for row in data:
+        # pprint(row)
+        # break
+        rowvals = []
+        name = row['appName'].encode('UTF-8').strip()
+        rowvals.append(name)
+
+        appFeatures = row['appFeatures']
+
+        for k in sorted(appFeatures.keys()):
+            value = appFeatures[k]
+            rowvals.append(value)
+
+        rowvals.append(row['appLabel'])
+
+        # pprint(rowvals)
+
+        try:
+            wr.writerow(rowvals)
+        except:
+            print "Skipping %s app for ASCII error: " % (rowvals[0])
+
+    appFeaturesFileObj.close()
+
 
 
 
@@ -81,8 +144,12 @@ def main():
 
     data = getAnalysisData(userinput)
 
-    export(data)
 
+    # pprint(data)
+
+    # export(data)
+
+    exportFile(data)
 
 
 
