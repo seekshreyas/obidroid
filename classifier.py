@@ -23,6 +23,13 @@ from decimal import Decimal
 from collections import OrderedDict
 from collections import Counter
 import pdb
+from nltk.tokenize import word_tokenize
+from nltk.corpus import stopwords
+from nltk.collocations import *
+# from nltk.collocations import BigramCollocationFinder
+from nltk.metrics import BigramAssocMeasures as BAM
+from nltk.metrics import TrigramAssocMeasures as TAM
+from itertools import chain
 # from nltk.classify import apply_features
 
 
@@ -76,16 +83,30 @@ def posReviewsBySentence(tokenizedReviews):
 
 
 
+def getAllReviewsAsString(app):
+    revStr = ''
+    for rev in app['reviews']:
+        # combine title and review sentence
+        revStr += rev[0] + rev[1]
+
+    return revStr
+
+
 def featureExtractor(app):
     featDict = {}
+    revStr = getAllReviewsAsString(app)
+    revWords = [w.lower()
+                    for w in word_tokenize(revStr)
+                        if w not in stopwords.words('english') ]
+
     tokenizedReviews = tokenizeReviewsBySentence(app['reviews'])
     posReviews = posReviewsBySentence(tokenizedReviews)
 
 
 
-    # fObj = open('mySentClassifier.pickle')
-    # cl = load(fObj)
-    # fObj.close()
+    fObj = open('mySentClassifier.pickle')
+    cl = load(fObj)
+    fObj.close()
 
 
 
@@ -98,13 +119,19 @@ def featureExtractor(app):
     # featDict['5starRating'] = getFiveStarRating(app)
     featDict['avgRating'] = getAverageRating(app)
     featDict['hasPrivacy'] = getPrivacyState(app)
-    # featDict['revSent'] = getReviewSentiment(tokenizedReviews, cl)
+    featDict['revSent'] = getReviewSentiment(tokenizedReviews, cl)
     featDict['hasDeveloperEmail'] = getDeveloperEmailState(app)
     featDict['hasDeveloperWebsite'] = getDeveloperWebsiteState(app)
     featDict['hasMultipleApps'] = getDeveloperHasMultipleApps(app)
     featDict['installRange'] = getInstallRange(app)
     featDict['exclamationCount'] = getExclamationCount(app)
     featDict['adjectiveCount'] = getAdjectiveCount(posReviews)
+
+    # featDict.update(getUnigramWordFeatures(revWords))
+    # featDict.update(getBigramWordFeatures(revWords))
+    # featDict.update(getTrigramWordFeatures(revWords))
+
+
 
     return { 'appFeatures': featDict, 'appName': app['name'] }
 
@@ -115,6 +142,91 @@ def getAdjectiveCount(pos_revs):
         adj_counter += Counter(tag for word, tag in pos_sent)['JJ']
 
     return int(adj_counter)
+
+
+
+
+
+
+
+def getPostiveWordCount(revStr):
+    positive_keywords = ["good", "happy", "love", "great", "reasonable", "glad", "simple", "outstanding", "easy",
+                     "wonderful", "cool", "remarkably", "remarkable", "enjoy", "nice", "thoughtful", "pretty",
+                     "responsive", "comforatable", "favorite", "desire", "best", "solid", "cool", "impressed",
+                     "sleek", "appealing", "rocks", "blazing", "amazing", "plus", "blessing", "awesome", "loved",
+                        "enjoyed", "desired", "impressive", "impress", "rocked", "bless", "positive", "fabulous"]
+    postiveCount = 0
+    for word in sent.split(" "):
+        word = word.replace(".","").replace(",","").replace("!","").replace("?","").replace("##","").replace("(","").replace(")","").replace("**","")
+        if word.lower() in positive_keywords:
+            postiveCount += 1
+    return postiveCount
+
+
+
+def getNegativeWordCount(revStr):
+    negative_keywords = ["bad", "sad", "don't", "could not", "crappy", "unfortunately", "remove", "why", "poor",
+                     "bothersome", "terrible", "although", "complaints", "outrageous", "isn't", "poorly",
+                     "drawback", "annoying", "against", "irritating", "wouldn't", "won't", "wasn't", "couldn't",
+                     "awful", "didn't", "hasn't", "difficult", "hate", "incorrect", "junk", "trash", "removed",
+                         "complain", "complained", "hated", "negative"]
+    negativeCount = 0
+    for word in sent.split(" "):
+        word = word.replace(".","").replace(",","").replace("!","").replace("?","").replace("##","").replace("(","").replace(")","").replace("**","")
+        if word.lower() in negative_keywords:
+            negativeCount += 1
+    return negativeCount
+
+
+
+
+def getUnigramWordFeatures(words):
+    """
+    Unigrams of the apps reviews
+    """
+    malIndicatorWords = ['spam', 'virus', 'viruses' 'permissions', 'security',
+        'spying', 'access', 'warning', 'facebook', 'contacts', 'fake', 'permission',
+        'beware', 'lies', 'liar', 'why', 'age']
+    return dict(('contains("%s")' % word, True) for word in words if word in malIndicatorWords)
+
+
+
+def getBigramWordFeatures(words):
+    """
+    Get Relevant Bigrams
+    """
+
+    filtered_words = [w for w in words if w != '.' and w != '?' and w != ')' and w != '(' and w != '-']
+
+    bigram_finder = BigramCollocationFinder.from_words(filtered_words)
+
+
+
+    # bigram_finder = BigramCollocationFinder.from_words(filtered_words)
+    # score = bigram_finder.score_ngrams(BAM.jaccard)
+
+    bigrams =  bigram_finder.nbest(BAM.likelihood_ratio, 20)
+
+
+    return dict((bg, True) for bg in chain(words, bigrams))
+
+
+
+
+def getTrigramWordFeatures(words):
+    """
+    Return relevant Trigrams
+    """
+
+    filtered_words = [w for w in words if w != '.' and w != '?' and w != ')' and w != '(' and w != '-']
+    trigram_measures = nltk.collocations.TrigramAssocMeasures()
+    trigram_finder = TrigramCollocationFinder.from_words(filtered_words)
+    trigrams = trigram_finder.nbest(trigram_measures.raw_freq, 3)
+
+    return dict((tg, True) for tg in chain(words, trigrams))
+
+
+
 
 def getExclamationCount(app):
     exclaimCount = 0
@@ -246,12 +358,11 @@ def getReviewSentiment(tknRevs, classifier):
 
 def classifier(alldata, fold=4):
 
-    # name = alldata[0]
-    data = alldata[1]
+    data = [(row['appFeatures'], row['appLabel']) for row in alldata]
 
 
     random.shuffle(data)
-    pprint(data)
+    # pprint(data)
 
     claccuracy = []
     size = int(math.floor(len(data) / 10.0))
@@ -259,7 +370,7 @@ def classifier(alldata, fold=4):
     for i in range(fold):
         test_this_round = data[i*size:][:size]
         train_this_round = data[:i*size] + data[(i+1)*size:]
-        #pdb.set_trace()
+
         acc = myclassifier(train_this_round, test_this_round)
 
         claccuracy.append(acc)
@@ -276,13 +387,13 @@ def myclassifier(train_data, test_data):
     print "Train Data"
     print "=" * 79
     print len(train_data)
-    pprint(train_data[0])
+    # pprint(train_data[0])
 
 
     print "Test Data"
     print "=" * 79
     print len(test_data)
-    pprint(test_data[0])
+    # pprint(test_data[0])
 
 
 
@@ -341,12 +452,6 @@ def main():
     data = getAnalysisData(userinput)
 
 
-
-
-    # extract = fileExtractor(userinput['file'])
-
-    # pprint(data)
-    # features = featureAggregator(extract)
     classifier(data)
 
 

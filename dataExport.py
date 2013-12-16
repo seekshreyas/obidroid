@@ -69,6 +69,8 @@ def export(data):
             # if k == 'hasPrivacy' or k == 'hasDeveloperEmail' or k == 'hasDeveloperWebsite' or k == 'hasMultipleApps':
             if isinstance(v, bool):
                 v = int(bool(v))
+            elif isinstance(v, basestring):
+                pass
             else:
                 try:
                     v = float(v)
