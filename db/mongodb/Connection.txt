@@ -1,7 +1,5 @@
 MONGODB Goods
 
-shreyas_db mightyshrey
-
 Login:
 mongo troup.mongohq.com:10005/app18812501 -u username -p password
 
