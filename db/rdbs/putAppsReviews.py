@@ -7,7 +7,8 @@ from pprint import pprint
 from models.review import Review
 from models.app import App
 
-engine = create_engine('postgresql://postgres:i219kkls@munners.dlinkddns.com:28432/obidroid')
+#engine = create_engine('postgresql://postgres:i219kkls@munners.dlinkddns.com:28432/obidroid')
+engine = create_engine('postgresql://uzwispzaxfcipd:aSkx0cJOSmD2N4tZ2rk4hmJ8EU@ec2-54-204-20-28.compute-1.amazonaws.com:5432/obidroid')
 Base = declarative_base()
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -104,6 +105,43 @@ def parse_all():
     session.commit()
     session.close()
 
+def _processInput(path):
+    """ Process the input directory
+    Process only djvu files that have not been transformed from directory path parameter.
+    """
+
+    # check if passed path is to a directory or to a file
+    if os.path.isfile(path):
+        # extract absolute path from user submitted path value
+        abs_path = os.path.dirname(os.path.abspath(path))
+        filename = os.path.basename(path)
+        processFile(abs_path, filename)
+    elif os.path.isdir(path):
+        # extract absolute path from user submitted path value
+        abs_path = os.path.abspath(path)
+        # loop through and open/transform djvu files
+        for filename in os.listdir(abs_path):
+            processFile(abs_path, filename)
+    else:
+        print "An invalid directory or file was passed as input"
+
+def _getInput():
+    """ Command Line Input Parsing
+        Parse the user input
+    """
+    
+    parser = OptionParser()
+    parser.add_option('-i', '--input', dest='filepath', default='.')
+    (option, args) = parser.parse_args()
+
+    if not option.filepath:
+        return parser.error('Input file or directory path not given, use --input="path.to.db.input"')
+
+    return {'src': option.filepath}
+
+def main():
+    userInput - _getInput()
+    processInput
+
 if __name__ == '__main__':
-    #main
-    parse_all()
+    main

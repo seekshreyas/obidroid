@@ -1,0 +1,7 @@
+MONGODB Goods
+
+Login:
+mongo troup.mongohq.com:10005/app18812501 -u username -p password
+
+Load a JSON File:  
+mongoimport --host troup.mongohq.com:10005 --jsonArray --db app18812501 --collection apps_old -u username -p password < json file
