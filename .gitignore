@@ -38,3 +38,6 @@ nosetests.xml
 # R files
 .RData
 .Rhistory
+
+## Vagrant file 
+.vagrant
