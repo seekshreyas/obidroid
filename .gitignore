@@ -62,3 +62,6 @@ Thumbs.db
 # Ignore the Extras file
 .extra
 
+
+## IPython notebook checkpoints
+.ipynb_checkpoints/
