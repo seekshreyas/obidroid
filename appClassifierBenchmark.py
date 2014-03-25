@@ -16,6 +16,7 @@ from __future__ import division
 from optparse import OptionParser
 import pandas as pd
 import numpy as np
+from sklearn import metrics, preprocessing
 from sklearn import svm
 
 def getUserInput():
@@ -91,14 +92,25 @@ def prepareClassifier(df):
         featCols = set(cDf.columns)
         featCols.remove('appLabel')
 
-        X = cDf[list(featCols)]
-        Y = cDf['appLabel']
+        features = cDf[list(featCols)].values
+        ## Scale the features to a common range
+        min_max_scaler = preprocessing.MinMaxScaler()
+        X = min_max_scaler.fit_transform(features)
+
+        Y = cDf['appLabel'].values
 
 
-        svc = svm.SVC() # initiating the SVM based classifier
-        Y_pred_svc = svc.fit(Y[:36], X).predict(Y[37:46]) # train on first 36 and test on last 10
+        n_samples = 40
 
-        print "SVM classifier Prediction Errors: \t\t%5d" % (Y_pred_svc != Y).sum()
+        classifier_svm = svm.SVC() # initiating the SVM based classifier
+        Y_pred_svm = classifier_svm.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
+
+        expected_svm = Y[n_samples:]
+        predicted_svm = classifier_svm.predict(X[n_samples:])
+        print("Classification report for classifier %s:\n%s\n" % (classifier_svm, metrics.classification_report(expected_svm, predicted_svm)))
+        print
+        print("Confusion matrix:\n%s" % metrics.confusion_matrix(expected_svm, predicted_svm))
+
 
 
 
@@ -107,9 +119,6 @@ def prepareClassifier(df):
     fairDf = df[df['appLabel'] == False]
     unfairDf = df[df['appLabel'] == True]
 
-    # print "fairDf", fairDf.values
-
-    # print "unfairDf", unfairDf.values
 
     # calculate total possible splits of fair data frame relatie to
     # size of unfair dataframe
@@ -137,7 +146,7 @@ def main():
     appDf = loadAppData(userInput['file'])
     appDf = trimDf(appDf)
 
-    prepareClassifier(appDf)
+
 
 
 
@@ -145,11 +154,14 @@ def main():
     print "-" * 79
     print appDf.head()
 
-    print
-    print "Data Columns"
-    print "-" * 79
-    for (i,col) in enumerate(appDf.columns):
-        print "%2s %30s %10s" % (i,col, appDf[col].dtype)
+    # print
+    # print "Data Columns"
+    # print "-" * 79
+    # for (i,col) in enumerate(appDf.columns):
+    #     print "%2s %30s %10s" % (i,col, appDf[col].dtype)
+
+
+    prepareClassifier(appDf)
 
 
 
