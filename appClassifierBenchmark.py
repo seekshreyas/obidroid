@@ -103,7 +103,19 @@ def prepareClassifier(df):
         n_samples = 40
 
 
-        print "\n\nSVM Classification"
+        print "\n\nGaussian NaiveBayes Classification"
+        print "#" * 79
+        classifier_gnb = naive_bayes.GaussianNB() # initiating the SVM based classifier
+        Y_pred_gnb = classifier_gnb.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
+
+        expected_gnb = Y[n_samples:]
+        predicted_gnb = classifier_gnb.predict(X[n_samples:])
+        print("Classification report for classifier %s:\n%s\n" % (classifier_gnb, metrics.classification_report(expected_gnb, predicted_gnb)))
+        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_gnb, predicted_gnb))
+
+
+
+        print "\n\nSVM-linear Classification"
         print "#" * 79
         classifier_svm = svm.SVC() # initiating the SVM based classifier
         Y_pred_svm = classifier_svm.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
@@ -114,15 +126,16 @@ def prepareClassifier(df):
         print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_svm, predicted_svm))
 
 
-        print "\n\nGaussian NaiveBayes Classification"
+        print "\n\nSVM-Non-linear Classification"
         print "#" * 79
-        classifier_gnb = naive_bayes.GaussianNB() # initiating the SVM based classifier
-        Y_pred_gnb = classifier_gnb.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
+        classifier_nusvm = svm.NuSVC() # initiating the SVM based classifier
+        Y_pred_nusvm = classifier_nusvm.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
 
-        expected_gnb = Y[n_samples:]
-        predicted_gnb = classifier_gnb.predict(X[n_samples:])
-        print("Classification report for classifier %s:\n%s\n" % (classifier_gnb, metrics.classification_report(expected_gnb, predicted_gnb)))
-        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_gnb, predicted_gnb))
+        expected_nusvm = Y[n_samples:]
+        predicted_nusvm = classifier_nusvm.predict(X[n_samples:])
+        print("Classification report for classifier %s:\n%s\n" % (classifier_nusvm, metrics.classification_report(expected_nusvm, predicted_nusvm)))
+        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_nusvm, predicted_nusvm))
+
 
 
 
