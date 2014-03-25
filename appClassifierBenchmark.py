@@ -17,7 +17,7 @@ from optparse import OptionParser
 import pandas as pd
 import numpy as np
 from sklearn import metrics, preprocessing
-from sklearn import svm
+from sklearn import svm, naive_bayes
 
 def getUserInput():
     """
@@ -102,14 +102,27 @@ def prepareClassifier(df):
 
         n_samples = 40
 
+
+        print "\n\nSVM Classification"
+        print "#" * 79
         classifier_svm = svm.SVC() # initiating the SVM based classifier
         Y_pred_svm = classifier_svm.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
 
         expected_svm = Y[n_samples:]
         predicted_svm = classifier_svm.predict(X[n_samples:])
         print("Classification report for classifier %s:\n%s\n" % (classifier_svm, metrics.classification_report(expected_svm, predicted_svm)))
-        print
-        print("Confusion matrix:\n%s" % metrics.confusion_matrix(expected_svm, predicted_svm))
+        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_svm, predicted_svm))
+
+
+        print "\n\nGaussian NaiveBayes Classification"
+        print "#" * 79
+        classifier_gnb = naive_bayes.GaussianNB() # initiating the SVM based classifier
+        Y_pred_gnb = classifier_gnb.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
+
+        expected_gnb = Y[n_samples:]
+        predicted_gnb = classifier_gnb.predict(X[n_samples:])
+        print("Classification report for classifier %s:\n%s\n" % (classifier_gnb, metrics.classification_report(expected_gnb, predicted_gnb)))
+        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_gnb, predicted_gnb))
 
 
 
