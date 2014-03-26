@@ -11,31 +11,57 @@ Classifiers tried:
     - linear
     - kernelized
 """
-
 from __future__ import division
-from optparse import OptionParser
+import sys
 import pandas as pd
 import numpy as np
+from optparse import OptionParser
 from sklearn import metrics, preprocessing
 from sklearn import svm, naive_bayes, neighbors, tree
 from sklearn.ensemble import AdaBoostClassifier
 
-def getUserInput():
+
+
+
+
+
+def getUserInput(models):
     """
     Get User Input
     """
-    optionparser = OptionParser()
+    optionparser = OptionParser(add_help_option=False, epilog="multiline")
 
-    optionparser.add_option('-m', '--model', dest='model', default="all")
+    optionparser.add_option('-c', '--classifier', dest='classifier', default="all")
+    optionparser.add_option('-h', '--help', dest='help', action='store_true',
+                  help='show this help message and exit')
     optionparser.add_option('-f', '--file', dest='file')
 
 
     (option, args) = optionparser.parse_args()
 
-    if not option.file:
-        return optionparser.error('Data File path not provided.\n Usage: --file="path.to.appData"')
+    if option.help:
+        print optionparser.print_help()
+        print __doc__
+        print "Supported Classifier Models:"
 
-    return { 'model' : option.model, 'file': option.file }
+
+        # print models
+        for index, key in enumerate(models):
+            print "%2s % 20s" % (index, key)
+
+        print "Default option: 'all'\n"
+
+        print "To run the program, provide app features file path"
+        print "Usage: --file='path.to.appData'"
+
+        sys.exit()
+
+
+    if not option.file:
+            return optionparser.error('Data File path not provided.\n Usage: --file="path.to.appData"')
+
+
+    return { 'classifier' : option.classifier, 'file': option.file }
 
 
 
@@ -78,7 +104,7 @@ def trimDf(df):
 
 
 
-def prepareClassifier(df):
+def prepareClassifier(df, models, choice):
     """
     Classify the apps
     """
@@ -123,21 +149,19 @@ def prepareClassifier(df):
         Y = cDf['appLabel'].values
 
 
-        n_neighbors = 3
 
-        models = {
-            'NB' : naive_bayes.GaussianNB(),
-            'svm-l' : svm.SVC(),
-            'svm-nl' : svm.NuSVC(),
-            'tree' : tree.DecisionTreeClassifier(),
-            'forest': AdaBoostClassifier(tree.DecisionTreeClassifier(max_depth=1),algorithm="SAMME",n_estimators=200),
-            'knn-uniform' : neighbors.KNeighborsClassifier(n_neighbors, weights='uniform'),
-            'knn-distance' : neighbors.KNeighborsClassifier(n_neighbors, weights='distance')
-        }
 
-        for key in models:
-            classifier = models[key]
-            classificationOutput(classifier, X, Y)
+
+        if choice == 'all':
+            for key in models:
+                classifier = models[key]
+                classificationOutput(classifier, X, Y)
+        else:
+            if choice in models:
+                classifier = models[choice]
+                classificationOutput(classifier, X, Y)
+            else:
+                print "Incorrect Choice"
 
 
 
@@ -168,28 +192,30 @@ def prepareClassifier(df):
 
 
 def main():
-    print __doc__
 
-    userInput = getUserInput()
+    # Supported classifier models
+    n_neighbors = 3
+    models = {
+                'nb' : naive_bayes.GaussianNB(),
+                'svm-l' : svm.SVC(),
+                'svm-nl' : svm.NuSVC(),
+                'tree' : tree.DecisionTreeClassifier(),
+                'forest': AdaBoostClassifier(tree.DecisionTreeClassifier(max_depth=1),algorithm="SAMME",n_estimators=200),
+                'knn-uniform' : neighbors.KNeighborsClassifier(n_neighbors, weights='uniform'),
+                'knn-distance' : neighbors.KNeighborsClassifier(n_neighbors, weights='distance')
+    }
+
+    userInput = getUserInput(models)
     appDf = loadAppData(userInput['file'])
     appDf = trimDf(appDf)
 
 
-
-
-
-    print "Sample Data"
-    print "-" * 79
-    print appDf.head()
-
-    # print
-    # print "Data Columns"
+    # print "Sample Data"
     # print "-" * 79
-    # for (i,col) in enumerate(appDf.columns):
-    #     print "%2s %30s %10s" % (i,col, appDf[col].dtype)
+    # print appDf.head()
 
 
-    prepareClassifier(appDf)
+    prepareClassifier(appDf, models, userInput['classifier'])
 
 
 
