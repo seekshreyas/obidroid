@@ -84,6 +84,28 @@ def prepareClassifier(df):
     """
 
 
+    def classificationOutput(clf, X, Y):
+        """
+        Fit the model and print the classification results
+        - confusion_matrix
+        - avg scores etc
+        """
+        n_samples = 40
+
+        print "\n\nClassifier: \n %s" % (clf)
+        print "#" * 79
+        # classifier_gnb = naive_bayes.GaussianNB() # initiating the classifier
+
+        Y_pred = clf.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
+
+        expected = Y[n_samples:]
+        predicted = clf.predict(X[n_samples:])
+        print("Classification report:\n%s\n" % (metrics.classification_report(expected, predicted)))
+        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected, predicted))
+
+
+
+
     def classify(cDf):
         """
         Given the dataframe combined with equal fair and unfair apps,
@@ -93,88 +115,29 @@ def prepareClassifier(df):
         featCols = set(cDf.columns)
         featCols.remove('appLabel')
 
-        features = cDf[list(featCols)].values
+        features = cDf[list(featCols)].astype('float')
         ## Scale the features to a common range
         min_max_scaler = preprocessing.MinMaxScaler()
-        X = min_max_scaler.fit_transform(features)
+        X = min_max_scaler.fit_transform(features.values)
 
         Y = cDf['appLabel'].values
 
 
-        n_samples = 40
+        n_neighbors = 3
 
+        models = {
+            'NB' : naive_bayes.GaussianNB(),
+            'svm-l' : svm.SVC(),
+            'svm-nl' : svm.NuSVC(),
+            'tree' : tree.DecisionTreeClassifier(),
+            'forest': AdaBoostClassifier(tree.DecisionTreeClassifier(max_depth=1),algorithm="SAMME",n_estimators=200),
+            'knn-uniform' : neighbors.KNeighborsClassifier(n_neighbors, weights='uniform'),
+            'knn-distance' : neighbors.KNeighborsClassifier(n_neighbors, weights='distance')
+        }
 
-        print "\n\nGaussian NaiveBayes Classification"
-        print "#" * 79
-        classifier_gnb = naive_bayes.GaussianNB() # initiating the classifier
-        Y_pred_gnb = classifier_gnb.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
-
-        expected_gnb = Y[n_samples:]
-        predicted_gnb = classifier_gnb.predict(X[n_samples:])
-        print("Classification report for classifier %s:\n%s\n" % (classifier_gnb, metrics.classification_report(expected_gnb, predicted_gnb)))
-        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_gnb, predicted_gnb))
-
-
-
-        print "\n\nSVM-linear Classification"
-        print "#" * 79
-        classifier_svm = svm.SVC() # initiating the classifier
-        Y_pred_svm = classifier_svm.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
-
-        expected_svm = Y[n_samples:]
-        predicted_svm = classifier_svm.predict(X[n_samples:])
-        print("Classification report for classifier %s:\n%s\n" % (classifier_svm, metrics.classification_report(expected_svm, predicted_svm)))
-        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_svm, predicted_svm))
-
-
-        print "\n\nSVM-Non-linear Classification"
-        print "#" * 79
-        classifier_nusvm = svm.NuSVC() # initiating the classifier
-        Y_pred_nusvm = classifier_nusvm.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
-
-        expected_nusvm = Y[n_samples:]
-        predicted_nusvm = classifier_nusvm.predict(X[n_samples:])
-        print("Classification report for classifier %s:\n%s\n" % (classifier_nusvm, metrics.classification_report(expected_nusvm, predicted_nusvm)))
-        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_nusvm, predicted_nusvm))
-
-
-        print "\n\nDecision Tree Classification"
-        print "#" * 79
-        classifier_tree = tree.DecisionTreeClassifier() # initiating the classifier
-        Y_pred_tree = classifier_tree.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
-
-        expected_tree = Y[n_samples:]
-        predicted_tree = classifier_tree.predict(X[n_samples:])
-        print("Classification report for classifier %s:\n%s\n" % (classifier_tree, metrics.classification_report(expected_tree, predicted_tree)))
-        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_tree, predicted_tree))
-
-
-        print "\n\nEnsemble method: AdaBoostClassifier"
-        print "#" * 79
-        classifier_bdt = AdaBoostClassifier(tree.DecisionTreeClassifier(max_depth=1),
-                         algorithm="SAMME",
-                         n_estimators=200) # initiating the classifier
-        Y_pred_bdt = classifier_bdt.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
-
-        expected_bdt = Y[n_samples:]
-        predicted_bdt = classifier_bdt.predict(X[n_samples:])
-        print("Classification report for classifier %s:\n%s\n" % (classifier_bdt, metrics.classification_report(expected_bdt, predicted_bdt)))
-        print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_bdt, predicted_bdt))
-
-
-        for weights in ['uniform', 'distance']:
-            n_neighbors = 3
-            print "\n\n %d-NN Classification weighted as: %s" % (n_neighbors, weights)
-            print "#" * 79
-            classifier_knn = neighbors.KNeighborsClassifier(n_neighbors, weights=weights) # initiating the classifier
-            Y_pred_knn = classifier_knn.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
-
-            expected_knn = Y[n_samples:]
-            predicted_knn = classifier_knn.predict(X[n_samples:])
-            print("Classification report for classifier %s:\n%s\n" % (classifier_knn, metrics.classification_report(expected_knn, predicted_knn)))
-            print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_knn, predicted_knn))
-
-
+        for key in models:
+            classifier = models[key]
+            classificationOutput(classifier, X, Y)
 
 
 
