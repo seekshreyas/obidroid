@@ -22,9 +22,6 @@ from sklearn.ensemble import AdaBoostClassifier
 
 
 
-
-
-
 def getUserInput(models):
     """
     Get User Input
