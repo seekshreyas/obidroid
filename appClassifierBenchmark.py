@@ -17,7 +17,7 @@ from optparse import OptionParser
 import pandas as pd
 import numpy as np
 from sklearn import metrics, preprocessing
-from sklearn import svm, naive_bayes
+from sklearn import svm, naive_bayes, neighbors
 
 def getUserInput():
     """
@@ -135,6 +135,20 @@ def prepareClassifier(df):
         predicted_nusvm = classifier_nusvm.predict(X[n_samples:])
         print("Classification report for classifier %s:\n%s\n" % (classifier_nusvm, metrics.classification_report(expected_nusvm, predicted_nusvm)))
         print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_nusvm, predicted_nusvm))
+
+
+        for weights in ['uniform', 'distance']:
+            n_neighbors = 3
+            print "\n\n %d-NN Classification weighted as: %s" % (n_neighbors, weights)
+            print "#" * 79
+            classifier_knn = neighbors.KNeighborsClassifier(n_neighbors, weights=weights) # initiating the SVM based classifier
+            Y_pred_knn = classifier_knn.fit(X[:n_samples], Y[:n_samples]) # train on first n_samples and test on last 10
+
+            expected_knn = Y[n_samples:]
+            predicted_knn = classifier_knn.predict(X[n_samples:])
+            print("Classification report for classifier %s:\n%s\n" % (classifier_knn, metrics.classification_report(expected_knn, predicted_knn)))
+            print("\nConfusion matrix:\n%s" % metrics.confusion_matrix(expected_knn, predicted_knn))
+
 
 
 
