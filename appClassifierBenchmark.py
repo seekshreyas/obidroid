@@ -113,7 +113,7 @@ def prepareClassifier(df, models, choice):
         - confusion_matrix
         - avg scores etc
         """
-        n_samples = 40
+        n_samples = 36
 
         print "\n\nClassifier: \n %s" % (clf)
         print "#" * 79
