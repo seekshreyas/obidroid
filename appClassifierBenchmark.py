@@ -1,4 +1,4 @@
-#! /usr/bin/env python
+
 # -*- coding: UTF-8 -*-
 """
 Benchmark different classifiers
@@ -146,9 +146,6 @@ def prepareClassifier(df, models, choice):
         Y = cDf['appLabel'].values
 
 
-
-
-
         if choice == 'all':
             for key in models:
                 classifier = models[key]
@@ -159,9 +156,6 @@ def prepareClassifier(df, models, choice):
                 classificationOutput(classifier, X, Y)
             else:
                 print "Incorrect Choice"
-
-
-
 
 
 
