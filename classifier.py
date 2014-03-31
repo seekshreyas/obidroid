@@ -375,7 +375,7 @@ def classifier(alldata, fold=4):
     # pprint(data)
 
     claccuracy = []
-    size = int(math.floor(len(data) / 10.0))
+    size = int(math.floor(len(data) / fold))
 
     for i in range(fold):
         test_this_round = data[i*size:][:size]
