@@ -1,4 +1,4 @@
-
+#! /usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
 Benchmark different classifiers
@@ -56,7 +56,7 @@ def getUserInput(models):
 
 
     if not option.file:
-            return optionparser.error('Data File path not provided.\n Usage: --file="path.to.appData"')
+        return optionparser.error('Data File path not provided.\n Usage: --file="path.to.appData"')
 
 
     return {
