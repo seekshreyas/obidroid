@@ -69,3 +69,4 @@ Thumbs.db
 ## aws credentials
 *.conf
 *.pem
+db/features.txt
