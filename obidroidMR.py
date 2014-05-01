@@ -2,6 +2,7 @@ from mrjob.job import MRJob
 from sentClassifier import sentClassify
 import os
 from cPickle import load
+import re
 
 
 
@@ -11,10 +12,15 @@ class ObidroidReview(MRJob):
 	@staticmethod
 	def getFeatures(rev):
 		revsent = sentClassify(rev)
-		revLength = len(rev)
+		revCharLength = len(rev)
 
+		wordpattern = re.compile('\w+')
 
-		return [revsent, revLength]
+		words = wordpattern.findall(rev)
+
+		revWordsLength = len(words)
+
+		return [revsent, revCharLength, revWordsLength]
 
 
 
