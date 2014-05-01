@@ -65,3 +65,7 @@ Thumbs.db
 
 ## IPython notebook checkpoints
 .ipynb_checkpoints/
+
+## aws credentials
+*.conf
+*.pem
