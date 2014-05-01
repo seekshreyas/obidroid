@@ -1,6 +1,6 @@
 from mrjob.job import MRJob
 from sentClassifier import sentClassify
-import os
+import os,re
 from cPickle import load
 
 
@@ -10,11 +10,13 @@ class ObidroidReview(MRJob):
 
 	@staticmethod
 	def getFeatures(rev):
+		
+
 		revsent = sentClassify(rev)
 		revLength = len(rev)
-
-
-		return [revsent, revLength]
+		cap = len(re.findall('([A-Z])+\w',rev))
+		exclam = len(re.findall('!',rev))
+		return [revsent, [revsent,revLength,cap,exclam]]
 
 
 
