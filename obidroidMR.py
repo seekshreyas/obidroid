@@ -19,6 +19,8 @@ class ObidroidReview(MRJob):
 		capspattern = re.compile('([A-Z])+\w')
 		exclaimpattern = re.compile('!')
 
+		rev = rev.decode('utf-8', 'ignore')
+
 
 		revCharLength = len(rev)
 
@@ -45,7 +47,7 @@ class ObidroidReview(MRJob):
 		## Sentiment Classifiers:
 		revSentAgg = sentClassify(rev)
 		## overall production sentiment classifier
-		blob = TextBlob(rev.encode('utf-8', 'ignore'), analyzer=NaiveBayesAnalyzer())
+		blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
 		blobSent = blob.sentiment
 
 		# print blobSent
@@ -78,11 +80,15 @@ class ObidroidReview(MRJob):
 	def getRecord(self, _, record): #Mapper 1
 		record = record.split(',')
 
-		appid = record[0]
+		idpattern = re.compile('(\w+\.+\w+[(\.+)(\w+)]+)')
+
+		appid = idpattern.split(record[0])
+
+
 		features = ObidroidReview.getFeatures(record[1])
 
 
-		yield appid, features
+		yield appid[1], features
 
 
 	def performAction(self,appid,appfeature): #Reducer 1
