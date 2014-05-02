@@ -1,6 +1,5 @@
 from mrjob.job import MRJob
 from sentClassifier import sentClassify
-import os,re
 from cPickle import load
 import re
 import nltk

@@ -1,5 +1,7 @@
 PyYAML==3.11
+boto==2.27.0
 ipython==1.1.0
+mrjob==0.4.2
 nltk==2.0.4
 numpy==1.8.1
 pandas==0.13.1
@@ -7,5 +9,7 @@ patsy==0.2.1
 python-dateutil==1.5
 pytz==2013b
 scipy==0.13.3
+simplejson==3.4.1
 six==1.5.2
+textblob==0.8.4
 wsgiref==0.1.2
