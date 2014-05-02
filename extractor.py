@@ -36,7 +36,7 @@ import re
 import os
 import nltk
 
-import os, sys
+import sys
 
 #Dictionary from Chuang 206 class
 
