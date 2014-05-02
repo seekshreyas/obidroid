@@ -3,6 +3,9 @@ from sentClassifier import sentClassify
 import os,re
 from cPickle import load
 import re
+import nltk
+from textblob import TextBlob
+from textblob.sentiments import NaiveBayesAnalyzer
 
 
 
@@ -11,20 +14,64 @@ class ObidroidReview(MRJob):
 
 	@staticmethod
 	def getFeatures(rev):
-		
+
 		wordpattern = re.compile('\w+')
+		capspattern = re.compile('([A-Z])+\w')
+		exclaimpattern = re.compile('!')
+
+		rev = rev.decode('utf-8', 'ignore')
 
 
-
-		revsent = sentClassify(rev)
-		revLength = len(rev)
 		revCharLength = len(rev)
+
 		words = wordpattern.findall(rev)
-		cap = len(re.findall('([A-Z])+\w',rev))
-		exclam = len(re.findall('!',rev))
 		revWordsLength = len(words)
 
-		return [revsent, revCharLength, revWordsLength, cap,exclam]
+		revUniqueWordLength = len(set(words))
+
+
+		revCapCount = len(capspattern.findall(rev))
+
+		revExclaimCount = len(exclaimpattern.findall(rev))
+
+
+		revAdjCount = 0
+
+		revPosTokens = nltk.pos_tag(nltk.word_tokenize(rev))
+
+		for _, pos in revPosTokens:
+			if pos == 'JJ' or pos == 'VBP':
+				revAdjCount += 1
+
+
+		## Sentiment Classifiers:
+		revSentAgg = sentClassify(rev)
+		## overall production sentiment classifier
+		blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
+		blobSent = blob.sentiment
+
+		# print blobSent
+
+		if blobSent[0] == 'pos':
+			revSent = 1 * blobSent[1]
+		elif blobSent[0] == 'neg':
+			revSent = -1 * blobSent[2]
+		else:
+			revSent = 0
+
+
+
+
+		return [
+			revCharLength,
+			revWordsLength,
+			revUniqueWordLength,
+			revCapCount,
+			revExclaimCount,
+			revAdjCount,
+			revSentAgg,
+			revSent
+		]
 
 
 
@@ -33,11 +80,15 @@ class ObidroidReview(MRJob):
 	def getRecord(self, _, record): #Mapper 1
 		record = record.split(',')
 
-		appid = record[0]
+		idpattern = re.compile('(\w+\.+\w+[(\.+)(\w+)]+)')
+
+		appid = idpattern.split(record[0])
+
+
 		features = ObidroidReview.getFeatures(record[1])
 
 
-		yield appid, features
+		yield appid[1], features
 
 
 	def performAction(self,appid,appfeature): #Reducer 1
