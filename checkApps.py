@@ -92,11 +92,11 @@ def main():
     if userInput['file'] != None:
         ptl_unfair_df = pd.read_csv(userInput['file'])
     else:
-        ptl_unfair_df = getDataframeFromDatabase(userInput['server'], userInput['db'], 
+        ptl_unfair_df = getDataframeFromDatabase(userInput['server'], userInput['db'],
         userInput['username'], userInput['password'])
 
     unfair_df = checkApps(ptl_unfair_df)
-    pushDataframeToDatabase(unfair_df, userInput['server'], userInput['db'], 
+    pushDataframeToDatabase(unfair_df, userInput['server'], userInput['db'],
         userInput['username'], userInput['password'])
 
 
