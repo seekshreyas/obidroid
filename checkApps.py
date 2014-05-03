@@ -11,10 +11,12 @@ Given an input of apps, check if the app exists
 from __future__ import division
 from optparse import OptionParser
 import time
+import datetime
 import requests
 import MySQLdb
 import pandas as pd
 import pandas.io.sql as psql
+
 
 def getUserInput():
     """
@@ -76,13 +78,25 @@ def checkApps(df):
 
 def getDataframeFromDatabase(host, db, un, pw):
     query = "SELECT package from potential_unfair_apps LIMIT 100;"
+    print query
     conn = MySQLdb.connect(host = host, user = un, passwd = pw, db = db)
+
+
     unfair_apps_df = psql.frame_query(query, conn)
+
     return unfair_apps_df
 
 def pushDataframeToDatabase(df, host, db, un, pw):
+    timestamp = time.time()
+    date = datetime.datetime.fromtimestamp(timestamp).strftime('%Y%m%d')
+    print "Date: ", date
+
+    db_name = 'potential_unfair_apps_' + date
+
+
+    print "Database name: ", db_name
     conn = MySQLdb.connect(host = host, user = un, passwd = pw, db = db)
-    df.to_sql(con=conn, name='potential_unfair_apps', if_exists='replace', flavor='mysql')
+    df.to_sql(con=conn, name=db_name, if_exists='replace', flavor='mysql')
 
 def main():
     userInput = getUserInput()
