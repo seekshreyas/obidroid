@@ -2,10 +2,11 @@ from mrjob.job import MRJob
 # from sentClassifier import sentClassify
 # from cPickle import load
 import re
-# import nltk
-from textblob import TextBlob
+import nltk
+# import pattern
+# from textblob import TextBlob
 # from textblob.sentiments import NaiveBayesAnalyzer
-
+import simplejson
 
 
 class ObidroidReview(MRJob):
@@ -46,17 +47,17 @@ class ObidroidReview(MRJob):
 		## Sentiment Classifiers:
 		# revSentAgg = sentClassify(rev)
 		## overall production sentiment classifier
-		blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
-		blobSent = blob.sentiment
+		# blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
+		# blobSent = blob.sentiment
 
-		print blobSent
+		# print blobSent
 
-		if blobSent[0] == 'pos':
-			revSent = 1 * blobSent[1]
-		elif blobSent[0] == 'neg':
-			revSent = -1 * blobSent[2]
-		else:
-			revSent = 0
+		# if blobSent[0] == 'pos':
+		# 	revSent = 1 * blobSent[1]
+		# elif blobSent[0] == 'neg':
+		# 	revSent = -1 * blobSent[2]
+		# else:
+		# 	revSent = 0
 
 
 
@@ -66,10 +67,10 @@ class ObidroidReview(MRJob):
 			revWordsLength,
 			revUniqueWordLength,
 			revCapCount,
-			revExclaimCount,
+			revExclaimCount
 			# revAdjCount
 			# revSentAgg,
-			revSent
+			# revSent
 		]
 
 
