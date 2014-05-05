@@ -4,9 +4,9 @@ from mrjob.job import MRJob
 import re
 import nltk
 # import pattern
-# from textblob import TextBlob
-# from textblob.sentiments import NaiveBayesAnalyzer
-import simplejson
+from textblob import TextBlob
+from textblob.sentiments import NaiveBayesAnalyzer
+# import simplejson
 
 
 class ObidroidReview(MRJob):
@@ -37,27 +37,27 @@ class ObidroidReview(MRJob):
 
 		revAdjCount = 0
 
-		# revPosTokens = nltk.pos_tag(nltk.word_tokenize(rev))
+		revPosTokens = nltk.pos_tag(nltk.word_tokenize(rev))
 
-		# for _, pos in revPosTokens:
-		# 	if pos == 'JJ' or pos == 'VBP':
-		# 		revAdjCount += 1
+		for _, pos in revPosTokens:
+			if pos == 'JJ' or pos == 'VBP':
+				revAdjCount += 1
 
 
-		## Sentiment Classifiers:
-		# revSentAgg = sentClassify(rev)
-		## overall production sentiment classifier
-		# blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
-		# blobSent = blob.sentiment
+		# Sentiment Classifiers:
+		revSentAgg = sentClassify(rev)
+		# overall production sentiment classifier
+		blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
+		blobSent = blob.sentiment
 
-		# print blobSent
+		print blobSent
 
-		# if blobSent[0] == 'pos':
-		# 	revSent = 1 * blobSent[1]
-		# elif blobSent[0] == 'neg':
-		# 	revSent = -1 * blobSent[2]
-		# else:
-		# 	revSent = 0
+		if blobSent[0] == 'pos':
+			revSent = 1 * blobSent[1]
+		elif blobSent[0] == 'neg':
+			revSent = -1 * blobSent[2]
+		else:
+			revSent = 0
 
 
 
@@ -67,10 +67,10 @@ class ObidroidReview(MRJob):
 			revWordsLength,
 			revUniqueWordLength,
 			revCapCount,
-			revExclaimCount
-			# revAdjCount
-			# revSentAgg,
-			# revSent
+			revExclaimCount,
+			revAdjCount,
+			revSentAgg,
+			revSent
 		]
 
 

@@ -67,6 +67,8 @@ Thumbs.db
 .ipynb_checkpoints/
 
 ## aws credentials
-*.conf
-*.pem
+mrjob.conf
+aws.pem
+credentials.json
 db/features.txt
+
