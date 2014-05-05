@@ -1,11 +1,12 @@
 from mrjob.job import MRJob
-# from sentClassifier import sentClassify
-# from cPickle import load
+from sentClassifier import sentClassify
+from cPickle import load
 import re
 import nltk
 # import pattern
 from textblob import TextBlob
 from textblob.sentiments import NaiveBayesAnalyzer
+import sys
 # import simplejson
 
 
@@ -50,7 +51,7 @@ class ObidroidReview(MRJob):
 		blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
 		blobSent = blob.sentiment
 
-		print blobSent
+		# print blobSent
 
 		if blobSent[0] == 'pos':
 			revSent = 1 * blobSent[1]
@@ -82,17 +83,22 @@ class ObidroidReview(MRJob):
 
 		idpattern = re.compile('(\w+\.+\w+[(\.+)(\w+)]+)')
 
-		appid = idpattern.split(record[0])
+		reviewid = record[0]
+		appid = idpattern.split(record[1])
 
 
-		features = ObidroidReview.getFeatures(record[1])
+		features = ObidroidReview.getFeatures(record[2])
+
+		features.append(appid[1])
+
+		sys.stderr.write("MAPPER INPUT: ({0},{1})\n".format(reviewid,features))
+
+		yield reviewid, features
 
 
-		yield appid[1], features
-
-
-	def performAction(self,appid,appfeature): #Reducer 1
-		yield appid, list(appfeature)
+	def performAction(self,revid,revfeatures): #Reducer 1
+		sys.stderr.write("MAPPER INPUT: ({0},{1})\n".format(revid,revfeatures))
+		yield revid, list(revfeatures)
 
 
 
