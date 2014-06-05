@@ -3,11 +3,10 @@ from sentClassifier import sentClassify
 from cPickle import load
 import re
 import nltk
-# import pattern
 from textblob import TextBlob
 from textblob.sentiments import NaiveBayesAnalyzer
 import sys
-# import simplejson
+import math
 
 
 class ObidroidReview(MRJob):
@@ -51,6 +50,8 @@ class ObidroidReview(MRJob):
 		blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
 		blobSent = blob.sentiment
 
+
+
 		# print blobSent
 
 		if blobSent[0] == 'pos':
@@ -61,7 +62,7 @@ class ObidroidReview(MRJob):
 			revSent = 0
 
 
-
+		revSent = round(revSent, 4)
 
 		return [
 			revCharLength,
@@ -84,21 +85,22 @@ class ObidroidReview(MRJob):
 		idpattern = re.compile('(\w+\.+\w+[(\.+)(\w+)]+)')
 
 		reviewid = record[0]
-		appid = idpattern.split(record[1])
+		appidmatches = idpattern.split(record[1])
+		appid = appidmatches[1]
 
 
 		features = ObidroidReview.getFeatures(record[2])
 
-		features.append(appid[1])
+		features.append(reviewid)
 
-		sys.stderr.write("MAPPER INPUT: ({0},{1})\n".format(reviewid,features))
+		sys.stderr.write("MAPPER OUTPUT: ({0},{1})\n".format(appid,features))
 
-		yield reviewid, features
+		yield appid, features
 
 
-	def performAction(self,revid,revfeatures): #Reducer 1
-		sys.stderr.write("MAPPER INPUT: ({0},{1})\n".format(revid,revfeatures))
-		yield revid, list(revfeatures)
+	def performAction(self,appid,revfeatures): #Reducer 1
+		sys.stderr.write("REDUCER INPUT: ({0},{1})\n".format(appid,revfeatures))
+		yield appid, list(revfeatures)
 
 
 
