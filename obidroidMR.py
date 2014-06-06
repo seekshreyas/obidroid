@@ -1,12 +1,12 @@
 from mrjob.job import MRJob
-from sentClassifier import sentClassify
-from cPickle import load
+# from sentClassifier import sentClassify
+# from cPickle import load
 import re
-import nltk
+# import nltk
 from textblob import TextBlob
 from textblob.sentiments import NaiveBayesAnalyzer
 import sys
-import math
+# import math
 
 
 class ObidroidReview(MRJob):
@@ -29,50 +29,51 @@ class ObidroidReview(MRJob):
 
 		revUniqueWordLength = len(set(words))
 
-
 		revCapCount = len(capspattern.findall(rev))
 
 		revExclaimCount = len(exclaimpattern.findall(rev))
 
-
 		revAdjCount = 0
 
-		revPosTokens = nltk.pos_tag(nltk.word_tokenize(rev))
+		# revPosTokens = nltk.pos_tag(nltk.word_tokenize(rev))
+		revBlob = TextBlob(rev)
+		revPosTokens = revBlob.tags
 
-		for _, pos in revPosTokens:
+		for w, pos in revPosTokens:
 			if pos == 'JJ' or pos == 'VBP':
 				revAdjCount += 1
 
 
 		# Sentiment Classifiers:
-		revSentAgg = sentClassify(rev)
+		# revSentAgg = sentClassify(rev)
+
 		# overall production sentiment classifier
-		blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
-		blobSent = blob.sentiment
+		# blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
+		# blobSent = blob.sentiment
 
 
 
 		# print blobSent
 
-		if blobSent[0] == 'pos':
-			revSent = 1 * blobSent[1]
-		elif blobSent[0] == 'neg':
-			revSent = -1 * blobSent[2]
-		else:
-			revSent = 0
+		# if blobSent[0] == 'pos':
+		# 	revSent = 1 * blobSent[1]
+		# elif blobSent[0] == 'neg':
+		# 	revSent = -1 * blobSent[2]
+		# else:
+		# 	revSent = 0
 
 
-		revSent = round(revSent, 4)
+		# revSent = round(revSent, 4)
 
 		return [
 			revCharLength,
 			revWordsLength,
 			revUniqueWordLength,
 			revCapCount,
-			revExclaimCount,
 			revAdjCount,
-			revSentAgg,
-			revSent
+			# revSentAgg,
+			# revSent,
+			revExclaimCount
 		]
 
 
