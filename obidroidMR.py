@@ -4,7 +4,7 @@ from mrjob.job import MRJob
 import re
 # import nltk
 from textblob import TextBlob
-from textblob.sentiments import NaiveBayesAnalyzer
+# from textblob.sentiments import NaiveBayesAnalyzer
 import sys
 # import math
 
@@ -39,7 +39,7 @@ class ObidroidReview(MRJob):
 		revBlob = TextBlob(rev)
 		revPosTokens = revBlob.tags
 
-		for w, pos in revPosTokens:
+		for _, pos in revPosTokens:
 			if pos == 'JJ' or pos == 'VBP':
 				revAdjCount += 1
 
@@ -49,8 +49,8 @@ class ObidroidReview(MRJob):
 
 		# overall production sentiment classifier
 		# blob = TextBlob(rev, analyzer=NaiveBayesAnalyzer())
-		# blobSent = blob.sentiment
-
+		revSent = revBlob.sentiment.polarity
+		revSubjectivity = revBlob.sentiment.subjectivity
 
 
 		# print blobSent
@@ -63,7 +63,8 @@ class ObidroidReview(MRJob):
 		# 	revSent = 0
 
 
-		# revSent = round(revSent, 4)
+		revSent = round(revSent, 4)
+		revSubjectivity = round(revSubjectivity, 4)
 
 		return [
 			revCharLength,
@@ -72,7 +73,8 @@ class ObidroidReview(MRJob):
 			revCapCount,
 			revAdjCount,
 			# revSentAgg,
-			# revSent,
+			revSent,
+			revSubjectivity,
 			revExclaimCount
 		]
 
