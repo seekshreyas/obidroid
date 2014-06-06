@@ -1,12 +1,13 @@
 from mrjob.job import MRJob
+
 # from sentClassifier import sentClassify
 # from cPickle import load
-import re
-# import nltk
+
 from textblob import TextBlob
-# from textblob.sentiments import NaiveBayesAnalyzer
+
+import re
 import sys
-# import math
+import math
 
 
 class ObidroidReview(MRJob):
