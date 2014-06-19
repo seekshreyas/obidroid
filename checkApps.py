@@ -15,6 +15,7 @@ import datetime
 import requests
 import MySQLdb
 import pandas as pd
+import numpy as np
 import pandas.io.sql as psql
 
 
@@ -77,7 +78,8 @@ def checkApps(df):
 
 
 def getDataframeFromDatabase(host, db, un, pw):
-    query = "SELECT package from potential_unfair_apps LIMIT 100;"
+    #query = "SELECT package from potential_unfair_apps LIMIT 1000;"
+    query = "SELECT package from potential_unfair_apps;"
     print query
     conn = MySQLdb.connect(host = host, user = un, passwd = pw, db = db)
 
@@ -86,21 +88,20 @@ def getDataframeFromDatabase(host, db, un, pw):
 
     return unfair_apps_df
 
-def pushDataframeToDatabase(df, host, db, un, pw):
-    timestamp = time.time()
-    date = datetime.datetime.fromtimestamp(timestamp).strftime('%Y%m%d')
+def pushDataframeToDatabase(df, host, db, un, pw, date):    
     print "Date: ", date
 
-    db_name = 'potential_unfair_apps_' + date
+    table_name = 'potential_unfair_apps_' + date
 
-
-    print "Database name: ", db_name
+    print "Database name: ", table_name
     conn = MySQLdb.connect(host = host, user = un, passwd = pw, db = db)
-    df.to_sql(con=conn, name=db_name, if_exists='replace', flavor='mysql')
+    df.to_sql(con=conn, name=table_name, if_exists='append', flavor='mysql')
 
 def main():
     userInput = getUserInput()
     unfair_df = None
+    timestamp = time.time()
+    date_str = datetime.datetime.fromtimestamp(timestamp).strftime("%Y%m%d_%H%M%S")
 
     print userInput
     if userInput['file'] != None:
@@ -109,10 +110,14 @@ def main():
         ptl_unfair_df = getDataframeFromDatabase(userInput['server'], userInput['db'],
         userInput['username'], userInput['password'])
 
-    unfair_df = checkApps(ptl_unfair_df)
-    pushDataframeToDatabase(unfair_df, userInput['server'], userInput['db'],
-        userInput['username'], userInput['password'])
+    # split dataframe to a manageable size
+    ptl_unfair_df_list =  np.array_split(ptl_unfair_df, len(ptl_unfair_df)/100)
 
+    for x in range(len(ptl_unfair_df_list)):
+        print 'processing batch ' + str(x)
+        unfair_df = checkApps(ptl_unfair_df_list[x])
+        pushDataframeToDatabase(unfair_df, userInput['server'], userInput['db'],
+            userInput['username'], userInput['password'], date_str)
 
 if __name__ == '__main__':
     main()
