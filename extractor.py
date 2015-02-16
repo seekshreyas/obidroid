@@ -36,7 +36,7 @@ import re
 import os
 import nltk
 
-import os, sys
+import sys
 
 #Dictionary from Chuang 206 class
 
@@ -145,11 +145,11 @@ def featureExtractor(sentStr):
     featList['postiveWordCount'] = getPostiveWordCount(sentStr)
     featList['negativeWordCount'] = getNegativeWordCount(sentStr)
     featList['bigramBeginWithNotCount'] = getBigramBeginWithNotCount(sentStr)
-    # featList['charlesScore'] = getCharlesScore(
-    #     featList['upperCount'],
-    #     featList['postiveWordCount'],
-    #     featList['negativeWordCount'],
-    #     featList['bigramBeginWithNotCount'])
+    featList['charlesScore'] = getCharlesScore(
+        featList['upperCount'],
+        featList['postiveWordCount'],
+        featList['negativeWordCount'],
+        featList['bigramBeginWithNotCount'])
 
 
 
@@ -159,7 +159,7 @@ def featureExtractor(sentStr):
     # featList["adjOpinionScore"] = getAdjOpinionScore(taggedSent, opinionWords)
     # featList.update(getReviewDict(sentStr))
 
-    # featList.update(getUnigramWordFeatures(sentStr, sentwords))
+    featList.update(getUnigramWordFeatures(sentStr, sentwords))
     featList.update(getBigramWordFeatures(sentStr, sentwords))
     # featList.update(getTrigramWordFeatures(sentStr, sentwords))
 

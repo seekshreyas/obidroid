@@ -1,4 +1,4 @@
-
+#! /usr/bin/env python
 # -*- coding: UTF-8 -*-
 """
 Benchmark different classifiers
@@ -56,7 +56,7 @@ def getUserInput(models):
 
 
     if not option.file:
-            return optionparser.error('Data File path not provided.\n Usage: --file="path.to.appData"')
+        return optionparser.error('Data File path not provided.\n Usage: --file="path.to.appData"')
 
 
     return {
@@ -101,7 +101,11 @@ def trimDf(df):
     cols.remove('price') # considered only free apps
     cols.remove('appName') # removing appNames
 
-    return df[list(cols)]
+    # return df[list(cols)]
+
+
+
+    return df[list(('revSent', 'appLabel'))]
 
 
 
@@ -245,7 +249,7 @@ def allClassifier(cDf, models, modelchoice):
                 performClassification(classifier, featVector, labelVector)
     else:
         if modelchoice in models and modelchoice != 'svm-nl':
-            classifier = models[choice]
+            classifier = models[modelchoice]
             performClassification(classifier, featVector, labelVector)
         else:
             print "Incorrect Choice"
@@ -272,6 +276,8 @@ def main():
     userInput = getUserInput(models)
     appDf = loadAppData(userInput['file'])
     appDf = trimDf(appDf)
+
+    print appDf.columns
 
     if userInput['sample'] == 'all':
         allClassifier(appDf, models, userInput['classifier'])
